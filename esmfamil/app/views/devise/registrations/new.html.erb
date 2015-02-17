@@ -1,0 +1,33 @@
+<h2>Sign up</h2>
+
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+  <%= devise_error_messages! %>
+
+  <div>ایمیل:<br />
+  <%= f.email_field :email, autofocus: true %></div>
+
+
+  <div>نام:<br />
+  <%= f.text_field :firstname%></div>
+
+  <div>نام خانوادگی:<br />
+  <%= f.text_field :lastname %></div>
+
+  <div>نام مستعار:<br />
+  <%= f.text_field :nickname%></div>
+
+
+  <div>رمز عبور<br />
+    <%= f.password_field :password, autocomplete: "off" %></div>
+
+  <div>ورود مجدد رمز عبور:<br />
+    <%= f.password_field :password_confirmation, autocomplete: "off" %></div>
+
+<div> لطفا متن موجود در تصویر را وارد کنید:<br/>
+<p><%= captcha_tag %></p>
+<p><%= text_field_tag :captcha %></p>
+
+  <div><%= f.submit "ثبت نام" %></div>
+<% end %>
+
+<%= render "devise/shared/links" %>
