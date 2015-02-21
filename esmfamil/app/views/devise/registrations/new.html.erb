@@ -1,20 +1,42 @@
+
+    <link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap-theme.min.css" />
+
+
+    <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-2.1.1.js" type="text/javascript"></script>
+    <script src="http://ajax.aspnetcdn.com/ajax/bootstrap/3.3.1/bootstrap.min.js" type="text/javascript"></script>
+
+  <style type="text/css">
+  body, table {
+    font-family: 'Segoe UI', Tahoma;
+    font-size: 14px;
+  }
+  </style>
+
+  
+
+
 <h2>Sign up</h2>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= devise_error_messages! %>
 
   <div>ایمیل:<br />
-  <%= f.email_field :email, autofocus: true %></div>
+    <%= f.email_field :email, autofocus: true %>
+  </div>
 
 
   <div>نام:<br />
-  <%= f.text_field :firstname%></div>
+    <%= f.text_field :firstname%>
+  </div>
 
   <div>نام خانوادگی:<br />
-  <%= f.text_field :lastname %></div>
+    <%= f.text_field :lastname %>
+  </div>
 
   <div>نام مستعار:<br />
-  <%= f.text_field :nickname%></div>
+    <%= f.text_field :nickname%>
+  </div>
 
 
   <div>رمز عبور<br />

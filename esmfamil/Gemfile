@@ -1,4 +1,4 @@
-source 'https://rubygems.org'
+source 'http://rubygems.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.3'
@@ -48,3 +48,6 @@ gem 'devise'
 gem 'devise_security_extension'
 gem 'easy_captcha'
 gem 'rmagick'
+
+gem 'jalalidate'
+gem 'farsifu'
