@@ -3,6 +3,6 @@ class AddFieldsToUser < ActiveRecord::Migration
 	add_column("users", "firstname", :string)
 	add_column("users", "lastname", :string)
 	add_column("users", "nickname", :string)
-	add_column("users", "birthdate", :string)
+	add_column("users", "birthdate", :datetime)
   end
 end

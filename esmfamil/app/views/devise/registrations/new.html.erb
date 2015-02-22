@@ -1,34 +1,16 @@
-
-    <link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css" rel="stylesheet" />
-    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap-theme.min.css" />
-
-
-    <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-2.1.1.js" type="text/javascript"></script>
-    <script src="http://ajax.aspnetcdn.com/ajax/bootstrap/3.3.1/bootstrap.min.js" type="text/javascript"></script>
-
-  <style type="text/css">
-  body, table {
-    font-family: 'Segoe UI', Tahoma;
-    font-size: 14px;
-  }
-  </style>
-
-  
-
-
-<h2>Sign up</h2>
+<h2>ثبت‌نام عضو جدید</h2>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= devise_error_messages! %>
-
-  <div>ایمیل:<br />
+<div class="row">
+  <div class = "col-md-6">ایمیل:<br />
     <%= f.email_field :email, autofocus: true %>
   </div>
 
 
-  <div>نام:<br />
+  <div class = "col-md-6">نام:<br />
     <%= f.text_field :firstname%>
-  </div>
+  </div></div>
 
   <div>نام خانوادگی:<br />
     <%= f.text_field :lastname %>
@@ -37,9 +19,16 @@
   <div>نام مستعار:<br />
     <%= f.text_field :nickname%>
   </div>
-
-
-  <div>رمز عبور<br />
+<div>تاریخ تولد:<br />
+  <div class="row" style="margin-top:10px">
+            
+              <% f.datetime_select :birthdate %>
+              <%=t :روز%><%= select_tag  "ja_birth_dd", options_for_select(1..31) %>/
+              <%=t :ماه%><%= select_tag "ja_birth_mm", options_for_select(1..12) %>/  
+              <%=t :سال%><%= select_year(1371, {:start_year => 1340, :end_year => 1384}, {:name =>"ja_birth_yyyy"}) %>
+  </div>
+</div>
+  <div>رمز عبور:<br />
     <%= f.password_field :password, autocomplete: "off" %></div>
 
   <div>ورود مجدد رمز عبور:<br />

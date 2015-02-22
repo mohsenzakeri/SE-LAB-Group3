@@ -1,0 +1,138 @@
+body{
+	font-family: B Yekan,'B Yekan',tahoma;
+	direction:rtl;
+//	background-image:url('ci7.jpg') ;
+    	padding-right:26px;
+	background-repeat:no-repeat;
+	!background-color:#cccccc;
+}
+input.search-query {
+    padding-left:26px;
+}
+
+form.form-search {
+    position: relative;
+}
+
+form.form-search:before {
+    content:'';
+    display: block;
+    width: 14px;
+    height: 14px;
+    background-image: url(http://getbootstrap.com/2.3.2/assets/img/glyphicons-halflings.png);
+    background-position: -48px 0;
+    position: absolute;
+    top:8px;
+    left:8px;
+    opacity: .5;
+    z-index: 1000;
+}
+.navbar-inner .container{
+	margin-top:10px;
+}
+.navbar{
+	background-color: red;
+
+}
+.btn-text{
+	font-family: B Yekan,'B Yekan',tahoma;
+}
+.container .nav{
+	float: right;
+}
+
+.span9{
+	background-color: #dcdcdc;
+	!background-color: #fafafa;
+	border-radius: 10px;
+	color: black;
+	opacity:0.7;
+	float:right;
+	margin-right:5%;
+!	background-image:url('education.jpg') ;
+}
+.span3{
+	!background-color: #3fedc4;
+	!border-radius: 10px;
+	float:right;
+	margin-right:10%;
+}
+a{
+	text-decoration:none;
+}
+#welcome{
+	background-color: #2563a9;
+}
+#hh1{
+	color: #e5fff0;
+}
+.span9 .hero-unit1{
+	  background-color: #45789f;
+		-webkit-border-radius: 6px;
+			-moz-border-radius: 6px;
+			border-radius: 6px;
+}
+.span1{
+	float:right;
+}
+.span9 .hero-unit1{
+  margin:2%;
+  padding: 0px;
+  margin-bottom: 0px;
+  background-color: #f22334;
+  -webkit-border-radius: 6px;
+     -moz-border-radius: 6px;
+          border-radius: 6px;
+  opacity: 0.8;
+}
+
+.radio{
+float:right;
+}
+
+.table .active td{
+	text-align: center;
+}
+#sidebar .info .active{
+	text-align: center;
+	direction: rtl;
+}
+
+#sidebar .warning .active{
+	text-align: center;
+	direction: rtl;
+}
+
+#newOfferForm{
+!	background-color: yellow;
+}
+
+#sidebar{
+	!background-color:#45f3dc;
+	direction:rtl;
+	float:right;
+	
+}
+#register{
+	float:left;
+}
+.no_decor{
+	text-decoration: none;
+}
+#search{
+	float:left;
+}
+#even{
+	background-color:#45f3dc;
+	text-decoration:none;
+}
+body{
+	!background-color:#a5d3f8;
+}
+.span8{
+	!background-color:#a5d3f8;
+}
+.centerform{
+	margin:20%;
+	text-align:center;
+}

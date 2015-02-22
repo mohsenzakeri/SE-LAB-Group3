@@ -1,4 +1,5 @@
 class ApplicationController < ActionController::Base
+  require 'jalali_date'
   # reset captcha code after each request for security
   after_filter :reset_last_captcha_code!
   before_action :configure_permitted_parameters, if: :devise_controller?
@@ -13,5 +14,4 @@ class ApplicationController < ActionController::Base
   def configure_permitted_parameters
     devise_parameter_sanitizer.for(:sign_up) { |u| u.permit(:firstname, :lastname, :nickname, :birthdate, :email, :password) }
   end
-
 end
