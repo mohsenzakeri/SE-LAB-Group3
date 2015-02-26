@@ -1,5 +1,9 @@
+# encoding: UTF-8
 class ApplicationController < ActionController::Base
-  require 'jalali_date'
+    require 'jalali_date'
+
+
+
   # reset captcha code after each request for security
   after_filter :reset_last_captcha_code!
   before_action :configure_permitted_parameters, if: :devise_controller?

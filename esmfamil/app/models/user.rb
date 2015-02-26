@@ -1,3 +1,4 @@
+# encoding: UTF-8
 class User < ActiveRecord::Base
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
@@ -13,5 +14,7 @@ class User < ActiveRecord::Base
 	    end
   end
 
+  has_many :games
+  has_many :user_games
 
 end

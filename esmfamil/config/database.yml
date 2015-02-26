@@ -30,7 +30,7 @@ development:
   database: esmfamil
   username: esmfamil
   password: SELABG3MMMN
-  host: localhost
+  host: 127.0.0.1
 test:
   adapter: mysql
   database: esmfamil_test

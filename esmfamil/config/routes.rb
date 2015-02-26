@@ -1,4 +1,8 @@
 Esmfamil::Application.routes.draw do
+  resources :user_games
+
+  resources :games
+
   captcha_route
   
   devise_for :users

@@ -1,3 +1,5 @@
+  # encoding: utf-8
+
 # This is Jalali-Gregorian date converter.
 #
 # If you need this converter for your rails application just copy this file to your /lib/ directory and add below line to end of your environment.rb.
@@ -14,6 +16,8 @@
 #  jalali_date = JalaliDate.to_jalali(Time.now)
 #  jalali_date.year  #=> 1388
 #  gregorian_date = jalali_date.to_gregorian #=> Sat Nov 07 00:00:00 +0330 2009
+
+
 class JalaliDate
 	
 	# Returns the day of the month (1..n) for time. 

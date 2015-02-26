@@ -52,3 +52,4 @@ gem 'rmagick'
 
 gem 'jalalidate'
 gem 'farsifu'
+gem 'magic_encoding'
