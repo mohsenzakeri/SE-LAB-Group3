@@ -1,3 +1,6 @@
+Encoding.default_external = Encoding::UTF_8
+Encoding.default_internal = Encoding::UTF_8
+
 Esmfamil::Application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 
@@ -31,7 +34,6 @@ Esmfamil::Application.configure do
 
 
   config.action_mailer.delivery_method = :smtp
-
 
   ActionMailer::Base.smtp_settings = {
     :address              => "smtp.gmail.com",

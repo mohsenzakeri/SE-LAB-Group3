@@ -10,6 +10,7 @@
 
 <%= yield %>
 	<% if user_signed_in?%>
+		<%=link_to('ویرایش پروفایل' , edit_user_registration_path,  :class => "sidebar_link") %>
 		<%=link_to('خروج',destroy_user_session_path,:method=>:delete, :class=>"sidebar_link")%> 
 	<% else %>	
 		<%= link_to("ثبت نام" , "/users/sign_up" )%></li>
