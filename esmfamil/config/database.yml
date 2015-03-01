@@ -26,21 +26,21 @@
 
 
 development:
-  adapter: mysql
+  adapter: mysql2
   encoding: utf8
   database: esmfamil
   username: esmfamil
   password: SELABG3MMMN
   host: 127.0.0.1
 test:
-  adapter: mysql
+  adapter: mysql2
   encoding: utf8
   database: esmfamil_test
   username: root
   password: [password]
   host: localhost
 production:
-  adapter: mysql
+  adapter: mysql2
   encoding: utf8
   database: esmfamil_production
   username: root

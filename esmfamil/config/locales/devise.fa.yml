@@ -14,6 +14,8 @@ fa:
       timeout: نشست شما منقضی شده است. برای ادامه دوباره وارد شوید.
       unauthenticated: پیش از ادامه باید وارد شوید یا ثبت نام کنید.
       unconfirmed: باید حسابتان را قبل از ادامه تایید کنید.
+      ok: بله
+      cancel: خیر
     mailer:
       confirmation_instructions:
         subject: راهنمای تایید
