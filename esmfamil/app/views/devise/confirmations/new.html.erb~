@@ -6,7 +6,7 @@
   <div><%= f.label :email %><br />
   <%= f.email_field :email, autofocus: true %></div>
 
-  <div><%= f.submit "ایمیل تایید را بفرست." %></div>
+  <div><%= f.submit "اطلاعات تایید را دوباره به من بفرست." %></div>
 <% end %>
 
 <%= render "devise/shared/links" %>

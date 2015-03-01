@@ -1,8 +1,23 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Creator:</strong>
+  <strong>ایجاد‌کننده‌ی بازی:</strong>
   <%= @game.creator_id %>
+</p>
+
+<p>
+  <strong>تعداد بازیکنان:</strong>
+  <%= @game.players_num %>
+</p>
+
+<p>
+  <strong>تعداد نوبت‌های بازی:</strong>
+  <%= @game.rounds_num %>
+</p>
+
+<p>
+  <strong>تعداد بازیکنان ملحق‌شده به بازی:</strong>
+  <%= @game.joined_players %>
 </p>
 
 <%= link_to 'Edit', edit_game_path(@game) %> |

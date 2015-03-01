@@ -6,6 +6,7 @@ Esmfamil::Application.routes.draw do
   captcha_route
   
   devise_for :users
+  
   resources :users  
   
   get ':controller(/:action(/:id(.:format)))'

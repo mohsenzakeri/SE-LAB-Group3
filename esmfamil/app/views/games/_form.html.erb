@@ -10,10 +10,13 @@
       </ul>
     </div>
   <% end %>
-
   <div class="field">
-    <%= f.label :creator_id %><br>
-    <%= f.number_field :creator_id %>
+    <%= f.label :players_num ,'تعداد بازیکنان'%><br>
+    <%= f.number_field :players_num %>
+  </div>
+  <div class="field">
+    <%= f.label :rounds_num , 'تعداد نوبت‌های بازی'%><br>
+    <%= f.number_field :rounds_num %>
   </div>
   <div class="actions">
     <%= f.submit %>

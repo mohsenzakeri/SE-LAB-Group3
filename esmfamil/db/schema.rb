@@ -15,6 +15,9 @@ ActiveRecord::Schema.define(version: 20150226202928) do
 
   create_table "games", force: true do |t|
     t.integer  "creator_id"
+    t.integer  "players_num"
+    t.integer  "rounds_num"
+    t.integer  "joined_players"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

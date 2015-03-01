@@ -223,8 +223,8 @@ fa:
         user:
             email: 'ایمیل'
             login: 'نام کاربر'
-            password: 'گذرواژه'
-            password_confirmation: 'تکرار گذرواژه'
+            password: 'رمز عبور'
+            password_confirmation: 'تکرار رمز عبور'
             remember_me: 'مرا به خاطر بسپار'
         setting:
             user_privacy_status: 'نوع پروفایل'
@@ -295,8 +295,8 @@ fa:
   favourited_user_list: 'کاربرانی که ابراز علاقه کرده اند'
   search: 'جستجو...'
   feed_on: 'بر روی'
-  forgot_your_password_?: 'گذرواژه‌ی خود را فراموش کرده اید؟'
-  send_me_reset_password_instructions: 'روش بازیابی گذرواژه را برایم ارسال کن'
+  forgot_your_password_?: 'رمز عبور خود را فراموش کرده اید؟'
+  send_me_reset_password_instructions: 'روش بازیابی رمز را برایم ارسال کن'
   see_all_notifications: 'مشاهده همه آگاهسازی ها'
   replay_to_this_message: 'پاسخ به این پیام'
   inbox: 'پیام های دریافتی'
@@ -326,10 +326,10 @@ fa:
     failure:
       already_authenticated: وارد سیستم هستید.
       inactive: حساب شما هنوز فعال نشده است.
-      invalid: ایمیل یا گذرواژه‌ی غیر معتبر.
+      invalid: ایمیل یا رمز عبور غیر معتبر.
       last_attempt: شما تنها یک فرصت دیگر دارید قبل از این‎که حسابتان غیرفعال شود.
       locked: حسابتان قفل شده است.
-      not_found_in_database: ایمیل یا گذرواژه‌ی نامعتبر.
+      not_found_in_database: ایمیل یا رمزعبور نامعتبر.
       timeout: نشست شما منقضی شده است. برای ادامه دوباره وارد شوید.
       unauthenticated: پیش از ادامه باید وارد شوید یا ثبت نام کنید.
       unconfirmed: باید حسابتان را قبل از ادامه تایید کنید.
@@ -337,7 +337,7 @@ fa:
       confirmation_instructions:
         subject: راهنمای تایید
       reset_password_instructions:
-        subject: راهنمای بازنشانی گذرواژه
+        subject: راهنمای بازنشانی رمز عبور
       unlock_instructions:
         subject: راهنمای باز کردن
     omniauth_callbacks:

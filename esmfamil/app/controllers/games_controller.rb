@@ -25,10 +25,13 @@ class GamesController < ApplicationController
   # POST /games.json
   def create
     @game = Game.new(game_params)
-
+    if user_signed_in?
+      @game.creator_id = current_user.id
+    end
+    @game.joined_players = 1
     respond_to do |format|
       if @game.save
-        format.html { redirect_to @game, notice: 'Game was successfully created.' }
+        format.html { redirect_to @game, notice: 'بازی جدید ایجاد شد.' }
         format.json { render action: 'show', status: :created, location: @game }
       else
         format.html { render action: 'new' }
@@ -42,7 +45,7 @@ class GamesController < ApplicationController
   def update
     respond_to do |format|
       if @game.update(game_params)
-        format.html { redirect_to @game, notice: 'Game was successfully updated.' }
+        format.html { redirect_to @game, notice: 'بازی با موفقیت تغییر یافت.' }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }
@@ -69,6 +72,6 @@ class GamesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def game_params
-      params.require(:game).permit(:creator_id)
+      params.require(:game).permit(:players_num, :rounds_num)
     end
 end
