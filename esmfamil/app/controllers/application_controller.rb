@@ -7,7 +7,8 @@ class ApplicationController < ActionController::Base
   # reset captcha code after each request for security
   after_filter :reset_last_captcha_code!
   #before_action :configure_permitted_parameters, if: :devise_controller?
-  before_action :configure_devise_permitted_parameters, if: :devise_controller?  
+  before_action :configure_devise_permitted_parameters, if: :devise_controller? 
+
 
 
   # Prevent CSRF attacks by raising an exception.
