@@ -1,0 +1,25 @@
+<h1>Listing game_rounds</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @game_rounds.each do |game_round| %>
+      <tr>
+        <td><%= link_to 'Show', game_round %></td>
+        <td><%= link_to 'Edit', edit_game_round_path(game_round) %></td>
+        <td><%= link_to 'Destroy', game_round, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Game round', new_game_round_path %>

@@ -1,4 +1,6 @@
 Esmfamil::Application.routes.draw do
+  resources :game_rounds
+
   resources :user_games
 
   resources :games
