@@ -1,0 +1,106 @@
+.body-class {
+	direction: rtl;
+	padding-top: 0px;
+  	padding-bottom: 0px;
+  	font-family: 'yekan';
+	background-color: #00001F;
+	font-size: 15;
+}
+
+.our-navbar {
+	direction: rtl;
+	background-color: #FF6600;
+	margin-top: 15px;
+	margin-right: 2%;
+	margin-left: 2%;
+}
+
+.navbar-nav {
+    float: right;
+}
+.navbar-header {
+	float: right;
+	direction: rtl;
+}
+.navbar-default .navbar-brand {
+  color: white;
+}
+
+.navbar-default .navbar-brand:hover {
+  color: #290029;
+}
+
+.navbar-default .navbar-nav > li > a {
+	color:white;
+}
+.navbar-default .navbar-nav > li {
+	float:right;
+}
+
+.col-xs-2 {
+	background-color: blue;
+	color: white;
+	text-align: center;
+}
+.col-xs-1, .col-xs-2, .col-xs-3, .col-xs-4, .col-xs-5, .col-xs-6,
+.col-xs-6, .col-xs-7, .col-xs-8, .col-xs-9, .col-xs-10, .col-xs-11, .col-xs-12 {
+	float:right;
+}
+
+.col-xs-4 {
+	background-color: #FF6600;
+	color: white;
+	text-align: center;
+}
+.col-xs-3, .col-xs-6 {
+	color:white;
+}
+.paper-line {
+	background-color: #99CCFF;
+	background-color: #FFFF66;
+	height: 2px;
+}
+
+.container-text {
+	color: #FFFF66;
+	text-align: center;
+	font-family: 'yekan';	
+}
+
+
+.yekan{
+	font-family: 'yekan';
+}
+
+.text-color {
+	font-family: 'yekan';
+	color: #ffffff;
+}
+
+.title-color {
+	color: #ffffff;
+	font-family: 'yekan';
+}
+.float-right {
+	float:right;
+}
+.float-left {
+	float:left;
+}
+
+.align-center{
+	text-align:center;
+}
+
+.right-dir {
+	direction: rtl;
+}
+	
+
+.welcome {
+	background-color:#FF6644;
+}
+
+.no-padding {
+	padding: 0px;
+}

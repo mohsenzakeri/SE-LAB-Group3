@@ -1,19 +1,44 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Esmfamil</title>
-  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
-  <%= javascript_include_tag "application", "calendar", "jquery.Bootstrap-PersianDateTimePicker", "data-turbolinks-track" => true %>
+  <title>اسم فامیل</title>
+  <%= stylesheet_link_tag    "application",'rtl','bootstrap.min','ourstyle', media: "all", "data-turbolinks-track" => true %>
+  <%= javascript_include_tag "application", "calendar","jquery.min.js","ourjs.js","js/bootstrap.min.js", "jquery.Bootstrap-PersianDateTimePicker", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
 </head>
-<body>
-
-<%= yield %>
+<body class='body-class '>
+	<nav class="navbar navbar-default our-navbar" >
+		<div class="container-fluid">
+			<div class="navbar-header ">
+				<a class="navbar-brand text-color" href="#">اسم فامیل</a>
+			</div>
+			<div id="navbar" class="navbar-collapse collapse navbar-right">
+				<ul class="nav navbar-nav">	
+					<li class="text-color"><a href="#">خانه <span class="glyphicon glyphicon-home" aria-hidden="true"></span></a></li>
+					<li class="text-color"><a href="#">درباره‌ی ما <span class="glyphicon glyphicon-cloud" aria-hidden="true"></span></a></li>
+					<li class="text-color"><a href="#">ارتباط با ما <span class="glyphicon glyphicon-phone-alt" aria-hidden="true"></span></a></li>
+					<li class="text-color">
 	<% if user_signed_in?%>
 		<%=link_to('ویرایش پروفایل' , edit_user_registration_path,  :class => "sidebar_link") %>
 		<%=link_to('خروج',destroy_user_session_path,:method=>:delete, :class=>"sidebar_link")%> 
 	<% else %>	
 		<%= link_to("ثبت نام" , "/users/sign_up" )%></li>
 	<% end %>	
+					</li>
+				</ul>
+			</div>
+
+		</div>
+	</nav>	
+
+	<div class="container-fluid">
+	<%= yield %>
+	<% if user_signed_in?%>
+		<%=link_to('ویرایش پروفایل' , edit_user_registration_path,  :class => "sidebar_link") %>
+		<%=link_to('خروج',destroy_user_session_path,:method=>:delete, :class=>"sidebar_link")%> 
+	<% else %>	
+		<%= link_to("ثبت نام" , "/users/sign_up" )%></li>
+	<% end %>	
+	</div>
 </body>
 </html>
