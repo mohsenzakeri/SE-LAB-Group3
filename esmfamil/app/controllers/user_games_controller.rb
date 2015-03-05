@@ -24,10 +24,14 @@ class UserGamesController < ApplicationController
   # POST /user_games
   # POST /user_games.json
   def create
-    @user_game = UserGame.new(user_game_params)
-
+    #@user_game = UserGame.new(user_game_params)
+    @user_game = UserGame.new
+    @user_game.user_id = current_user.id
+    @user_game.game_id = params[:game_id]
+    @game = Game.find(params[:game_id])
     respond_to do |format|
       if @user_game.save
+        format.js
         format.html { redirect_to @user_game, notice: 'User game was successfully created.' }
         format.json { render action: 'show', status: :created, location: @user_game }
       else
@@ -54,9 +58,12 @@ class UserGamesController < ApplicationController
   # DELETE /user_games/1
   # DELETE /user_games/1.json
   def destroy
+    @game = Game.find(@user_game.game.id)
     @user_game.destroy
-    respond_to do |format|
-      format.html { redirect_to user_games_url }
+
+    respond_to do |format|      
+      format.js
+      format.html { redirect_to @game }
       format.json { head :no_content }
     end
   end

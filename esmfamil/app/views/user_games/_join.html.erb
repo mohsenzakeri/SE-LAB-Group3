@@ -1,0 +1,10 @@
+<%@game_join = current_user.user_games.find_by_game_id(@game.id)%>
+
+<%if @game_join.blank? %>	
+	<%= link_to user_games_path(:game_id => @game.id), :remote => true, :method => :post do %>	  <i class="icon-link" > </i> پیوستن به بازی	
+	<%end%>	
+<%else%>
+	<%= link_to user_game_path(@game_join), :remote => true, :method => :delete do %>	
+		<i class="icon-unlink" > </i>	ترک بازی
+	<%end%>
+<%end%>

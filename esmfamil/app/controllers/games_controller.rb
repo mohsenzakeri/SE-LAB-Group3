@@ -5,12 +5,13 @@ class GamesController < ApplicationController
   # GET /games
   # GET /games.json
   def index
-    @games = Game.all
+    @games = Game.all    
   end
 
   # GET /games/1
   # GET /games/1.json
   def show
+    @creator = User.find_by(id: @game.creator_id)
   end
 
   # GET /games/new

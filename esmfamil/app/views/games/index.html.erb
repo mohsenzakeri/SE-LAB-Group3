@@ -1,9 +1,12 @@
-<h1>Listing games</h1>
+<h1>لیست بازی‌ها</h1>
 
 <table>
   <thead>
     <tr>
-      <th>Creator</th>
+      <th>ایجادکننده‌ی بازی</th>
+      <th>تعداد بازیکنان</th>
+      <th>تعداد نوبت‌های بازی</th>
+      <th>تعداد بازیکنان ملحق‌شده به بازی</th>
       <th></th>
       <th></th>
       <th></th>
@@ -13,10 +16,14 @@
   <tbody>
     <% @games.each do |game| %>
       <tr>
-        <td><%= game.creator_id %></td>
-        <td><%= link_to 'Show', game %></td>
-        <td><%= link_to 'Edit', edit_game_path(game) %></td>
-        <td><%= link_to 'Destroy', game, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% creator = User.find_by(id: game.creator_id)%>
+        <td><%= creator.name %></td>
+        <td><%=game.players_num %></td>
+        <td><%=game.rounds_num %></td>
+        <td><%=game.joined_players %></td>
+        <td><%= link_to 'نمایش اطلاعات بازی', game %></td>
+        <td><%= link_to 'ویرایش', edit_game_path(game) %></td>
+        <td><%= link_to 'حذف', game, method: :delete, data: { confirm: 'آیا اطمینان دارید؟' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -24,4 +31,4 @@
 
 <br>
 
-<%= link_to 'New Game', new_game_path %>
+<%= link_to 'ایجاد بازی جدید', new_game_path %><br>

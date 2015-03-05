@@ -2,7 +2,7 @@
 
 <p>
   <strong>ایجاد‌کننده‌ی بازی:</strong>
-  <%= @game.creator_id %>
+  <%= @creator.name %>
 </p>
 
 <p>
@@ -19,6 +19,10 @@
   <strong>تعداد بازیکنان ملحق‌شده به بازی:</strong>
   <%= @game.joined_players %>
 </p>
+
+<div id="join">
+	<%= render :partial => "user_games/join" , :object => @game%>
+</div>
 
 <%= link_to 'Edit', edit_game_path(@game) %> |
 <%= link_to 'Back', games_path %>

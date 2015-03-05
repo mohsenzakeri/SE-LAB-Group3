@@ -14,6 +14,10 @@ class User < ActiveRecord::Base
 	    end
   end
 
+  def name
+    "#{firstname} #{lastname}"
+  end
+
   has_many :games
   has_many :user_games
 
