@@ -24,7 +24,6 @@ class UserGamesController < ApplicationController
   # POST /user_games
   # POST /user_games.json
   def create
-    #@user_game = UserGame.new(user_game_params)
     @user_game = UserGame.new
     @user_game.user_id = current_user.id
     @user_game.game_id = params[:game_id]

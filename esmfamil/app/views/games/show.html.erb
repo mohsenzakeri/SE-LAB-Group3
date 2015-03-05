@@ -20,9 +20,11 @@
   <%= @game.joined_players %>
 </p>
 
-<div id="join">
-	<%= render :partial => "user_games/join" , :object => @game%>
-</div>
+<%if  @game.creator_id != current_user.id %>
+	<div id="join">
+		<%= render :partial => "user_games/join" , :object => @game%>
+	</div>
+<%end%>	
 
 <%= link_to 'Edit', edit_game_path(@game) %> |
 <%= link_to 'Back', games_path %>
