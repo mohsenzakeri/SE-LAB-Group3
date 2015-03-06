@@ -16,8 +16,8 @@
   <tbody>
     <% @games.each do |game| %>
       <tr>
-        <% creator = User.find_by(id: game.creator_id)%>
-        <td><%= creator.name %></td>
+        <%= creator = User.find_by(id: game.creator_id)%>
+        <td><%= creator.firstname %> <%= creator.lastname %></td> 
         <td><%=game.players_num %></td>
         <td><%=game.rounds_num %></td>
         <td><%=game.joined_players %></td>

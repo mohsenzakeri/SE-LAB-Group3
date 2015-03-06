@@ -1,3 +1,4 @@
 
 $("#join").html("<%= escape_javascript(render(:partial => 'user_games/join', :object => @game)) %>");
+$("#joined_players").html("<%= escape_javascript(render(:partial => 'user_games/join_players', :object => @game)) %>");
 

@@ -17,7 +17,10 @@
 
 <p>
   <strong>تعداد بازیکنان ملحق‌شده به بازی:</strong>
-  <%= @game.joined_players %>
+  <!-- Niloofar Added -->
+  <div id="joined_players">
+    <%= render :partial => "user_games/join_players" , :object => @game %>
+  </div>
 </p>
 
 <%if  @game.creator_id != current_user.id %>

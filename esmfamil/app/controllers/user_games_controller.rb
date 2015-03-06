@@ -28,6 +28,11 @@ class UserGamesController < ApplicationController
     @user_game.user_id = current_user.id
     @user_game.game_id = params[:game_id]
     @game = Game.find(params[:game_id])
+    #Niloofar Added
+    num = @game.joined_players
+    @game.joined_players = num + 1
+    @game.save
+
     respond_to do |format|
       if @user_game.save
         format.js
@@ -59,6 +64,11 @@ class UserGamesController < ApplicationController
   def destroy
     @game = Game.find(@user_game.game.id)
     @user_game.destroy
+    #Niloofar Added
+    num = @game.joined_players
+    @game.joined_players = num - 1
+    @game.save
+
 
     respond_to do |format|      
       format.js

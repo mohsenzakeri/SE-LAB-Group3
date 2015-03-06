@@ -2,6 +2,9 @@
 class GamesController < ApplicationController
   before_action :set_game, only: [:show, :edit, :update, :destroy]
 
+#Niloofar Added
+  before_filter :login_required, only: [:show , :edit, :index, :update, :destroy, :create, :new]
+
   # GET /games
   # GET /games.json
   def index

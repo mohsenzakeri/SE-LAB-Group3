@@ -23,6 +23,10 @@ class ApplicationController < ActionController::Base
     
  # end
 
+#Niloofar Added
+  def login_required
+    redirect_to(new_session_path(:user)) if current_user.blank?
+  end
 
 
 
