@@ -1,3 +1,7 @@
 
 $("#join").html("<%= escape_javascript(render(:partial => 'user_games/join', :object => @game)) %>");
 $("#joined_players").html("<%= escape_javascript(render(:partial => 'user_games/join_players', :object => @game)) %>");
+<% publish_to "/user_games/new" do %>
+	$("#joined").append("<%= j render(@user_game)%>");
+<%end%>	
+$("#new_user_game")[0].reset();
