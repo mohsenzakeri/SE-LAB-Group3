@@ -8,24 +8,24 @@
 <div class="row">
 
 
-  <div class="col-xs-5 field body-item">
+  <div class="col-sm-5 col-sm-offset-1 body-item">
     <br>
     <br>
     <div class="row">
-    <div class = "col-xs-4">نام:    
+    <div class = "col-sm-6">نام:    
     </div>
-    <div class = "col-xs-8">
-      <%= f.text_field :firstname, autofocus: true%>
+    <div class = "col-sm-6">
+      <%= f.text_field :firstname, autofocus: true, :style=>"size:10px" %>
     </div>
     </div>
 
     <hr class="paper-line" >
 
     <div class="row">
-    <div class="col-xs-4">
+    <div class="col-sm-6">
      نام خانوادگی:
     </div>
-    <div class = "col-xs-8">
+    <div class = "col-sm-6">
       <%= f.text_field :lastname %>
     </div>
     </div>
@@ -33,9 +33,9 @@
     <hr class="paper-line" >
 
     <div class="row">
-     <div class="col-xs-4">نام مستعار:
+     <div class="col-sm-6">نام مستعار:
      </div>
-     <div class = "col-xs-8">
+     <div class = "col-sm-6">
       <%= f.text_field :nickname %>
      </div>
     </div>
@@ -43,14 +43,14 @@
     <hr class="paper-line" >
 
     <div class="row">
-    <div class="col-xs-4">تاریخ تولد:
+    <div class="col-sm-6">تاریخ تولد:
     </div>
-    <div class = "col-xs-8">
+    <div class = "col-sm-6">
 
                 <% f.datetime_select :birthdate %>
-                <%=t :روز%><%= select_tag  "ja_birth_dd", options_for_select(1..31) , :style=>"color:black"%>/
-                <%=t :ماه%><%= select_tag "ja_birth_mm", options_for_select(1..12) , :style=>"color:black" %>/
-                <%=t :سال%><%=select_year(1371, {:start_year => 1300, :end_year => 1384}, {:name =>"ja_birth_yyyy"}) %>    
+                <%t :روز%><%= select_tag  "ja_birth_dd", options_for_select(1..31) , :style=>"color:black"%>/
+                <%t :ماه%><%= select_tag "ja_birth_mm", options_for_select(1..12) , :style=>"color:black" %>/
+                <%t :سال%><%=select_year(1371, {:start_year => 1300, :end_year => 1384}, {:name =>"ja_birth_yyyy"}) %>    
     </div>
     </div>
 
@@ -59,16 +59,14 @@
   
   </div>
 
-  <div class="col-xs-1"></div>
-
   
-  <div class="col-xs-5 field body-item">
+  <div class="col-sm-5 col-sm-offset-1 body-item">
   <br>
   <br>
   <div class="row">
-    <div class = "col-xs-6">ایمیل:    
+    <div class = "col-sm-6">ایمیل:    
     </div>
-    <div class = "col-xs-6">
+    <div class = "col-sm-6">
       <%= f.email_field :email %> 
     </div>
   </div>
@@ -76,9 +74,9 @@
   <hr class="paper-line" >
 
   <div class="row">
-    <div class="col-xs-6">گذرواژه: 
+    <div class="col-sm-6">گذرواژه: 
     </div>
-    <div class = "col-xs-6">
+    <div class = "col-sm-6">
       <%= f.password_field :password, autocomplete: "off" %>
     </div>
   </div>
@@ -87,9 +85,9 @@
   
   <div class="row">
     
-    <div class="col-xs-6">ورود مجدد گذرواژه: 
+    <div class="col-sm-6">ورود مجدد گذرواژه: 
     </div>
-    <div class = "col-xs-6">
+    <div class = "col-sm-6">
       <%= f.password_field :password_confirmation, autocomplete: "off" %>
     </div>
   </div>
@@ -98,9 +96,9 @@
 
   <div class="row">
     
-    <div class="col-xs-6"> لطفا متن موجود در تصویر را وارد کنید:
+    <div class="col-sm-6"> لطفا متن موجود در تصویر را وارد کنید:
     </div>
-    <div class = "col-xs-6">
+    <div class = "col-sm-6">
       <%= text_field_tag :captcha %>
     </div>
   </div>
@@ -109,7 +107,6 @@
 
 
 </div>
-    <div class="col-xs-1"></div>
 
 </div>
 
@@ -118,8 +115,8 @@
 
 
 <div class="row">
-<div class="col-xs-6"></div>
-<div class="col-xs-6">
+<div class="col-sm-6"></div>
+<div class="col-sm-6">
       <%= captcha_tag %>
 
   <div><%= f.submit "ثبت نام" %></div>
@@ -127,4 +124,3 @@
 </div>
 <% end %>
 
-<%= render "devise/shared/links" %>
