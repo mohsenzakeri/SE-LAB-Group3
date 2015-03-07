@@ -34,3 +34,6 @@ $("#new_user_game")[0].reset();
 ۸- دیگه همین :) فکر کنم همین کارارو کرده باشم فقط.
 موفق باشید :)
 
+References:
+https://github.com/ryanb/private_pub
+http://railscasts.com/episodes/316-private-pub
