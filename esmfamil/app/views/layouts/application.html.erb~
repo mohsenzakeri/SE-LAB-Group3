@@ -19,7 +19,7 @@
 					<span class="glyphicon glyphicon-home" aria-hidden="true"></span></a></li>
 					<li class="text-color"><a href="#">درباره‌ی ما <span class="glyphicon glyphicon-cloud" aria-hidden="true"></span></a></li>
 					<li class="text-color"><a href="#">ارتباط با ما <span class="glyphicon glyphicon-phone-alt" aria-hidden="true"></span></a></li>
-					<%if !user_signed_in?%>
+					<% !if user_signed_in?%>
 					<li class="text-color"><%= link_to("ثبت نام" , "/users/sign_up" )%></li>
 					<% end %>
 				</ul>

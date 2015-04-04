@@ -2,47 +2,82 @@
 <h2> ویرایش اطلاعات کاربر <% resource_name.to_s.humanize %></h2>
 
 
-
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
   <%= devise_error_messages! %>
 
   
+<div class="row body-item" style="margin:10px;padding:10px;background-color:#85CECE">
+    <div class = "col-sm-3">نام:</div>
+    <div class = "col-sm-3">
+      <%= f.text_field :firstname, autofocus: true, :style=>"size:10px" %>
+    </div>
+    <div class="col-sm-3">نام خانوادگی:</div>
+    <div class = "col-sm-3">
+      <%= f.text_field :lastname %>
+    </div>
+    <hr class="paper-line">
+</div>
 
-  <div><%= f.label :email  %><br />
-  <%= f.email_field :email, autofocus: true %></div>
+<hr class="paper-line">
+
+<div class="row body-item" style="margin:10px;padding:10px;background-color:#94D4D4">
+	<div class="col-sm-3">نام مستعار:</div>
+	<div class = "col-sm-3">
+	<%= f.text_field :nickname %>
+	</div>
+	<div class = "col-sm-3">ایمیل:</div>
+	<div class = "col-sm-3">
+	<%= f.email_field :email %> 
+	</div>
+</div>
+
+<hr class="paper-line">
 
 
- <div>نام:<br />
-  <%= f.text_field :firstname %>
-  </div>
 
-   <div>نام خانوادگی:<br />
-  <%= f.text_field :lastname  %>
-  </div>
+<i style="float:right">(در صورتی که تمایل به تغییر گذرواژه ندارید خالی بگذارید)</i></br>
+<div class="row body-item" style="margin:10px;padding:10px;background-color:#A3DADA">
+	<div class="col-sm-3">گذرواژه‌ی جدید:</div>
+	<div class = "col-sm-3">
+		<%= f.password_field :password, autocomplete: "off" %>
+	</div>
+	<div class="col-sm-3"> تکرار گذرواژه‌ی جدید:</div>
+	<div class = "col-sm-3">
+		<%= f.password_field :password_confirmation, autocomplete: "off" %>
+	</div>
+</div>
+
+<hr class="paper-line">
+
+<div class="row body-item" style="margin:10px;padding:10px;background-color:#B2E0E0">
+	<div class="col-sm-6">لطفا گذرواژه‌ی فعلی را برای اعمال تغییرات وارد نمایید</div>
+	<div class = "col-sm-6">
+		<%= f.password_field :current_password, autocomplete: "off" %>
+	</div>
+</div>
+
+<hr class="paper-line">
+
+<div class="row body-item" style="margin:10px;padding:10px;background-color:#C2E7E7">
+	<div class="col-sm-6">آیا از سایت ناراضی هستید؟</div>
+	<div class = "col-sm-6">
+		<%= button_to "حذف حساب", registration_path(resource_name), data: { confirm: "آیا برای حذف حساب کاربری خود اطمینان دارید؟"}, method: :delete %>
+	</div>
+</div>
+<hr class="paper-line">
+<div class="row body-item" style="margin:10px;padding:10px;background-color:#D1EDED">
+	<div class="col-sm-6"></div>
+	<div class = "col-sm-6">
+		<%= f.submit "تایید" %>
+	</div>
+</div>
+
 
 
   <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
     <div>در انتظار دریافت ایمیل تایید: <%= resource.unconfirmed_email %></div>
   <% end %>
 
-  <div>نام کاربری:<br/>
-    <%= f.text_field :nickname%></div>
 
-
-  <div><%= f.label :password %> <i>(در صورتی که تمایل به تغییر گذرواژه ندارید خالی بگذارید)</i><br />
-    <%= f.password_field :password, autocomplete: "off" %></div>
-
-  <div><%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "off" %></div>
-
-  <div><%= f.label :current_password , 'گذرواژه‌ی فعلی'%> <i></i><br />
-    <%= f.password_field :current_password, autocomplete: "off" %></div>
-
-  <div><%= f.submit "تایید" %></div>
 <% end %>
 
-<h3>حذف حساب کاربری</h3>
-
-<p>ناراضی هستید؟ <%= button_to "حذف حساب", registration_path(resource_name), data: { confirm: "آیا برای حذف حساب کاربری خود اطمینان دارید؟"}, method: :delete %></p>
-
-<%= link_to "Back", :back %>

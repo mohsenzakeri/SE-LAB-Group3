@@ -1,126 +1,73 @@
-<%= render "devise/shared/links" %>
-
-<h2 >ثبت‌نام عضو جدید</h2>
-<br/>
-<br/>
+<h2 style="padding:10px">به اسم فامیل ما خوش آمد، لبخند بزنید</h2>
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= devise_error_messages! %>
-<div class="row">
 
-
-  <div class="col-sm-5 col-sm-offset-1 body-item">
-    <br>
-    <br>
-    <div class="row">
-    <div class = "col-sm-6">نام:    
-    </div>
-    <div class = "col-sm-6">
+<div class="row body-item" style="margin:10px;padding:10px">
+    <div class = "col-sm-3">نام:</div>
+    <div class = "col-sm-3">
       <%= f.text_field :firstname, autofocus: true, :style=>"size:10px" %>
     </div>
-    </div>
-
-    <hr class="paper-line" >
-
-    <div class="row">
-    <div class="col-sm-6">
-     نام خانوادگی:
-    </div>
-    <div class = "col-sm-6">
+    <div class="col-sm-3">نام خانوادگی:</div>
+    <div class = "col-sm-3">
       <%= f.text_field :lastname %>
     </div>
-    </div>
-
-    <hr class="paper-line" >
-
-    <div class="row">
-     <div class="col-sm-6">نام مستعار:
-     </div>
-     <div class = "col-sm-6">
-      <%= f.text_field :nickname %>
-     </div>
-    </div>
-
-    <hr class="paper-line" >
-
-    <div class="row">
-    <div class="col-sm-6">تاریخ تولد:
-    </div>
-    <div class = "col-sm-6">
-
-                <% f.datetime_select :birthdate %>
-                <%t :روز%><%= select_tag  "ja_birth_dd", options_for_select(1..31) , :style=>"color:black"%>/
-                <%t :ماه%><%= select_tag "ja_birth_mm", options_for_select(1..12) , :style=>"color:black" %>/
-                <%t :سال%><%=select_year(1371, {:start_year => 1300, :end_year => 1384}, {:name =>"ja_birth_yyyy"}) %>    
-    </div>
-    </div>
-
-    <hr class="paper-line" >
-
-  
-  </div>
-
-  
-  <div class="col-sm-5 col-sm-offset-1 body-item">
-  <br>
-  <br>
-  <div class="row">
-    <div class = "col-sm-6">ایمیل:    
-    </div>
-    <div class = "col-sm-6">
-      <%= f.email_field :email %> 
-    </div>
-  </div>
-   
-  <hr class="paper-line" >
-
-  <div class="row">
-    <div class="col-sm-6">گذرواژه: 
-    </div>
-    <div class = "col-sm-6">
-      <%= f.password_field :password, autocomplete: "off" %>
-    </div>
-  </div>
-
-  <hr class="paper-line" >
-  
-  <div class="row">
-    
-    <div class="col-sm-6">ورود مجدد گذرواژه: 
-    </div>
-    <div class = "col-sm-6">
-      <%= f.password_field :password_confirmation, autocomplete: "off" %>
-    </div>
-  </div>
-
-  <hr class="paper-line" >    
-
-  <div class="row">
-    
-    <div class="col-sm-6"> لطفا متن موجود در تصویر را وارد کنید:
-    </div>
-    <div class = "col-sm-6">
-      <%= text_field_tag :captcha %>
-    </div>
-  </div>
-   
-  <hr class="paper-line" >    
-
-
+    <hr class="paper-line">
 </div>
 
+<hr class="paper-line">
+
+<div class="row body-item" style="margin:10px;padding:10px">
+	<div class="col-sm-3">نام مستعار:</div>
+	<div class = "col-sm-3">
+	<%= f.text_field :nickname %>
+	</div>
+	<div class = "col-sm-3">ایمیل:</div>
+	<div class = "col-sm-3">
+	<%= f.email_field :email %> 
+	</div>
 </div>
 
+<hr class="paper-line">
 
+<div class="row body-item" style="margin:10px;padding:10px">
+	<div class="col-sm-6">تاریخ تولد:
+	</div>
+	<div class = "col-sm-6">
+		<% f.datetime_select :birthdate %>
+		<%t :روز%><%= select_tag  "ja_birth_dd", options_for_select(1..31) , :style=>"color:black"%>/
+		<%t :ماه%><%= select_tag "ja_birth_mm", options_for_select(1..12) , :style=>"color:black" %>/
+		<%t :سال%><%=select_year(1371, {:start_year => 1300, :end_year => 1384}, {:name =>"ja_birth_yyyy"}) %>    
+	</div>
+</div>
 
+<hr class="paper-line">
 
+<div class="row body-item" style="margin:10px;padding:10px">
+	<div class="col-sm-3">گذرواژه:</div>
+	<div class = "col-sm-3">
+		<%= f.password_field :password, autocomplete: "off" %>
+	</div>
+	<div class="col-sm-3">تکرار گذرواژه:</div>
+	<div class = "col-sm-3">
+		<%= f.password_field :password_confirmation, autocomplete: "off" %>
+	</div>
+</div>
+
+<hr class="paper-line">
+
+<div class="row body-item" style="margin:10px;padding:10px">
+		<div class="col-sm-3"> لطفا متن موجود در تصویر را وارد کنید:</div>
+		<div class = "col-sm-3"><%= text_field_tag :captcha %></div>
+		<div class="col-sm-3"><%= captcha_tag %></div>
+</div>
+
+<hr class="paper-line">
 
 <div class="row">
-<div class="col-sm-6"></div>
-<div class="col-sm-6">
-      <%= captcha_tag %>
+	<div class="col-sm-9"></div>
+	<div class="col-sm-3">
+	<div><%= f.submit "ثبت نام" %></div>
+</div>
 
-  <div><%= f.submit "ثبت نام" %></div>
-</div>
-</div>
 <% end %>
 

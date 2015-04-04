@@ -29,32 +29,6 @@
 	</div>
 	<div class="col-sm-1"></div>
 	<div class="col-sm-6">
-		<div class="row">
-		<div class="col-sm-3">
-			<div class="circle"></div>
-		</div>
-		<div class="col-sm-3">
-			<div class="circle"></div>
-		</div>
-		<div class="col-sm-3">
-			<div class="circle"></div>
-		</div>
-		<div class="col-sm-3">
-			<div class="circle"></div>
-		</div>
-		</div>
-		<hr class="paper-line" >
-		<p class="container-text">سلام بر همه</p>
-		<hr class="paper-line" >
-		<p class="container-text">امیدواریم اوقات خوشی را با ما تجربه کنید</p>
-		<hr class="paper-line" >
-		<p class="container-text">امیدواریم اوقات خوشی را با ما تجربه کنید</p>
-		<hr class="paper-line" >
-		<p class="container-text">امیدواریم اوقات خوشی را با ما تجربه کنید</p>
-		<hr class="paper-line" >
-		<p class="container-text">امیدواریم اوقات خوشی را با ما تجربه کنید</p>
-		<hr class="paper-line" >
-
 		<!--%= image_tag "Colouring_pencils.jpg" , :class=>"img-responsive"%-->
 	</div>
 </div>

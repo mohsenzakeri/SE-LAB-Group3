@@ -11,7 +11,7 @@
     </div>
   <% end %>
 
-<div class="row" style="margin:20px;padding:10px;background-color:#85CECE;border-radius: 20px;">
+<div class="row" style="margin:20px;padding:10px;background-color:#85CECE">
 <div class="col-sm-6">بازی مورد نظرتان دوست دارید چند بازیکن داشته باشد؟</div>
 <div class="col-sm-4"><%= f.number_field :players_num %></div>
 <div class="col-sm-2"><div class="circle"></div></div>
@@ -19,7 +19,7 @@
 
 <hr class="paper-line">
 
-<div class="row" style="margin:20px;padding:10px;background-color:#A3DADA;border-radius: 20px;">
+<div class="row" style="margin:20px;padding:10px;background-color:#A3DADA">
 <div class="col-sm-6">دوست دارید چند دور بازی کنید؟</div>
 <div class="col-sm-4"><%= f.number_field :rounds_num %></div>
 <div class="col-sm-2"><div class="circle" style="background-color: #FF8566;"></div></div>
@@ -27,7 +27,7 @@
 
 <hr class="paper-line">
 
-<div class="row" style="margin:20px;padding:10px;background-color:#C2E7E7;border-radius: 20px;" >
+<div class="row" style="margin:20px;padding:10px;background-color:#C2E7E7" >
 <div class="col-sm-6"></div>
 <div class="col-sm-4"><%= f.submit "بازی من را ایجاد کن"%></div>
 <div class="col-sm-2"><div class="circle" style="background-color: #FFAD99;"></div></div>

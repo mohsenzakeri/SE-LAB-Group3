@@ -1,0 +1,26 @@
+				<ul class="nav navbar-nav yekan" style="float:left">
+					<li class="dropdown" id = "navdropdown">
+					  <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+						ورود به همیار <span class="glyphicon glyphicon-pencil"></span><b class="caret"></b></a>
+						<div class="dropdown-menu" style="width:300px;background-color:#A3C2FF;padding:10px;">
+						<%= form_for(:user, :url => session_path(:user)) do |f|%>
+							<%= f.text_field :email , :placeholder => "ایمیل", :class=>"form-control" %>
+							<%= f.password_field :password  , :placeholder => "رمز عبور", :class=>"form-control" , :style=>"margin-top:5px"%>
+							<div class="row" style="margin-top:5px">
+							<div class="col-sm-5">
+							<label class="checkbox" style="margin-left:8px">به یاد بسپار</label>
+								<%= f.check_box :remember_me  %>
+							</div>
+							<div class="col-sm-7">
+								<%= f.submit 'ورود'  ,:class => "btn-primary", :name=>"commit", :type=>"submit", :value=>"ورود"%></br>
+							 <%= link_to "رمز عبور خود را فراموش کرده‌اید؟", new_password_path(:user) %></br>
+							 <!%= link_to "اطلاعات تایید را دریافت نکرده‌اید؟", new_confirmation_path(resource_name) %>
+							</div>
+							</div>
+						<% end %>
+		  
+						</div>
+					</li>
+					</ul>
+
+

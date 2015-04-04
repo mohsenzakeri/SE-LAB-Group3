@@ -62,7 +62,7 @@
 	<div class="row"><%= @creator.firstname %></div>
 	<div class="row"><%= render :partial => "user_games/joined_players_name" , :object => @game %></div>
 </div>
-<div class="col-sm-4"><%if  @game.creator_id == current_user.id %><%= link_to 'ویرایش', edit_game_path(@game) %> <%end%>	</div>
+<div class="col-sm-4"><%= link_to 'ویرایش', edit_game_path(@game) %> </div>
 </div>
 
 
