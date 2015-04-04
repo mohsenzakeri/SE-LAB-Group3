@@ -5,6 +5,7 @@ class UserGamesController < ApplicationController
   # GET /user_games.json
   def index
     @user_games = UserGame.all
+    
   end
 
   # GET /user_games/1
@@ -32,10 +33,11 @@ class UserGamesController < ApplicationController
     num = @game.joined_players
     @game.joined_players = num + 1
     @game.save
+    current_user.user_games
 
     respond_to do |format|
       if @user_game.save
-        PrivatePub.publish_to("/user_games/new", user_game: @user_game)
+        PrivatePub.publish_to("/user_games/new", user_game: @user_game.user)
         format.js
         format.html { redirect_to @user_game, notice: 'User game was successfully created.' }
         format.json { render action: 'show', status: :created, location: @user_game }

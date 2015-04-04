@@ -8,13 +8,19 @@ class GamesController < ApplicationController
   # GET /games
   # GET /games.json
   def index
-    @games = Game.all    
+    @games = Game.all 
+    @users = User.all   
   end
 
   # GET /games/1
   # GET /games/1.json
   def show
     @creator = User.find_by(id: @game.creator_id)
+    @joined_users_name = Array.new
+    @game.user_games.each do |joined_users|
+      @this = User.find_by(id: joined_users.user_id)
+      @joined_users_name << @this.nickname
+    end
   end
 
   # GET /games/new

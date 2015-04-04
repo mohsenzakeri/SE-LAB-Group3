@@ -25,6 +25,10 @@
     <div>در انتظار دریافت ایمیل تایید: <%= resource.unconfirmed_email %></div>
   <% end %>
 
+  <div>نام کاربری:<br/>
+    <%= f.text_field :nickname%></div>
+
+
   <div><%= f.label :password %> <i>(در صورتی که تمایل به تغییر گذرواژه ندارید خالی بگذارید)</i><br />
     <%= f.password_field :password, autocomplete: "off" %></div>
 

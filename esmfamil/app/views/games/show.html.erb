@@ -16,10 +16,9 @@
 </p>
 
 <p>
-  <strong>تعداد بازیکنان ملحق‌شده به بازی:</strong>
-  <!-- Niloofar Added -->
+  <strong>تعداد بازیکنان ملحق‌شده به بازی:</strong> 
   <div id="joined_players">
-    <%= render :partial => "user_games/join_players" , :object => @game %>
+      <%= render :partial => "user_games/join_players" , :object => @game %>
   </div>
 </p>
 
@@ -29,5 +28,17 @@
 	</div>
 <%end%>	
 
+<%= 'بازیکنان ملحق شده' %>
+  </br>
+  <%= @creator.nickname %>
+  </br>
+<div id="joined">
+  <%= render :partial => "user_games/joined_players_name" , :object => @game %>
+</div>
+
 <%= link_to 'Edit', edit_game_path(@game) %> |
 <%= link_to 'Back', games_path %>
+
+<% if @creator.id == current_user.id %>
+  <%= subscribe_to "/user_games/new" %>
+<% end %>
