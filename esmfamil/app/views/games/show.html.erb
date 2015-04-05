@@ -36,9 +36,9 @@
 
 	<div class="row" style="margin:10px;padding:10px;">
 تاکنون
-<!div id="joined_players">
+<div id="joined_players">
 <%= render :partial => "user_games/join_players" , :object => @game %>
-<!/div>
+</div>
 بازیکن به این بازی ملحق شده‌اند
 	</div>
 </div>
@@ -59,8 +59,12 @@
 <div class="col-sm-4"> </div>
 <div class="col-sm-4" style="text-align:center;background-color:#FFAD99;border-radius:20px;">
 	<div class="row">بازیکنان ملحق‌شده عبارتند از </div>
-	<div class="row"><%= @creator.firstname %></div>
-	<div class="row"><%= render :partial => "user_games/joined_players_name" , :object => @game %></div>
+	<div class="row"><%= @creator.nickname %></div>
+	<div class="row">
+		<div id="joined">
+			<%= render :partial => "user_games/joined_players_name" , :object => @game %>
+		</div>
+	</div>
 </div>
 <div class="col-sm-4"><%if  @game.creator_id == current_user.id %><%= link_to 'ویرایش', edit_game_path(@game) %> <%end%>	</div>
 </div>
@@ -68,6 +72,6 @@
 
 <!%= link_to 'Back', games_path %>
 
-<% if @creator.id == current_user.id %>
+<% if @game.creator_id == current_user.id %>
   <%= subscribe_to "/user_games/new" %>
 <% end %>
