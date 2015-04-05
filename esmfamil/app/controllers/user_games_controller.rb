@@ -37,7 +37,7 @@ class UserGamesController < ApplicationController
 
     respond_to do |format|
       if @user_game.save
-        PrivatePub.publish_to("/user_games/new", user_game: @user_game.user)
+        PrivatePub.publish_to("/user_games/new/" + @user_game.game.creator_id.to_s, user_game: @user_game.user, creator: @user_game.game.creator_id)
         format.js
         format.html { redirect_to @user_game, notice: 'User game was successfully created.' }
         format.json { render action: 'show', status: :created, location: @user_game }

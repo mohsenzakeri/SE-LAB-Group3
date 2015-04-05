@@ -2,7 +2,7 @@
 <% if creator_id == current_user.id %>
 <%= puts "**************************************************************" %>
 <%= puts creator_id %>
-  <%= subscribe_to "/user_games/new" %>
+  <%= subscribe_to "/user_games/new/" + current_user.id.to_s %>
 <% end %>
 
 <%= numbers %>

@@ -4,7 +4,7 @@ $("#joined_players").html("<%= escape_javascript(render(:partial => 'user_games/
 $("#joined2").html("<%= escape_javascript ( render(:partial => 'user_games/joins', locals: { numbers: @game.joined_players , creator_id: @game.creator_id} )) %>");
 $("#joined").html("<%= j render(:partial => 'user_games/joined_players_name' , :object => @game ) %>");
 
-<% publish_to "/user_games/new" do %>
+<% publish_to "/user_games/new/" + @user_game.user_id.to_s  do %>
 	$("#joined2").html("<%= j render(:partial => 'user_games/joins' , locals: {numbers: @game.joined_players, creator_id: @game.creator_id} )%>");
 	$("#joined_players").html("<%= escape_javascript(render(:partial => 'user_games/join_players', :object => @game)) %>");
 	$("#joined").html("<%= j render(:partial => 'user_games/joined_players_name' , :object => @game) %>");

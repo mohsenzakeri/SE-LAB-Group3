@@ -73,5 +73,5 @@
 <!%= link_to 'Back', games_path %>
 
 <% if @game.creator_id == current_user.id %>
-  <%= subscribe_to "/user_games/new" %>
+  <%= subscribe_to "/user_games/new/" + current_user.id.to_s %>
 <% end %>
