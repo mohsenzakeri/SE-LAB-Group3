@@ -1,16 +1,16 @@
 
 $("#join").html("<%= escape_javascript(render(:partial => 'user_games/join', :object => @game)) %>");
 $("#joined_players").html("<%= escape_javascript(render(:partial => 'user_games/join_players', :object => @game)) %>");
-$("#joined2").html("<%= escape_javascript ( render(:partial => 'user_games/joins', locals: { numbers: @game.joined_players , creator_id: @game.creator_id} )) %>");
+$("#joinednumber<%= @game.id %>").html("<%= escape_javascript ( render(:partial => 'user_games/joins', :object => @game )) %>");
 $("#joined").html("<%= j render(:partial => 'user_games/joined_players_name' , :object => @game ) %>");
 
-<% publish_to "/user_games/new/" + @user_game.user_id.to_s  do %>
-	$("#joined2").html("<%= j render(:partial => 'user_games/joins' , locals: {numbers: @game.joined_players, creator_id: @game.creator_id} )%>");
+<% publish_to "/user_games/new"  do %>
+	$("#joinednumber<%= @game.id %>").html("<%= j render(:partial => 'user_games/joins' ,  :object => @game )%>");
+	$("#join").html("<%= escape_javascript(render(:partial => 'user_games/join', :object => @game)) %>");
 	$("#joined_players").html("<%= escape_javascript(render(:partial => 'user_games/join_players', :object => @game)) %>");
 	$("#joined").html("<%= j render(:partial => 'user_games/joined_players_name' , :object => @game) %>");
-	$("#join").html("<%= escape_javascript(render(:partial => 'user_games/join', :object => @game)) %>");
 <%end%>	
 
 $("#new_user_game")[0].reset();
-$("#joined2").reset();
+$('#div[id^="joinednumber"]').reset();
 $("#joined").reset();

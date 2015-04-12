@@ -56,3 +56,6 @@ gem 'magic_encoding'
 gem 'mysql2'
 gem 'thin'
 gem 'private_pub'
+gem 'byebug'
+
+gem 'gon'
