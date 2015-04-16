@@ -12,19 +12,28 @@
 
 <% @games.each do |game| %>
 <% creator = User.find_by(id: game.creator_id)%>
+<% @game = game %>
 
 <div class="row" style="margin:20px;padding:10px;background-color:#85CECE;border-radius: 20px;">
 <div class="col-sm-2"style="text-align:center"><%= creator.firstname %> <%= creator.lastname %></div>
 <div class="col-sm-2" style="text-align:center"><%=game.players_num %></div>
 <div class="col-sm-2" style="text-align:center"><%=game.rounds_num %></div>
 <div class="col-sm-2" style="text-align:center">
-	<div id="joined2">
-	<%= render :partial => "user_games/joins" , locals: {numbers: game.joined_players , creator_id: game.creator_id} %>
+	<div id="joinednumber<%= game.id%>">
+	<%= render :partial => "user_games/joins" , :object => @game %>
 	</div>
 </div>
-<div class="col-sm-2" style="text-align:center"><%= link_to 'نمایش اطلاعات بازی', game %></div>
-<div class="col-sm-2" style="text-align:center"><%= link_to 'ویرایش', edit_game_path(game) %>
-<%= link_to 'حذف', game, method: :delete, data: { confirm: 'آیا اطمینان دارید؟' } %>
+<% if @game.players_num !=  @game.user_games.count+1 %>
+	<div class="col-sm-2" style="text-align:center"><%= link_to 'نمایش اطلاعات بازی', game %></div>
+<%elsif UserGame.where(:game_id => game.id , :user_id => current_user.id).first != nil %>
+	<%= link_to 'شروع بازی', user_game_path(UserGame.where(:game_id => game.id , :user_id => current_user.id).first) %>
+<%elsif game.creator_id==current_user.id %>
+	to be completed!s
+<%end%>
+
+
+<div class="col-sm-2" style="text-align:center"><%if  @game.creator_id == current_user.id %><%= link_to 'ویرایش', edit_game_path(game) %><%end%>
+<%if  @game.creator_id == current_user.id %><%= link_to 'حذف', game, method: :delete, data: { confirm: 'آیا اطمینان دارید؟' } %><%end%>
 </div>
 </div>
 
@@ -32,11 +41,4 @@
 
 
 
-<%= link_to 'ایجاد بازی جدید', new_game_path %><br>
-<!-- 
-<ul id="joined">
-    
-</ul> -->
-<!-- 
 <%= subscribe_to "/user_games/new" %>
- -->

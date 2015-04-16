@@ -22,7 +22,7 @@
       </ul>
     </div>
   <% end %>
-<%= f.text_field :firstname %>
+<%= f.text_field :players_num %>
 
   <div class="actions">
     <%= f.submit %>

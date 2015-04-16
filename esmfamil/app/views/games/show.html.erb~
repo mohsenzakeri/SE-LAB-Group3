@@ -1,73 +1,7 @@
-
-<div class="container-fluid" >
-
-<div class="row" style="margin:10px;">
-<div class="col-sm-4"></div>
-<div class="col-sm-4" style="background-color:#FF5C33;border-radius: 20px;height:60px;text-align:center;color:white;">	
-<h4>
-جزئیات بازی را در زیر ببینید
-</h4>
-
-</div>
-<div class="col-sm-4"></div>
-</div>
-
-
-<div class="row" style="text-align:center;margin:10px">
-<div class="col-sm-4"></div>
-<div class="col-sm-4" style="background-color:#FF8566;color:white;border-radius: 20px;">
-
-	<div class="row" style="margin:10px;padding:10px;">
-این بازی توسط
-<%= @creator.name %>
-ایجاد شده‌است
-	</div>
-
-	<div class="row" style="margin:10px;padding:10px;">
+<%= @game.user_games.count%>
 <%= @game.players_num %>
-عداد بازیکن می‌توانند در این بازی شرکت کنند
-	</div>
-
-	<div class="row" style="margin:10px;padding:10px;">
-این بازی 
-<%= @game.rounds_num %>
-دور بازی دارد
-	</div>
-
-	<div class="row" style="margin:10px;padding:10px;">
-تاکنون
-<!div id="joined_players">
-<%= render :partial => "user_games/join_players" , :object => @game %>
-<!/div>
-بازیکن به این بازی ملحق شده‌اند
-	</div>
-</div>
-
-<div class="col-sm-4"></div>
-
-</div>
-
-</div>
-
-
-<%if  @game.creator_id != current_user.id %>
-	<div id="join">
-		<%= render :partial => "user_games/join" , :object => @game%>
-	</div>
-<%end%>	
-<div class="row" style="margin:10px" >
-<div class="col-sm-4"> </div>
-<div class="col-sm-4" style="text-align:center;background-color:#FFAD99;border-radius:20px;">
-	<div class="row">بازیکنان ملحق‌شده عبارتند از </div>
-	<div class="row"><%= @creator.firstname %></div>
-	<div class="row"><%= render :partial => "user_games/joined_players_name" , :object => @game %></div>
-</div>
-<div class="col-sm-4"><%= link_to 'ویرایش', edit_game_path(@game) %> </div>
-</div>
-
-
-<!%= link_to 'Back', games_path %>
-
-<% if @creator.id == current_user.id %>
-  <%= subscribe_to "/user_games/new" %>
+<% if @game.players_num !=  @game.user_games.count+1 %>
+	<%= render :partial => 'games/show_info'%>
+<% else %>
+	<%= render :partial => 'games/show_play'%>
 <% end %>
