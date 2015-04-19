@@ -1,0 +1,4 @@
+class ChangeFieldsOfGameRounds < ActiveRecord::Migration
+  def change
+  end
+end

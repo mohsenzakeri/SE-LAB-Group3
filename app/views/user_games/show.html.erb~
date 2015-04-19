@@ -1,37 +1,61 @@
-<p id="notice"><%= notice %></p>
+<%= form_tag({:controller => "user_games", :action => "new_game_round", :id=>params[:id]}, :method => :post) do %>
+<div class="container-fluid" >
+<div class="row" style="margin:10px;background-color:#6712f3;border-radius:10px">
+	<div class="col-sm-6"><h4 style="color:white">دور <%= @user_game.round_number %> بازی</h4></div>
+	<div class="col-sm-6"><h4 style="color:white"> امتیاز بدست آمده: ۰</h4></div>
+</div>
+<div class="row" style="margin:10px;">
+	<div class="col-sm-1">اسم</div> <div class="col-sm-3" ><%= text_field_tag  "firstname" %> </div>
+	<div class="col-sm-1">فامیل</div> <div class="col-sm-3"><%= text_field_tag  "lastname" %> </div>
+	<div class="col-sm-1">شهر</div> <div class="col-sm-3"><%= text_field_tag  "city" %> </div>
+</div>
+<div class="row" style="margin:10px;">
+	<div class="col-sm-1">کشور</div> <div class="col-sm-3" ><%= text_field_tag "country" %> </div>
+	<div class="col-sm-1">میوه</div> <div class="col-sm-3"><%= text_field_tag "fruit" %> </div>
+	<div class="col-sm-1">ماشین</div> <div class="col-sm-3"><%= text_field_tag "car" %> </div>
+</div>
+<div class="row" style="margin:10px;">
+	<div class="col-sm-1">رنگ</div> <div class="col-sm-3" ><%= text_field_tag "color" %> </div>
+	<div class="col-sm-1">کار</div> <div class="col-sm-3"><%= text_field_tag "job" %> </div>
+	<div class="col-sm-1">غذا</div> <div class="col-sm-3"><%= text_field_tag "food" %> </div>
+</div>
+<div class="row" style="margin:10px;">
+	<div class="col-sm-1">اشیا</div> <div class="col-sm-3" ><%= text_field_tag "thing" %> </div>
+	<div class="col-sm-1">حیوان</div> <div class="col-sm-3"><%= text_field_tag "animal" %> </div>
+	<div class="col-sm-1">گل</div> <div class="col-sm-3"><%= text_field_tag "flower" %> </div>
+</div>
+<div class="row" style="margin:10px">
+	<div class="col-sm-9"></div>
+	<div class="col-sm-3" >	<%= submit_tag("تمام") %>
+	</div>
+</div>
 
-<p>
-  <strong>User:</strong>
-  <%= @user_game.user_id %>
-</p>
+</div>
 
-<p>
-  <strong>Game:</strong>
-  <%= @user_game.game_id %>
-</p>
-
-<%= form_for(@game_round) do |f| %>
-  <% if @game_round.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@game_round.errors.count, "error") %> prohibited this game_round from being saved:</h2>
-
-      <ul>
-      <% @game_round.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-<%= f.text_field :players_num %>
-
-  <div class="actions">
-    <%= f.submit %>
-  </div>
 <% end %>
+<script>
+$(document).ready(function (){
+    validate();
+    $('#firstname, #lastname, #city, #country, #fruit, #car, #color, #job, #food, #thing, #animal, #flower').change(validate);
+});
 
-<%= link_to game_rounds_path(:user_game_id => @user_game.id), :remote => true, :method => :post do %> 
-پایان دور بازی
-<%end%>	
-
-<!-- % link_to 'Edit', edit_user_game_path(@user_game) %> |
-<% link_to 'Back', user_games_path %-->
+function validate(){
+    if ($('#firstname').val().length   >   0   &&
+        $('#lastname').val().length  >   0   &&
+        $('#city').val().length    >   0) &&
+	$('#country').val().length   >   0   &&
+        $('#fruit').val().length  >   0   &&
+        $('#car').val().length    >   0) &&
+	$('#color').val().length   >   0   &&
+        $('#job').val().length  >   0   &&
+        $('#food').val().length    >   0) &&
+	$('#thing').val().length   >   0   &&
+        $('#animal').val().length  >   0   &&
+        $('#flower').val().length    >   0) {
+        $("input[type=submit]").prop("disabled", false);
+    }
+    else {
+        $("input[type=submit]").prop("disabled", true);
+    }
+}
+</script>

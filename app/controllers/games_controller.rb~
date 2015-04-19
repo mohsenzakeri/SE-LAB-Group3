@@ -51,6 +51,7 @@ class GamesController < ApplicationController
         format.json { render json: @game.errors, status: :unprocessable_entity }
       end
     end
+    UserGame.create_user_game(current_user,@game)
   end
 
   # PATCH/PUT /games/1

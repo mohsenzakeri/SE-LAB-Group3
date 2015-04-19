@@ -4,6 +4,6 @@ class UserGame < ActiveRecord::Base
 	has_many :game_rounds
 
 	def self.create_user_game(u,g)
-	  @user_game = UserGame.create(:user=>u, :game=>g, :round_number => 1)
+	  @user_game = UserGame.create(:user=>u, :game=>g)
 	end
 end

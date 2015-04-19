@@ -1,6 +1,4 @@
-<%= @game.user_games.count%>
-<%= @game.players_num %>
-<% if @game.players_num !=  @game.user_games.count+1 %>
+<% if @game.players_num !=  @game.user_games.count %>
 	<%= render :partial => 'games/show_info'%>
 <% else %>
 	<%= render :partial => 'games/show_play'%>
