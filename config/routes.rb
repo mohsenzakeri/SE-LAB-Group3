@@ -1,4 +1,6 @@
 Esmfamil::Application.routes.draw do
+  resources :rounds
+
   resources :game_rounds
 
   post 'user_games/new_game_round' => 'user_games#new_game_round'
