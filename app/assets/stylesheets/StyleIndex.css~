@@ -1,10 +1,9 @@
 body{
 	font-family: B Yekan,'B Yekan',tahoma;
 	direction:rtl;
-//	background-image:url('ci7.jpg') ;
-    	padding-right:26px;
+    	padding-right:10%;
 	background-repeat:no-repeat;
-	!background-color:#cccccc;
+	background-color:#cccccc;
 }
 input.search-query {
     padding-left:26px;
