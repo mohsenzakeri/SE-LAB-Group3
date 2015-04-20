@@ -9,5 +9,10 @@
  * compiled file, but it's generally better to create a new file per style scope.
  *
  *= require_self
- *= require_tree .
+ *= require 'rtl'
+ *= require 'bootstrap.min'
+ *= require 'ourstyle'
+ *= require 'bootstrap-responsive'
+ *= require 'StyleIndex'
+ * require_tree .
  */

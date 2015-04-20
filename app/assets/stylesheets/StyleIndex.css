@@ -42,17 +42,17 @@ form.form-search:before {
 
 .span9{
 	background-color: #dcdcdc;
-	!background-color: #fafafa;
+	background-color: #fafafa;
 	border-radius: 10px;
 	color: black;
 	opacity:0.7;
 	float:right;
 	margin-right:5%;
-!	background-image:url('education.jpg') ;
+	background-image:url('education.jpg') ;
 }
 .span3{
-	!background-color: #3fedc4;
-	!border-radius: 10px;
+	background-color: #3fedc4;
+	border-radius: 10px;
 	float:right;
 	margin-right:10%;
 }
@@ -103,11 +103,11 @@ float:right;
 }
 
 #newOfferForm{
-!	background-color: yellow;
+	background-color: yellow;
 }
 
 #sidebar{
-	!background-color:#45f3dc;
+	background-color:#45f3dc;
 	direction:rtl;
 	float:right;
 	
@@ -126,10 +126,10 @@ float:right;
 	text-decoration:none;
 }
 body{
-	!background-color:#a5d3f8;
+	background-color:#a5d3f8;
 }
 .span8{
-	!background-color:#a5d3f8;
+	background-color:#a5d3f8;
 }
 .centerform{
 	margin:20%;
