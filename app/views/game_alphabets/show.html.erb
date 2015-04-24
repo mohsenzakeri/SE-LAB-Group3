@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Game:</strong>
+  <%= @game_alphabet.game_id %>
+</p>
+
+<p>
+  <strong>Round number:</strong>
+  <%= @game_alphabet.round_number %>
+</p>
+
+<p>
+  <strong>Alphabet:</strong>
+  <%= @game_alphabet.alphabet %>
+</p>
+
+<%= link_to 'Edit', edit_game_alphabet_path(@game_alphabet) %> |
+<%= link_to 'Back', game_alphabets_path %>

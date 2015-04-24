@@ -1,0 +1,11 @@
+class CreateGameAlphabets < ActiveRecord::Migration
+  def change
+    create_table :game_alphabets do |t|
+      t.int :game_id
+      t.int :round_number
+      t.string :alphabet
+
+      t.timestamps
+    end
+  end
+end

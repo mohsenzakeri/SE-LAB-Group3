@@ -11,7 +11,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150419101405) do
+ActiveRecord::Schema.define(version: 20150424174548) do
+
+  create_table "game_alphabets", force: true do |t|
+    t.integer  "game_id"
+    t.integer  "round_number"
+    t.string   "alphabet"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "game_rounds", force: true do |t|
     t.datetime "created_at"

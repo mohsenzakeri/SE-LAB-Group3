@@ -1,0 +1,31 @@
+<h1>Listing game_alphabets</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Game</th>
+      <th>Round number</th>
+      <th>Alphabet</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @game_alphabets.each do |game_alphabet| %>
+      <tr>
+        <td><%= game_alphabet.game_id %></td>
+        <td><%= game_alphabet.round_number %></td>
+        <td><%= game_alphabet.alphabet %></td>
+        <td><%= link_to 'Show', game_alphabet %></td>
+        <td><%= link_to 'Edit', edit_game_alphabet_path(game_alphabet) %></td>
+        <td><%= link_to 'Destroy', game_alphabet, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Game alphabet', new_game_alphabet_path %>

@@ -8,7 +8,7 @@ gem 'rails', '4.0.3'
 gem 'mysql'
 
 # Use SCSS for stylesheets
-gem 'sass-rails', '~> 4.0.0'
+###################gem 'sass-rails', '~> 4.0.0'
 
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
@@ -63,4 +63,6 @@ gem 'byebug'
 
 gem 'gon'
 
-
+gem 'sass', '3.3.0.alpha.149'
+gem 'compass', '0.12.2'
+gem 'compass-sourcemaps', "~> 0.12.2.sourcemaps.57a186c"

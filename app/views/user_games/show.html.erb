@@ -1,12 +1,12 @@
 <%= form_tag({:controller => "user_games", :action => "new_game_round", :id=>params[:id]}, :method => :post) do %>
 <div class="container-fluid" >
 <div class="row" style="margin:10px;background-color:#6712f3;border-radius:10px">
-	<div class="col-sm-4"><h4 style="color:white">دور <%= @user_game.round_number %> بازی</h4></div>
-	<div class="col-sm-4"><h4 style="color:white"> امتیاز بدست آمده: ۰</h4></div>
-	<div class="col-sm-4"><h4 style="color:white"> حرف این دور: 
-	<% @alphabets = ['الف' , 'ب' , '‍‍‍پ' , 'ت' , 'ث' , 'ج' , 'چ' , 'ح' , 'خ' , 'د' , 'ذ' , 'ر' , 'ز' , 'ژ' , 'س' , 'ش' , 'ص' ,  'ض' ,  'ط' , 'ظ' ,  'ع' , 'غ'  , 'ف'  , 'ق' , 'ک' , 'گ' , 'ل' , 'م' , 'ن' , 'و' , 'ه' , 'ی']%>
+	<div class="col-sm-4"><h4 style="color:white;float:right"> امتیاز بدست آمده: ۰</h4></div>
+	<div class="col-sm-4"><h4 style="color:white;float:right"> حرف این دور: 
+	<% @alphabets = ['الف' , 'ب' , '‍‍‍پ' , 'ت' , 'ث' , 'ج' , 'چ' , 'ح' , 'خ' , 'د' , 'ذ' , 'ر' , 'ز' , 'ژ' , 'س' , 'ش' , 'ص' ,  'ض' ,  'ط' , 'ظ' ,  'ع' , 'غ'  , 'ف'  , 'ق' , 'ک' , 'گ' , 'ال' , 'م' , 'ن' , 'و' , 'ه' , 'ی']%>
 	<%= @alphabets.sample %>
 	</h4></div>
+	<div class="col-sm-4"><h4 style="color:white;float:right">دور <%= @user_game.round_number %> بازی</h4></div>
 </div>
 <div class="row" style="margin:10px;">
 	<div class="col-sm-1">اسم</div> <div class="col-sm-3" ><%= text_field_tag  "firstname" %> </div>

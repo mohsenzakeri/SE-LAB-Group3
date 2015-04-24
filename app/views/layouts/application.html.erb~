@@ -3,13 +3,14 @@
 <head>
   <title>اسم فامیل</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <%= stylesheet_link_tag    "application",'rtl','bootstrap.min','ourstyle','bootstrap-responsive', media: "all", "data-turbolinks-track" => true %>
+  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+  
   <%= javascript_include_tag "application", "calendar","jquery.min.js","ourjs.js","js/bootstrap.min.js", "jquery.Bootstrap-PersianDateTimePicker", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
 </head>
 <body class='body-class '>
-	<nav class="navbar navbar-default our-navbar" >
-			<div class="navbar-header">
+	<nav class="navbar navbar-default our-navbar"  >
+			<div class="navbar-header" style="float:right">
 				<a class="navbar-brand text-color" href="#">اسم فامیل</a>
 			</div>
 			<div id="navbar" class="navbar-collapse collapse">
@@ -19,7 +20,7 @@
 					<span class="glyphicon glyphicon-home" aria-hidden="true"></span></a></li>
 					<li class="text-color"><a href="#">درباره‌ی ما <span class="glyphicon glyphicon-cloud" aria-hidden="true"></span></a></li>
 					<li class="text-color"><a href="#">ارتباط با ما <span class="glyphicon glyphicon-phone-alt" aria-hidden="true"></span></a></li>
-					<% !if user_signed_in?%>
+					<%if !user_signed_in?%>
 					<li class="text-color"><%= link_to("ثبت نام" , "/users/sign_up" )%></li>
 					<% end %>
 				</ul>
@@ -38,7 +39,7 @@
 
 	<div class="container-fluid">
 	<div class="row">
-		<div class="col-sm-2" style="background-color:#66C2C2">
+		<div class="col-sm-2" style="background-color:#66C2C2;float:right">
 			<% if user_signed_in? %>
 				<%= render :partial => 'layouts/logged_in_sidebar'%>
 			<% else %>
@@ -52,3 +53,7 @@
 	</div>
 </body>
 </html>
+
+
+
+

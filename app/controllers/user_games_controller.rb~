@@ -40,10 +40,19 @@ class UserGamesController < ApplicationController
 
     respond_to do |format|
       if @user_game.save
-        PrivatePub.publish_to("/user_games/new/private/#{@game.id}" , "alert('#{@user_game.user.nickname}');")
-        format.js
-        format.html { redirect_to @user_game, notice: 'User game was successfully created.' }
-        format.json { render action: 'show', status: :created, location: @user_game }
+        # PrivatePub.publish_to("/user_games/new/private/#{@game.id}" , "alert( 'کاربر ' +'#{@user_game.user.nickname}' + ' به بازی شما ملحق شد.');")
+        
+        # if @game.joined_players == @game.players_num
+        #   PrivatePub.publish_to("/start_game/#{@game.id}" , 'بازی شروع شد')
+        #   format.js
+        #   format.html { redirect_to {'/home/index'} }
+        #   format.json { render action: 'show', status: :created, location: @user_game }
+        # else
+          PrivatePub.publish_to("/user_games/new/private/#{@game.id}" , "alert( 'کاربر ' +'#{@user_game.user.nickname}' + ' به بازی شما ملحق شد.');")
+          format.js
+          format.html { redirect_to @user_game, notice: 'User game was successfully created.' }
+          format.json { render action: 'show', status: :created, location: @user_game }
+        #end
       else
         format.html { render action: 'new' }
         format.json { render json: @user_game.errors, status: :unprocessable_entity }
@@ -76,7 +85,8 @@ class UserGamesController < ApplicationController
     @game.save
 
 
-    respond_to do |format|      
+    respond_to do |format| 
+      PrivatePub.publish_to("/user_games/new/private/#{@game.id}" , "alert('کاربر '+'#{@user_game.user.nickname}' + ' از بازی شما خارج شد.');")        
       format.js
       format.html { redirect_to @game }
       format.json { head :no_content }
@@ -106,7 +116,7 @@ class UserGamesController < ApplicationController
     if (@user_game.round_number == @user_game.game.rounds_num)
       redirect_to :back
     else
-      redirect_to: games_path
+      redirect_to games_path
     end
   end
 

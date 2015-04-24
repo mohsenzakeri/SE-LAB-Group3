@@ -52,7 +52,7 @@ class UserGamesController < ApplicationController
           format.js
           format.html { redirect_to @user_game, notice: 'User game was successfully created.' }
           format.json { render action: 'show', status: :created, location: @user_game }
-        end
+        #end
       else
         format.html { render action: 'new' }
         format.json { render json: @user_game.errors, status: :unprocessable_entity }

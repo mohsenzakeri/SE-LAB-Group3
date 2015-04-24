@@ -1,17 +1,4 @@
-	<nav class="navbar navbar-default our-navbar" >
-			<div class="navbar-header">
-				<a class="navbar-brand text-color" href="#">اسم فامیل</a>
-			</div>
-			<div id="navbar" class="navbar-collapse collapse">
-				<ul class="nav navbar-nav" style="float:right">	
-					<li class="text-color">
-					<a href="/home/index"> خانه
-					<span class="glyphicon glyphicon-home" aria-hidden="true"></span></a></li>
-					<li class="text-color"><a href="#">درباره‌ی ما <span class="glyphicon glyphicon-cloud" aria-hidden="true"></span></a></li>
-					<li class="text-color"><a href="#">ارتباط با ما <span class="glyphicon glyphicon-phone-alt" aria-hidden="true"></span></a></li>
-				</ul>
-
-				<ul class="nav navbar-nav yekan" style="float:left">
+					<ul class="nav navbar-nav yekan" style="float:left;direction:rtl">
 					<li class="dropdown" id = "navdropdown">
 					  <a href="#" class="dropdown-toggle" data-toggle="dropdown">
 					 
@@ -34,8 +21,10 @@
 
 
 
-			</div>
 
-		</div>
-	</nav>	
-
+<% @current_user_games = UserGame.where(:user_id => current_user.id)%>
+	<% @current_user_games.each do |g|%>	
+	<% if g.game.joined_players == g.game.players_num %>
+		<%= subscribe_to "/start_game/#{g.game_id}" %>
+	<% end %>
+<% end %>

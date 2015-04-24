@@ -9,8 +9,8 @@
   <%= csrf_meta_tags %>
 </head>
 <body class='body-class '>
-	<nav class="navbar navbar-default our-navbar" >
-			<div class="navbar-header">
+	<nav class="navbar navbar-default our-navbar"  >
+			<div class="navbar-header" style="float:right">
 				<a class="navbar-brand text-color" href="#">اسم فامیل</a>
 			</div>
 			<div id="navbar" class="navbar-collapse collapse">
@@ -39,7 +39,7 @@
 
 	<div class="container-fluid">
 	<div class="row">
-		<div class="col-sm-2" style="background-color:#66C2C2">
+		<div class="col-sm-2" style="background-color:#66C2C2;float:right">
 			<% if user_signed_in? %>
 				<%= render :partial => 'layouts/logged_in_sidebar'%>
 			<% else %>
