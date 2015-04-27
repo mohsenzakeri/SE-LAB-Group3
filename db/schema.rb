@@ -49,14 +49,6 @@ ActiveRecord::Schema.define(version: 20150424174548) do
     t.datetime "updated_at"
   end
 
-  create_table "rounds", force: true do |t|
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.integer  "game_id"
-    t.integer  "gameround_id"
-    t.string   "alphabet"
-  end
-
   create_table "tests", force: true do |t|
     t.string   "test_name"
     t.datetime "created_at"
