@@ -71,5 +71,5 @@
 <% if @game.creator_id == current_user.id %>
   <%= subscribe_to "/user_games/new/private/#{@game.id}"  %>
 <% end %>
-<!%= link_to 'Back', games_path %>
+<% link_to 'Back', games_path %>
 
