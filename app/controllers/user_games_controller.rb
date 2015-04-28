@@ -52,6 +52,9 @@ class UserGamesController < ApplicationController
           format.js
           format.html { redirect_to @user_game, notice: 'User game was successfully created.' }
           format.json { render action: 'show', status: :created, location: @user_game }
+          if @game.joined_players == @game.players_num
+            PrivatePub.publish_to("/user_games/start_game/#{@game.id}" , "alert('hoyyyyy');")
+          end
         #end
       else
         format.html { render action: 'new' }

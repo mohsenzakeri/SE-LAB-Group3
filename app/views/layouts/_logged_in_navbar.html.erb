@@ -21,10 +21,7 @@
 
 
 
+<div id="started_game">
+	<%= render :partial => "user_games/start_game" %>
+</div>
 
-<% @current_user_games = UserGame.where(:user_id => current_user.id)%>
-	<% @current_user_games.each do |g|%>	
-	<% if g.game.joined_players == g.game.players_num %>
-		<%= subscribe_to "/start_game/#{g.game_id}" %>
-	<% end %>
-<% end %>
