@@ -10,33 +10,75 @@
       </ul>
     </div>
   <% end %>
-اسم
+
+  <div class="container-fluid" >
+<div class="row" style="margin:10px;background-color:#6712f3;border-radius:10px">
+  <div class="col-sm-4"><h4 style="color:white;float:right"> امتیاز بدست آمده: ۰</h4></div>
+  <div class="col-sm-4"><h4 style="color:white;float:right"> حرف این دور: 
+  <% @alphabets = ['الف' , 'ب' , '‍‍‍پ' , 'ت' , 'ث' , 'ج' , 'چ' , 'ح' , 'خ' , 'د' , 'ذ' , 'ر' , 'ز' , 'ژ' , 'س' , 'ش' , 'ص' ,  'ض' ,  'ط' , 'ظ' ,  'ع' , 'غ'  , 'ف'  , 'ق' , 'ک' , 'گ' , 'ال' , 'م' , 'ن' , 'و' , 'ه' , 'ی']%>
+  <%= @alphabets.sample %>
+  </h4></div>
+  <div class="col-sm-4"><h4 style="color:white;float:right">دور <%= @user_game.game_rounds.size+1 %> بازی</h4></div>
+</div>
+
+<div class="row" style="margin:10px;">
+<div class="col-sm-1">اسم</div>
 <%= f.text_field :firstname %><br>
-فامیل
+<div class="col-sm-1">فامیل</div>
 <%= f.text_field :lastname %><br>
-شهر
+<div class="col-sm-1">شهر</div>
 <%= f.text_field :city %><br>
-کشور
+<div class="col-sm-1">کشور</div>
 <%= f.text_field :country %><br>
-میوه
+<div class="col-sm-1">میوه</div>
 <%= f.text_field :fruit %><br>
-ماشین
+<div class="col-sm-1">ماشین</div>
 <%= f.text_field :car %><br>
-رنگ
+<div class="col-sm-1">رنگ</div>
 <%= f.text_field :color %><br>
-کار
+<div class="col-sm-1">کار</div>
 <%= f.text_field :job %><br>
-غذا
+<div class="col-sm-1">غذا</div>
 <%= f.text_field :food %><br>
-اشیا
+<div class="col-sm-1">اشیا</div>
 <%= f.text_field :thing %><br>
-حیوان
+<div class="col-sm-1">حیوان</div>
 <%= f.text_field :animal %><br>
-گل
+<div class="col-sm-1">گل</div>
 <%= f.text_field :flower %><br>
+
+<%= f.hidden_field :user_game_id, :value => @user_game.id%>
+<%= f.hidden_field :round_number, :value => @user_game.round_number%>
 
 
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit 'استوپ'%>
   </div>
 <% end %>
+
+<script>
+$(document).ready(function (){
+    validate();
+    $('#firstname, #lastname, #city, #country, #fruit, #car, #color, #job, #food, #thing, #animal, #flower').change(validate);
+});
+
+function validate(){
+    if ($('#firstname').val().length   >   0   &&
+        $('#lastname').val().length  >   0   &&
+        $('#city').val().length    >   0 &&
+  $('#country').val().length   >   0   &&
+        $('#fruit').val().length  >   0   &&
+        $('#car').val().length    >   0 &&
+  $('#color').val().length   >   0   &&
+        $('#job').val().length  >   0   &&
+        $('#food').val().length    >   0 &&
+  $('#thing').val().length   >   0   &&
+        $('#animal').val().length  >   0   &&
+        $('#flower').val().length    >   0) {
+        $("input[type=submit]").prop("disabled", false);
+    }
+    else {
+        $("input[type=submit]").prop("disabled", true);
+    }
+}
+</script>

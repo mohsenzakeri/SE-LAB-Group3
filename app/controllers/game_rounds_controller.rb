@@ -15,6 +15,9 @@ class GameRoundsController < ApplicationController
   # GET /game_rounds/new
   def new
     @game_round = GameRound.new
+    @user_game = UserGame.find(params[:usergameid])
+    @user_game.round_number = @user_game.game_rounds.size + 1;
+    @user_game.save;
   end
 
   # GET /game_rounds/1/edit
@@ -25,6 +28,10 @@ class GameRoundsController < ApplicationController
   # POST /game_rounds.json
   def create
     @game_round = GameRound.new(game_round_params)
+    
+    
+    
+    
 
     respond_to do |format|
       if @game_round.save
