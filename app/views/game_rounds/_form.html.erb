@@ -1,3 +1,6 @@
+<div class="clock"> <div>
+
+
 <%= form_for(@game_round) do |f| %>
   <% if @game_round.errors.any? %>
     <div id="error_explanation">
@@ -18,34 +21,34 @@
   <% @alphabets = ['الف' , 'ب' , '‍‍‍پ' , 'ت' , 'ث' , 'ج' , 'چ' , 'ح' , 'خ' , 'د' , 'ذ' , 'ر' , 'ز' , 'ژ' , 'س' , 'ش' , 'ص' ,  'ض' ,  'ط' , 'ظ' ,  'ع' , 'غ'  , 'ف'  , 'ق' , 'ک' , 'گ' , 'ال' , 'م' , 'ن' , 'و' , 'ه' , 'ی']%>
   <%= @alphabets.sample %>
   </h4></div>
-  <div class="col-sm-4"><h4 style="color:white;float:right">دور <%= @user_game.game_rounds.size+1 %> بازی</h4></div>
+  <div class="col-sm-4"><h4 style="color:white;float:right">دور <%= @user_game.game_rounds.count+1 %> بازی</h4></div>
 </div>
 
 <div class="row" style="margin:10px;">
 <div class="col-sm-1">اسم</div>
-<%= f.text_field :firstname %><br>
+<%= f.text_field :firstname , :id=>"firstname" %><br>
 <div class="col-sm-1">فامیل</div>
-<%= f.text_field :lastname %><br>
-<div class="col-sm-1">شهر</div>
-<%= f.text_field :city %><br>
-<div class="col-sm-1">کشور</div>
-<%= f.text_field :country %><br>
-<div class="col-sm-1">میوه</div>
-<%= f.text_field :fruit %><br>
+<%= f.text_field :lastname ,  :id=>"lastname" %><br>
+<div class="col-sm-1" >شهر</div>
+<%= f.text_field :city ,  :id=>"city" %><br>
+<div class="col-sm-1" >کشور</div>
+<%= f.text_field :country ,  :id=>"country" %><br>
+<div class="col-sm-1" >میوه</div>
+<%= f.text_field :fruit ,  :id=>"fruit" %><br>
 <div class="col-sm-1">ماشین</div>
-<%= f.text_field :car %><br>
+<%= f.text_field :car ,  :id=>"car" %><br>
 <div class="col-sm-1">رنگ</div>
-<%= f.text_field :color %><br>
+<%= f.text_field :color ,  :id=>"color" %><br>
 <div class="col-sm-1">کار</div>
-<%= f.text_field :job %><br>
+<%= f.text_field :job ,  :id=>"job" %><br>
 <div class="col-sm-1">غذا</div>
-<%= f.text_field :food %><br>
+<%= f.text_field :food ,  :id=>"food" %><br>
 <div class="col-sm-1">اشیا</div>
-<%= f.text_field :thing %><br>
+<%= f.text_field :thing ,  :id=>"thing" %><br>
 <div class="col-sm-1">حیوان</div>
-<%= f.text_field :animal %><br>
+<%= f.text_field :animal ,  :id=>"animal" %><br>
 <div class="col-sm-1">گل</div>
-<%= f.text_field :flower %><br>
+<%= f.text_field :flower ,  :id=>"flower"%><br>
 
 <%= f.hidden_field :user_game_id, :value => @user_game.id%>
 <%= f.hidden_field :round_number, :value => @user_game.round_number%>
@@ -56,7 +59,7 @@
   </div>
 <% end %>
 
-<script>
+<script type="text/javascript">
 $(document).ready(function (){
     validate();
     $('#firstname, #lastname, #city, #country, #fruit, #car, #color, #job, #food, #thing, #animal, #flower').change(validate);
@@ -81,4 +84,18 @@ function validate(){
         $("input[type=submit]").prop("disabled", true);
     }
 }
+
+var clock = jQuery('.clock').FlipClock(3600, {
+	autoStart: true,
+	countdown: true,
+	clockFace: 'MinuteCounter',
+	callbacks: {
+		stop: function() { 
+			alert("s");
+		}
+	}
+	}	
+);
+
 </script>
+

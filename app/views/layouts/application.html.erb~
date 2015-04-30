@@ -3,9 +3,19 @@
 <head>
   <title>اسم فامیل</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
   
-  <%= javascript_include_tag "application", "calendar","jquery.min.js","ourjs.js","js/bootstrap.min.js", "jquery.Bootstrap-PersianDateTimePicker", "data-turbolinks-track" => true %>
+  <%= javascript_include_tag "application", "calendar","jquery.min","jquery-1.10.1.min","ourjs.js","bootstrap.min.js", "jquery.Bootstrap-PersianDateTimePicker", "flipclock.min", "flipclock", "data-turbolinks-track" => true %>
+
+  <%= stylesheet_link_tag    "application","flipclock", media: "all", "data-turbolinks-track" => true %>
+
+<script src="jquery-1.10.1.min.js"></script>
+
+<!script src="/flipclock/src/flipclock/js/libs/base.js"></script>
+
+<script src="flipclock.min.js"></script>
+<link href="flipclock.css" rel="stylesheet">
+
+
   <%= csrf_meta_tags %>
 </head>
 <body class='body-class '>

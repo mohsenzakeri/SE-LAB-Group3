@@ -1,3 +1,6 @@
+<div class="clock"> <div>
+
+
 <%= form_for(@game_round) do |f| %>
   <% if @game_round.errors.any? %>
     <div id="error_explanation">
@@ -11,21 +14,88 @@
     </div>
   <% end %>
 
-<%= f.text_field :firstname %>
-<%= f.text_field :lastname %>
-<%= f.text_field :city %>
-<%= f.text_field :country %>
-<%= f.text_field :fruit %>
-<%= f.text_field :car %>
-<%= f.text_field :color %>
-<%= f.text_field :job %>
-<%= f.text_field :food %>
-<%= f.text_field :thing %>
-<%= f.text_field :animal %>
-<%= f.text_field :flower %>
+  <div class="container-fluid" >
+<div class="row" style="margin:10px;background-color:#6712f3;border-radius:10px">
+  <div class="col-sm-4"><h4 style="color:white;float:right"> امتیاز بدست آمده: ۰</h4></div>
+  <div class="col-sm-4"><h4 style="color:white;float:right"> حرف این دور: 
+  <% @alphabets = ['الف' , 'ب' , '‍‍‍پ' , 'ت' , 'ث' , 'ج' , 'چ' , 'ح' , 'خ' , 'د' , 'ذ' , 'ر' , 'ز' , 'ژ' , 'س' , 'ش' , 'ص' ,  'ض' ,  'ط' , 'ظ' ,  'ع' , 'غ'  , 'ف'  , 'ق' , 'ک' , 'گ' , 'ال' , 'م' , 'ن' , 'و' , 'ه' , 'ی']%>
+  <%= @alphabets.sample %>
+  </h4></div>
+  <div class="col-sm-4"><h4 style="color:white;float:right">دور <%= @user_game.game_rounds.count+1 %> بازی</h4></div>
+</div>
+
+<div class="row" style="margin:10px;">
+<div class="col-sm-1">اسم</div>
+<%= f.text_field :firstname , :id=>"firstname" %><br>
+<div class="col-sm-1">فامیل</div>
+<%= f.text_field :lastname ,  :id=>"lastname" %><br>
+<div class="col-sm-1" >شهر</div>
+<%= f.text_field :city ,  :id=>"city" %><br>
+<div class="col-sm-1" >کشور</div>
+<%= f.text_field :country ,  :id=>"country" %><br>
+<div class="col-sm-1" >میوه</div>
+<%= f.text_field :fruit ,  :id=>"fruit" %><br>
+<div class="col-sm-1">ماشین</div>
+<%= f.text_field :car ,  :id=>"car" %><br>
+<div class="col-sm-1">رنگ</div>
+<%= f.text_field :color ,  :id=>"color" %><br>
+<div class="col-sm-1">کار</div>
+<%= f.text_field :job ,  :id=>"job" %><br>
+<div class="col-sm-1">غذا</div>
+<%= f.text_field :food ,  :id=>"food" %><br>
+<div class="col-sm-1">اشیا</div>
+<%= f.text_field :thing ,  :id=>"thing" %><br>
+<div class="col-sm-1">حیوان</div>
+<%= f.text_field :animal ,  :id=>"animal" %><br>
+<div class="col-sm-1">گل</div>
+<%= f.text_field :flower ,  :id=>"flower"%><br>
+
+<%= f.hidden_field :user_game_id, :value => @user_game.id%>
+<%= f.hidden_field :round_number, :value => @user_game.round_number%>
 
 
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit 'استوپ'%>
   </div>
 <% end %>
+
+<script type="text/javascript">
+$(document).ready(function (){
+    validate();
+    $('#firstname, #lastname, #city, #country, #fruit, #car, #color, #job, #food, #thing, #animal, #flower').change(validate);
+});
+
+function validate(){
+    if ($('#firstname').val().length   >   0   &&
+        $('#lastname').val().length  >   0   &&
+        $('#city').val().length    >   0 &&
+  $('#country').val().length   >   0   &&
+        $('#fruit').val().length  >   0   &&
+        $('#car').val().length    >   0 &&
+  $('#color').val().length   >   0   &&
+        $('#job').val().length  >   0   &&
+        $('#food').val().length    >   0 &&
+  $('#thing').val().length   >   0   &&
+        $('#animal').val().length  >   0   &&
+        $('#flower').val().length    >   0) {
+        $("input[type=submit]").prop("disabled", false);
+    }
+    else {
+        $("input[type=submit]").prop("disabled", true);
+    }
+}
+
+var clock = $(".clock").FlipClock(3600, {
+	autoStart: true,
+	countdown: true,
+	clockFace: 'MinuteCounter',
+	callbacks: {
+		stop: function() { 
+			alert("s");
+		}
+	}
+	}	
+);
+
+</script>
+

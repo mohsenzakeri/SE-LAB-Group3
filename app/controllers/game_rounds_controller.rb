@@ -16,7 +16,7 @@ class GameRoundsController < ApplicationController
   def new
     @game_round = GameRound.new
     @user_game = UserGame.find(params[:usergameid])
-    @user_game.round_number = @user_game.game_rounds.size + 1;
+    @user_game.round_number = @user_game.game_rounds.count + 1;
     @user_game.save;
   end
 
