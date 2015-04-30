@@ -50,11 +50,18 @@ class UserGamesController < ApplicationController
         # else
           PrivatePub.publish_to("/user_games/new/private/#{@game.id}" , "alert( 'کاربر ' +'#{@user_game.user.nickname}' + ' به بازی شما ملحق شد.');")
           format.js
-          format.html { redirect_to @user_game, notice: 'User game was successfully created.' }
-          format.json { render action: 'show', status: :created, location: @user_game }
-          if @game.joined_players == @game.players_num
-            PrivatePub.publish_to("/user_games/start_game/#{@game.id}" , "alert('hoyyyyy');")
+          if @game.joined_players = @game.players_num
+            PrivatePub.publish_to("/user_games/start_game/#{@game.id}" , "window.location.replace('/home');")
+            format.html { redirect_to home_path, alert: 'User game was successfully created.' }
+          else
+            format.html { redirect_to @user_game, notice: 'User game was successfully created.' }
           end
+          format.json { render action: 'show', status: :created, location: @user_game }
+          # if @game.joined_players == @game.players_num
+          #   PrivatePub.publish_to("/user_games/start_game/#{@game.id}" , "window.location.replace('/home');")
+          #   redirect_to home_path
+          #   # byebug
+          # end
         #end
       else
         format.html { render action: 'new' }

@@ -11,7 +11,7 @@ $("#joined").html("<%= j render(:partial => 'user_games/joined_players_name' , :
 	$("#joined").html("<%= j render(:partial => 'user_games/joined_players_name' , :object => @game) %>");
 <%end%>	
 
-<%publish_to "/user_games/start_game/#{@game.id}" do%>
+<% publish_to "/user_games/start_game/#{@game.id}" do %>
 	$("#started_game").html("<%= escape_javascript(render(:partial => 'user_games/start_game'))%>")
 <%end%>
 
