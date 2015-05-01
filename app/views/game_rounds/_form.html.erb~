@@ -60,7 +60,8 @@
 
 <div class="clock"> <div>
 
-<script type="text/javascript">
+<script >
+
 $(document).ready(function (){
     validate();
     $('#firstname, #lastname, #city, #country, #fruit, #car, #color, #job, #food, #thing, #animal, #flower').change(validate);
@@ -85,18 +86,6 @@ function validate(){
         $("input[type=submit]").prop("disabled", true);
     }
 }
-
-var clock = jQuery('.clock').FlipClock(10, {
-	autoStart: true,
-	countdown: true,
-	clockFace: 'MinuteCounter',
-	callbacks: {
-		stop: function() { 
-			alert("s");
-		}
-	}
-	}	
-);
 
 </script>
 

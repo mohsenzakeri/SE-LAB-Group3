@@ -1,10 +1,10 @@
 <h2 style="color:#1F3A3A">تمام بازی‌ها را می‌توانید در این صفحه ببینید</h2>
 
 <div class="row" style="margin:20px;padding:10px;background-color:#478888;color:white;border-radius: 20px;">
-<div class="col-sm-2" style="text-align:center">ایجادکننده‌ی بازی</div>
-<div class="col-sm-2" style="text-align:center">تعداد بازیکنان مجاز</div>
-<div class="col-sm-2" style="text-align:center">تعداد دورهای بازی</div>
 <div class="col-sm-2" style="text-align:center">تعداد ملحق‌شدگان به بازی</div>
+<div class="col-sm-2" style="text-align:center">تعداد دورهای بازی</div>
+<div class="col-sm-2" style="text-align:center">تعداد بازیکنان مجاز</div>
+<div class="col-sm-2" style="text-align:center">ایجادکننده‌ی بازی</div>
 <div class="col-sm-2"></div>
 <div class="col-sm-2"></div>
 </div>
@@ -15,28 +15,43 @@
 <% @game = game %>
 
 <div class="row" style="margin:20px;padding:10px;background-color:#85CECE;border-radius: 20px;">
-<div class="col-sm-2"style="text-align:center"><%= creator.firstname %> <%= creator.lastname %></div>
-<div class="col-sm-2" style="text-align:center"><%=game.players_num %></div>
-<div class="col-sm-2" style="text-align:center"><%=game.rounds_num %></div>
-<div class="col-sm-2" style="text-align:center">
-	<div id="joinednumber<%= game.id%>">
-	<%= render :partial => "user_games/joins" , :object => @game %>
-	</div>
-</div>
-<% if @game.players_num !=  @game.user_games.count %>
-	<div class="col-sm-2" style="text-align:center"><%= link_to 'نمایش اطلاعات بازی', game %></div>
-<%elsif UserGame.where(:game_id => game.id , :user_id => current_user.id).first != nil %>
-	<div class="col-sm-2" style="text-align:center">
-		<%= link_to 'شروع بازی', user_game_path(UserGame.where(:game_id => game.id , :user_id => current_user.id).first) %>
-	</div>
-<%end%>
 
 
 <div class="col-sm-2" style="text-align:center"><%if  @game.creator_id == current_user.id %><%= link_to 'ویرایش', edit_game_path(game) %><%end%>
 <%if  @game.creator_id == current_user.id %><%= link_to 'حذف', game, method: :delete, data: { confirm: 'آیا اطمینان دارید؟' } %><%end%>
 </div>
+
+<% if @game.players_num !=  @game.user_games.count %>
+	<div class="col-sm-2" style="text-align:center"><%= link_to 'نمایش اطلاعات بازی', game %></div>
+<%elsif UserGame.where(:game_id => game.id , :user_id => current_user.id).first != nil %>
+	<div class="col-sm-2" style="text-align:center">
+	<%= link_to 'شروع بازی', new_game_round_path(:usergameid => UserGame.where(:game_id => game.id , :user_id => current_user.id).first.id) %>
+	</div>
+<%elsif UserGame.where(:game_id => game.id , :user_id => current_user.id).first == nil %>
+	<div class="col-sm-2" style="text-align:center">
+	<%= 'بازی به حد نصاب رسیده است.' %>
+	</div>
+<%end%>
+
+
+<div class="col-sm-2" style="text-align:center">
+	<div id="joinednumber<%= game.id%>">
+	<%= render :partial => "user_games/joins" , :object => @game %>
+	</div>
+</div>
+<div class="col-sm-2" style="text-align:center"><%=game.rounds_num %></div>
+<div class="col-sm-2" style="text-align:center"><%=game.players_num %></div>
+<div class="col-sm-2"style="text-align:center"><%= creator.firstname %> <%= creator.lastname %></div>
 </div>
 
+<% end %>
+
+
+
+<!-- CHANGE HERE -->
+<% @current_user_games = @games.where(:creator_id => current_user.id)%>
+<% @current_user_games.each do |g| %>
+	<%= subscribe_to "/user_games/new/private/#{g.id}" %>
 <% end %>
 
 
