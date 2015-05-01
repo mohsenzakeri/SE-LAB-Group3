@@ -26,10 +26,10 @@ var clock = jQuery('.clock').FlipClock(3, {
 	callbacks: {
 		stop: function() { 
 			alert("s");
-			a=2;
+			a= <%= params[:id]%>;
 			// bayad id e user_game ro peida konim ye tori ke nemidoonam:(
 
-			window.location.replace("/game_rounds/new?usergameid=#{a}");
+			window.location.replace("/game_rounds/new?usergameid=" + a);
 		}
 	}
 	}	
