@@ -15,7 +15,8 @@ class GameRoundsController < ApplicationController
   # GET /game_rounds/new
   def new
     @game_round = GameRound.new
-    @user_game = UserGame.find(params[:usergameid])
+    @user_game = UserGame.where(:game=>Game.find(params[:gameid]), :user=>current_user).first
+    @game_alphabet = GameAlphabet.where(:game=>Game.find(params[:gameid]),:round_number=>@user_game.game_rounds.count+1).first
     @user_game.round_number = @user_game.game_rounds.count + 1;
     @user_game.save;
   end

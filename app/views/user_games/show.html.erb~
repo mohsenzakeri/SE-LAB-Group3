@@ -19,15 +19,16 @@
 
 <script type="text/javascript">
 
-var clock = jQuery('.clock').FlipClock(3, {
+var clock = jQuery('.clock').FlipClock(7, {
 	autoStart: true,
 	countdown: true,
 	clockFace: 'MinuteCounter',
 	callbacks: {
 		stop: function() { 
-			alert("s");
-			a=2;
-			window.location.replace("/game_rounds/new?usergameid=#{a}");
+			game_id = <%= UserGame.find(params[:id]).game.id  %>;
+			// bayad id e user_game ro peida konim ye tori ke nemidoonam:(
+
+			window.location.replace("/game_rounds/new?gameid=" + game_id);
 		}
 	}
 	}	

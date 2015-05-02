@@ -1,5 +1,4 @@
 
-
 <%= form_for(@game_round) do |f| %>
   <% if @game_round.errors.any? %>
     <div id="error_explanation">
@@ -17,48 +16,65 @@
 <div class="row" style="margin:10px;background-color:#6712f3;border-radius:10px">
   <div class="col-sm-4"><h4 style="color:white;float:right"> امتیاز بدست آمده: ۰</h4></div>
   <div class="col-sm-4"><h4 style="color:white;float:right"> حرف این دور: 
-  <% @alphabets = ['الف' , 'ب' , '‍‍‍پ' , 'ت' , 'ث' , 'ج' , 'چ' , 'ح' , 'خ' , 'د' , 'ذ' , 'ر' , 'ز' , 'ژ' , 'س' , 'ش' , 'ص' ,  'ض' ,  'ط' , 'ظ' ,  'ع' , 'غ'  , 'ف'  , 'ق' , 'ک' , 'گ' , 'ال' , 'م' , 'ن' , 'و' , 'ه' , 'ی']%>
-  <%= @alphabets.sample %>
+  <%= @game_alphabet.alphabet %>
   </h4></div>
   <div class="col-sm-4"><h4 style="color:white;float:right">دور <%= @user_game.game_rounds.count+1 %> بازی</h4></div>
 </div>
 
 <div class="row" style="margin:10px;">
-<div class="col-sm-1">اسم</div>
-<%= f.text_field :firstname , :id=>"firstname" %><br>
-<div class="col-sm-1">فامیل</div>
-<%= f.text_field :lastname ,  :id=>"lastname" %><br>
+<div class="col-sm-3"><%= f.text_field :city ,  :id=>"city" %></div>
 <div class="col-sm-1" >شهر</div>
-<%= f.text_field :city ,  :id=>"city" %><br>
-<div class="col-sm-1" >کشور</div>
-<%= f.text_field :country ,  :id=>"country" %><br>
-<div class="col-sm-1" >میوه</div>
-<%= f.text_field :fruit ,  :id=>"fruit" %><br>
+<div class="col-sm-3"><%= f.text_field :lastname ,  :id=>"lastname" %></div>
+<div class="col-sm-1">فامیل</div>
+<div class="col-sm-3"><%= f.text_field :firstname , :id=>"firstname" %></div>
+<div class="col-sm-1">اسم</div>
+</div>
+
+<div class="row" style="margin:10px;">
+<div class="col-sm-3"><%= f.text_field :car ,  :id=>"car" %></div>
 <div class="col-sm-1">ماشین</div>
-<%= f.text_field :car ,  :id=>"car" %><br>
-<div class="col-sm-1">رنگ</div>
-<%= f.text_field :color ,  :id=>"color" %><br>
-<div class="col-sm-1">کار</div>
-<%= f.text_field :job ,  :id=>"job" %><br>
+<div class="col-sm-3"><%= f.text_field :fruit ,  :id=>"fruit" %></div>
+<div class="col-sm-1" >میوه</div>
+<div class="col-sm-3"><%= f.text_field :country ,  :id=>"country" %></div>
+<div class="col-sm-1" >کشور</div>
+</div>
+
+<div class="row" style="margin:10px;">
+<div class="col-sm-3"><%= f.text_field :food ,  :id=>"food" %></div>
 <div class="col-sm-1">غذا</div>
-<%= f.text_field :food ,  :id=>"food" %><br>
-<div class="col-sm-1">اشیا</div>
-<%= f.text_field :thing ,  :id=>"thing" %><br>
-<div class="col-sm-1">حیوان</div>
-<%= f.text_field :animal ,  :id=>"animal" %><br>
+<div class="col-sm-3"><%= f.text_field :job ,  :id=>"job" %></div>
+<div class="col-sm-1">کار</div>
+<div class="col-sm-3"><%= f.text_field :color ,  :id=>"color" %></div>
+<div class="col-sm-1">رنگ</div>
+</div>
+
+<div class="row" style="margin:10px;">
+<div class="col-sm-3"><%= f.text_field :food ,  :id=>"food" %></div>
 <div class="col-sm-1">گل</div>
-<%= f.text_field :flower ,  :id=>"flower"%><br>
+<div class="col-sm-3"><%= f.text_field :animal ,  :id=>"animal" %></div>
+<div class="col-sm-1">حیوان</div>
+<div class="col-sm-3"><%= f.text_field :thing ,  :id=>"thing" %></div>
+<div class="col-sm-1">اشیا</div>
+</div>
+
+<div class="row" style="margin:10px">
+<div class="col-sm-3">
+  <div class="actions">
+    <%= f.submit 'استوپ'%>
+  </div>
+</div>
+<div class="col-sm-9"></div>
+</div>
+
+
 
 <%= f.hidden_field :user_game_id, :value => @user_game.id%>
 <%= f.hidden_field :round_number, :value => @user_game.round_number%>
 
 
-  <div class="actions">
-    <%= f.submit 'استوپ'%>
-  </div>
+
 <% end %>
 
-<div class="clock"> <div>
 
 <script >
 

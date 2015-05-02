@@ -25,7 +25,8 @@
 	<div class="col-sm-2" style="text-align:center"><%= link_to 'نمایش اطلاعات بازی', game %></div>
 <%elsif UserGame.where(:game_id => game.id , :user_id => current_user.id).first != nil %>
 	<div class="col-sm-2" style="text-align:center">
-	<%= link_to 'شروع بازی', new_game_round_path(:usergameid => UserGame.where(:game_id => game.id , :user_id => current_user.id).first.id) %>
+	<!-- %= link_to 'شروع بازی', new_game_round_path(:usergameid => UserGame.where(:game_id => game.id , :user_id => current_user.id).first.id) % -->
+	<%= link_to 'شروع بازی', new_game_round_path(:gameid => UserGame.where(:game_id => game.id , :user_id => current_user.id).first.id) %>
 	</div>
 <%elsif UserGame.where(:game_id => game.id , :user_id => current_user.id).first == nil %>
 	<div class="col-sm-2" style="text-align:center">
@@ -33,12 +34,12 @@
 	</div>
 <%end%>
 
-
 <div class="col-sm-2" style="text-align:center">
 	<div id="joinednumber<%= game.id%>">
 	<%= render :partial => "user_games/joins" , :object => @game %>
 	</div>
 </div>
+
 <div class="col-sm-2" style="text-align:center"><%=game.rounds_num %></div>
 <div class="col-sm-2" style="text-align:center"><%=game.players_num %></div>
 <div class="col-sm-2"style="text-align:center"><%= creator.firstname %> <%= creator.lastname %></div>

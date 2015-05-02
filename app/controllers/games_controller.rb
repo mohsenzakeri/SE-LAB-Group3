@@ -52,10 +52,13 @@ class GamesController < ApplicationController
       end
     end
     UserGame.create_user_game(current_user,@game)
-    for i in 1..@game.rounds_num
+    	#@alphabets = ['s','y','z','a','b']
     	@alphabets = ['الف' , 'ب' , '‍‍‍پ' , 'ت' , 'ث' , 'ج' , 'چ' , 'ح' , 'خ' , 'د' , 'ذ' , 'ر' , 'ز' , 'ژ' , 'س' , 'ش' , 'ص' ,  'ض' ,  'ط' , 'ظ' ,  'ع' , 'غ'  , 'ف'  , 'ق' , 'ک' , 'گ' , 'ال' , 'م' , 'ن' , 'و' , 'ه' , 'ی']
-#	GameAlphabet.new_game_alphabet(@game.id,i,@alphabets.sample)
-	GameAlphabet.new_game_alphabet(@game.id,i,"s")
+#	
+    for i in 1..@game.rounds_num
+	@selected_letter = @alphabets.sample
+	@alphabets.delete(@selected_letter)
+	GameAlphabet.new_game_alphabet(@game.id,i,@selected_letter)
     end
   end
 

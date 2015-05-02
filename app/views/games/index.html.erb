@@ -25,7 +25,8 @@
 	<div class="col-sm-2" style="text-align:center"><%= link_to 'نمایش اطلاعات بازی', game %></div>
 <%elsif UserGame.where(:game_id => game.id , :user_id => current_user.id).first != nil %>
 	<div class="col-sm-2" style="text-align:center">
-	<%= link_to 'شروع بازی', new_game_round_path(:usergameid => UserGame.where(:game_id => game.id , :user_id => current_user.id).first.id) %>
+	<!-- %= link_to 'شروع بازی', new_game_round_path(:usergameid => UserGame.where(:game_id => game.id , :user_id => current_user.id).first.id) % -->
+	<%= link_to 'شروع بازی', new_game_round_path(:gameid => game.id ) %>
 	</div>
 <%elsif UserGame.where(:game_id => game.id , :user_id => current_user.id).first == nil %>
 	<div class="col-sm-2" style="text-align:center">
