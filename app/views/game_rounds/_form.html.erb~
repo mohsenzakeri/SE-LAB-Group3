@@ -1,5 +1,5 @@
 
-<%= form_for(@game_round) do |f| %>
+<%= form_for(@game_round, :id => "playgame_form") do |f| %>
   <% if @game_round.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@game_round.errors.count, "error") %> prohibited this game_round from being saved:</h2>
@@ -49,7 +49,7 @@
 </div>
 
 <div class="row" style="margin:10px;">
-<div class="col-sm-3"><%= f.text_field :food ,  :id=>"food" %></div>
+<div class="col-sm-3"><%= f.text_field :flower ,  :id=>"flower" %></div>
 <div class="col-sm-1">گل</div>
 <div class="col-sm-3"><%= f.text_field :animal ,  :id=>"animal" %></div>
 <div class="col-sm-1">حیوان</div>
@@ -57,26 +57,26 @@
 <div class="col-sm-1">اشیا</div>
 </div>
 
+<%= f.hidden_field :user_game_id, :value => @user_game.id%>
+<%= f.hidden_field :round_number, :value => @user_game.round_number%>
+
+
 <div class="row" style="margin:10px">
 <div class="col-sm-3">
-  <div class="actions">
-    <%= f.submit 'استوپ'%>
-  </div>
-</div>
+<!-- %= f.submit "استوپ" , :id=>"stop_game" % -->
+<!-- input type="submit" value="استوپ" name="commit" id="stop_game">
+</input -->
+
 <div class="col-sm-9"></div>
 </div>
 
-
-
-<%= f.hidden_field :user_game_id, :value => @user_game.id%>
-<%= f.hidden_field :round_number, :value => @user_game.round_number%>
 
 
 
 <% end %>
 
 
-<script >
+<script type="text/javascript">
 
 $(document).ready(function (){
     validate();
@@ -84,24 +84,40 @@ $(document).ready(function (){
 });
 
 function validate(){
-    if ($('#firstname').val().length   >   0   &&
-        $('#lastname').val().length  >   0   &&
-        $('#city').val().length    >   0 &&
-  $('#country').val().length   >   0   &&
-        $('#fruit').val().length  >   0   &&
-        $('#car').val().length    >   0 &&
-  $('#color').val().length   >   0   &&
-        $('#job').val().length  >   0   &&
-        $('#food').val().length    >   0 &&
-  $('#thing').val().length   >   0   &&
-        $('#animal').val().length  >   0   &&
-        $('#flower').val().length    >   0) {
-        $("input[type=submit]").prop("disabled", false);
+    if (jQuery('#firstname').val().length   >   0   &&
+        jQuery('#lastname').val().length  >   0   &&
+        jQuery('#city').val().length    >   0 &&
+  	jQuery('#country').val().length   >   0   &&
+        jQuery('#fruit').val().length  >   0   &&
+        jQuery('#car').val().length    >   0 &&
+  	jQuery('#color').val().length   >   0   &&
+        jQuery('#job').val().length  >   0   &&
+        jQuery('#food').val().length    >   0 &&
+  	jQuery('#thing').val().length   >   0   &&
+        jQuery('#animal').val().length  >   0   &&
+        jQuery('#flower').val().length    >   0) {
+        jQuery("input[type=submit]").prop("disabled", false);
     }
     else {
         $("input[type=submit]").prop("disabled", true);
     }
 }
 
+var clock = jQuery('.clock').FlipClock(7, {
+	autoStart: true,
+	countdown: true,
+	clockFace: 'MinuteCounter',
+	callbacks: {
+		stop: function() { 
+		}
+	}
+	}	
+);
+
+
 </script>
 
+
+
+
+<%= subscribe_to "/user_games/stop_game/#{@user_game.game_id}"%>

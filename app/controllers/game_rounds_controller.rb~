@@ -16,7 +16,7 @@ class GameRoundsController < ApplicationController
   def new
     @game_round = GameRound.new
     @user_game = UserGame.where(:game=>Game.find(params[:gameid]), :user=>current_user).first
-    @game_alphabet = GameAlphabet.find(GameAlphabet.where(:game=>Game.find(params[:gameid]),:round_number=>@user_game.game_rounds.count+1)
+    @game_alphabet = GameAlphabet.where(:game=>Game.find(params[:gameid]),:round_number=>@user_game.game_rounds.count+1).first
     @user_game.round_number = @user_game.game_rounds.count + 1;
     @user_game.save;
   end
@@ -32,10 +32,13 @@ class GameRoundsController < ApplicationController
     
     
     
+#        PrivatePub.publish_to("/user_games/stop_game/#{@game_round.user_game.game_id}" , "$('#stop_game').click(function(){ $('#playgame_form').attr('data-remote',true)}); $('#stop_game').click(); game_id=#{@game_round.user_game.game_id}; ")
     
 
     respond_to do |format|
       if @game_round.save
+       PrivatePub.publish_to("/user_games/stop_game/#{@game_round.user_game.game_id}" , "$('#stop_game').click(); game_id={@game_round.user_game.game_id}; alert(game_id);")
+
         format.html { redirect_to @game_round, notice: 'Game round was successfully created.' }
         format.json { render action: 'show', status: :created, location: @game_round }
       else

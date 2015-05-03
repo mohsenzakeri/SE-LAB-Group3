@@ -63,8 +63,9 @@
 
 <div class="row" style="margin:10px">
 <div class="col-sm-3">
+<!-- %= f.submit "استوپ" , :id=>"stop_game" % -->
 <input type="submit" value="استوپ" name="commit" id="stop_game">
-      </input>
+</input>
 
 <div class="col-sm-9"></div>
 </div>
@@ -75,7 +76,7 @@
 <% end %>
 
 
-<script >
+<script type="text/javascript">
 
 $(document).ready(function (){
     validate();
@@ -102,6 +103,21 @@ function validate(){
     }
 }
 
+var clock = jQuery('.clock').FlipClock(7, {
+	autoStart: true,
+	countdown: true,
+	clockFace: 'MinuteCounter',
+	callbacks: {
+		stop: function() { 
+		}
+	}
+	}	
+);
+
+
 </script>
+
+
+
 
 <%= subscribe_to "/user_games/stop_game/#{@user_game.game_id}"%>
