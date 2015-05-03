@@ -1,7 +1,7 @@
 				<ul class="nav navbar-nav yekan" style="float:left">
 					<li class="dropdown" id = "navdropdown">
 					  <a href="#" class="dropdown-toggle" data-toggle="dropdown" style="color:white">
-						ورود به همیار <span class="glyphicon glyphicon-pencil"></span><b class="caret"></b></a>
+						ورود به اسم‌فامیل <span class="glyphicon glyphicon-pencil"></span><b class="caret"></b></a>
 						<div class="dropdown-menu" style="width:300px;background-color:#A3C2FF;padding:10px;">
 						<%= form_for(:user, :url => session_path(:user)) do |f|%>
 							<%= f.text_field :email , :placeholder => "ایمیل", :class=>"form-control" %>

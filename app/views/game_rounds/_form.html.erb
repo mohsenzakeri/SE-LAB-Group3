@@ -49,7 +49,7 @@
 </div>
 
 <div class="row" style="margin:10px;">
-<div class="col-sm-3"><%= f.text_field :food ,  :id=>"food" %></div>
+<div class="col-sm-3"><%= f.text_field :flower ,  :id=>"flower" %></div>
 <div class="col-sm-1">گل</div>
 <div class="col-sm-3"><%= f.text_field :animal ,  :id=>"animal" %></div>
 <div class="col-sm-1">حیوان</div>
@@ -57,19 +57,19 @@
 <div class="col-sm-1">اشیا</div>
 </div>
 
+<%= f.hidden_field :user_game_id, :value => @user_game.id%>
+<%= f.hidden_field :round_number, :value => @user_game.round_number%>
+
+
 <div class="row" style="margin:10px">
 <div class="col-sm-3">
-  <div class="actions">
-    <%= f.submit 'استوپ'%>
+ <div class="actions">
+    <%= f.submit 'استوپ', :id =>"stop_game%>
   </div>
-</div>
+
 <div class="col-sm-9"></div>
 </div>
 
-
-
-<%= f.hidden_field :user_game_id, :value => @user_game.id%>
-<%= f.hidden_field :round_number, :value => @user_game.round_number%>
 
 
 
@@ -105,3 +105,4 @@ function validate(){
 
 </script>
 
+<%= subscribe_to "/user_games/stop_game/#{@user_game.game_id}"%>
