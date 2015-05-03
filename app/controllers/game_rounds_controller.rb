@@ -36,7 +36,7 @@ class GameRoundsController < ApplicationController
 
     respond_to do |format|
       if @game_round.save
-        PrivatePub.publish_to("/user_games/stop_game/#{@game_round.user_game.game_id}" , "window.location.replace('/games');")
+        PrivatePub.publish_to("/user_games/stop_game/#{@game_round.user_game.game_id}" , "$('input').click(function(){ $('#playgame_form').attr('data-remote',true)}); $('#stop_game').click();")
         format.html { redirect_to @game_round, notice: 'Game round was successfully created.' }
         format.json { render action: 'show', status: :created, location: @game_round }
       else
