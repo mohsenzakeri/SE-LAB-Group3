@@ -7,7 +7,8 @@
 						<% else %>
 						<%= current_user.firstname + " " + current_user.lastname %>
 						<% end %>
-						<span class="glyphicon glyphicon-pencil"></span><b class="caret"></b></a>
+						<span aria-hidden="true"><%= image_tag "Student-3.svg" , :class=>"icon"%></span>
+						<b class="caret"></b></a>
 						<ul class="dropdown-menu yekan" style="width:100px;background-color:#A3C2FF;padding:10px;">
 						<li>
 						<%=link_to('ویرایش پروفایل' , edit_user_registration_path,  :class => "sidebar_link") %>	

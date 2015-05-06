@@ -19,17 +19,50 @@
 <body class='body-class '>
 	<nav class="navbar navbar-default our-navbar"  >
 			<div class="navbar-header" style="float:right">
-				<a class="navbar-brand text-color" href="#" style="color:white">اسم فامیل</a>
+				<span aria-hidden="true">
+					<%= image_tag "Checklist.svg" , :class=>"img-responsive"%>
+				</span>
+				<a class="navbar-brand text-color" href="#" style="color:white;font-weight: bold;">
+					اسم فامیل
+				</a>
 			</div>
+
 			<div id="navbar" class="navbar-collapse collapse">
-				<ul class="nav navbar-nav" style="float:right">	
-					<li class="text-color">
-					<a href="/home/index" style="color:white"> خانه
-					<span class="glyphicon glyphicon-home" aria-hidden="true"></span></a></li>
-					<li class="text-color"><a href="#" style="color:white">درباره‌ی ما <span class="glyphicon glyphicon-cloud" aria-hidden="true"></span></a></li>
-					<li class="text-color"><a href="#" style="color:white">ارتباط با ما <span class="glyphicon glyphicon-phone-alt" aria-hidden="true"></span></a></li>
+				<ul class="nav navbar-nav" style="float:right;">	
+					
+					<li class="text-color" style="float:right; margin:20px;">
+						<a href="/home/index" style="color:white; float:right;font-weight: bold;">خانه
+						</a>
+						<span aria-hidden="true">
+							<%= image_tag "Apartment3.svg" , :class=>"icon"%>
+						</span>
+					</li>
+					
+
+					<li class="text-color" style="float:right; margin:20px;">
+						<a href="#" style="color:white; float:right;font-weight: bold;">		درباره‌ی ما
+						</a>
+						<span aria-hidden="true">
+							<%= image_tag "Eyeglass3.svg" , :class=>"icon"%>
+						</span>
+					</li>
+					
+
+					<li class="text-color" style="float:right; margin:20px;">
+						<a href="#" style="color:white;float:right;font-weight: bold;">			ارتباط با ما
+						</a>
+						<span aria-hidden="true">
+							<%= image_tag "Paper-Plane3.svg" , :class=>"icon"%>
+						</span>
+					</li>
+					
+
 					<%if !user_signed_in?%>
-					<li class="text-color"><%= link_to 'ثبت نام', new_user_registration_path  , style:"color:white"%></li>
+					<li class="text-color" style="float:right; margin:20px;">
+						<%= link_to 'ثبت نام', new_user_registration_path  , style:"color:white; float:right; font-weight: bold;"%>
+						<span aria-hidden="true">
+							<%= image_tag "Key3.svg" , :class=>"icon"%>
+						</span></li>
 					<% end %>
 				</ul>
 
