@@ -75,6 +75,7 @@
 
 <% end %>
 
+<div class="clock" > </div>
 
 <script type="text/javascript">
 
@@ -105,12 +106,16 @@ function validate(){
     }
 }
 
-var clock = jQuery('.clock').FlipClock(7, {
+var clock = jQuery('.clock').FlipClock(10, {
 	autoStart: true,
 	countdown: true,
 	clockFace: 'MinuteCounter',
 	callbacks: {
 		stop: function() { 
+			$('input').click(function(){ $('#playgame_form').attr('data-remote',true)}); 
+          		game_finished = true;
+          		validate();
+          		$('#stop_game').click();			
 		}
 	}
 	}	

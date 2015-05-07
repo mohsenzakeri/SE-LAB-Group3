@@ -22,38 +22,38 @@
 </div>
 
 <div class="row" style="margin:10px;">
-<div class="col-sm-3"><%= f.text_field :city ,  :id=>"city" %></div>
+<div class="col-sm-3"><%= f.text_field :city ,  :id=>"city" , :class=>"round_field"%></div>
 <div class="col-sm-1" >شهر</div>
-<div class="col-sm-3"><%= f.text_field :lastname ,  :id=>"lastname" %></div>
+<div class="col-sm-3"><%= f.text_field :lastname ,  :id=>"lastname" , :class=>"round_field"%></div>
 <div class="col-sm-1">فامیل</div>
-<div class="col-sm-3"><%= f.text_field :firstname , :id=>"firstname" %></div>
+<div class="col-sm-3"><%= f.text_field :firstname , :id=>"firstname" , :class=>"round_field"%></div>
 <div class="col-sm-1">اسم</div>
 </div>
 
 <div class="row" style="margin:10px;">
-<div class="col-sm-3"><%= f.text_field :car ,  :id=>"car" %></div>
+<div class="col-sm-3"><%= f.text_field :car ,  :id=>"car" , :class=>"round_field"%></div>
 <div class="col-sm-1">ماشین</div>
-<div class="col-sm-3"><%= f.text_field :fruit ,  :id=>"fruit" %></div>
+<div class="col-sm-3"><%= f.text_field :fruit ,  :id=>"fruit" , :class=>"round_field"%></div>
 <div class="col-sm-1" >میوه</div>
-<div class="col-sm-3"><%= f.text_field :country ,  :id=>"country" %></div>
+<div class="col-sm-3"><%= f.text_field :country ,  :id=>"country" , :class=>"round_field"%></div>
 <div class="col-sm-1" >کشور</div>
 </div>
 
 <div class="row" style="margin:10px;">
-<div class="col-sm-3"><%= f.text_field :food ,  :id=>"food" %></div>
+<div class="col-sm-3"><%= f.text_field :food ,  :id=>"food" , :class=>"round_field"%></div>
 <div class="col-sm-1">غذا</div>
-<div class="col-sm-3"><%= f.text_field :job ,  :id=>"job" %></div>
+<div class="col-sm-3"><%= f.text_field :job ,  :id=>"job" , :class=>"round_field"%></div>
 <div class="col-sm-1">کار</div>
-<div class="col-sm-3"><%= f.text_field :color ,  :id=>"color" %></div>
+<div class="col-sm-3"><%= f.text_field :color ,  :id=>"color" , :class=>"round_field"%></div>
 <div class="col-sm-1">رنگ</div>
 </div>
 
 <div class="row" style="margin:10px;">
-<div class="col-sm-3"><%= f.text_field :flower ,  :id=>"flower" %></div>
+<div class="col-sm-3"><%= f.text_field :flower ,  :id=>"flower" , :class=>"round_field"%></div>
 <div class="col-sm-1">گل</div>
-<div class="col-sm-3"><%= f.text_field :animal ,  :id=>"animal" %></div>
+<div class="col-sm-3"><%= f.text_field :animal ,  :id=>"animal" , :class=>"round_field"%></div>
 <div class="col-sm-1">حیوان</div>
-<div class="col-sm-3"><%= f.text_field :thing ,  :id=>"thing" %></div>
+<div class="col-sm-3"><%= f.text_field :thing ,  :id=>"thing" , :class=>"round_field"%></div>
 <div class="col-sm-1">اشیا</div>
 </div>
 
@@ -64,8 +64,8 @@
 <div class="row" style="margin:10px">
 <div class="col-sm-3">
 <!-- %= f.submit "استوپ" , :id=>"stop_game" % -->
-<!-- input type="submit" value="استوپ" name="commit" id="stop_game">
-</input -->
+<input type="submit" value="استوپ" name="commit" id="stop_game">
+</input>
 
 <div class="col-sm-9"></div>
 </div>
@@ -75,16 +75,18 @@
 
 <% end %>
 
+<div class="clock" > </div>
 
 <script type="text/javascript">
 
 $(document).ready(function (){
+    var game_finished = false;
     validate();
     $('#firstname, #lastname, #city, #country, #fruit, #car, #color, #job, #food, #thing, #animal, #flower').change(validate);
 });
 
 function validate(){
-    if (jQuery('#firstname').val().length   >   0   &&
+    if (game_finished == true ||  (jQuery('#firstname').val().length   >   0   &&
         jQuery('#lastname').val().length  >   0   &&
         jQuery('#city').val().length    >   0 &&
   	jQuery('#country').val().length   >   0   &&
@@ -95,7 +97,8 @@ function validate(){
         jQuery('#food').val().length    >   0 &&
   	jQuery('#thing').val().length   >   0   &&
         jQuery('#animal').val().length  >   0   &&
-        jQuery('#flower').val().length    >   0) {
+        jQuery('#flower').val().length    >   0)) {
+
         jQuery("input[type=submit]").prop("disabled", false);
     }
     else {
@@ -103,12 +106,16 @@ function validate(){
     }
 }
 
-var clock = jQuery('.clock').FlipClock(7, {
+var clock = jQuery('.clock').FlipClock(10, {
 	autoStart: true,
 	countdown: true,
 	clockFace: 'MinuteCounter',
 	callbacks: {
 		stop: function() { 
+			$('input').click(function(){ $('#playgame_form').attr('data-remote',true)}); 
+          		game_finished = true;
+          		validate();
+          		$('#stop_game').click();			
 		}
 	}
 	}	
