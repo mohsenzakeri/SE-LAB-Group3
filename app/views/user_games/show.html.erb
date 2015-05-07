@@ -26,7 +26,6 @@ var clock = jQuery('.clock').FlipClock(7, {
 	callbacks: {
 		stop: function() { 
 			game_id = <%= UserGame.find(params[:id]).game.id  %>;
-			alert(game_id);
 			window.location.replace("/game_rounds/new?gameid=" + game_id);
 		}
 	}
