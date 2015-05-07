@@ -11,12 +11,30 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150424174548) do
+ActiveRecord::Schema.define(version: 20150507063850) do
 
   create_table "game_alphabets", force: true do |t|
     t.integer  "game_id"
     t.integer  "round_number"
     t.string   "alphabet"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "game_judges", force: true do |t|
+    t.integer  "game_round_id"
+    t.boolean  "firstname"
+    t.boolean  "lastname"
+    t.boolean  "city"
+    t.boolean  "country"
+    t.boolean  "fruit"
+    t.boolean  "car"
+    t.boolean  "color"
+    t.boolean  "job"
+    t.boolean  "food"
+    t.boolean  "thing"
+    t.boolean  "animal"
+    t.boolean  "flower"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

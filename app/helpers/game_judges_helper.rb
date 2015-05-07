@@ -1,0 +1,2 @@
+module GameJudgesHelper
+end

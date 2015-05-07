@@ -41,8 +41,16 @@ class GameRoundsController < ApplicationController
           game_finished = true;
           validate();
           $('#stop_game').click(); ")
+        
+        @user_game = @game_round.user_game
+        @game = @user_game.game
+        random_id = @game.user_games.find_by_id(@user_game.id).id
 
-        format.html { redirect_to @game_round, notice: 'Game round was successfully created.' }
+
+
+
+        
+        format.html { redirect_to new_game_judge_path(:judge_id=>random_id), notice: 'این دور از بازی به اتمام رسید.' }
         format.json { render action: 'show', status: :created, location: @game_round }
       else
         format.html { render action: 'new' }

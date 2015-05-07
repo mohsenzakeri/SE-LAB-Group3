@@ -1,0 +1,51 @@
+<h1>Listing game_judges</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Game round</th>
+      <th>Firstname</th>
+      <th>Lastname</th>
+      <th>City</th>
+      <th>Country</th>
+      <th>Fruit</th>
+      <th>Car</th>
+      <th>Color</th>
+      <th>Job</th>
+      <th>Food</th>
+      <th>Thing</th>
+      <th>Animal</th>
+      <th>Flower</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @game_judges.each do |game_judge| %>
+      <tr>
+        <td><%= game_judge.game_round_id %></td>
+        <td><%= game_judge.firstname %></td>
+        <td><%= game_judge.lastname %></td>
+        <td><%= game_judge.city %></td>
+        <td><%= game_judge.country %></td>
+        <td><%= game_judge.fruit %></td>
+        <td><%= game_judge.car %></td>
+        <td><%= game_judge.color %></td>
+        <td><%= game_judge.job %></td>
+        <td><%= game_judge.food %></td>
+        <td><%= game_judge.thing %></td>
+        <td><%= game_judge.animal %></td>
+        <td><%= game_judge.flower %></td>
+        <td><%= link_to 'Show', game_judge %></td>
+        <td><%= link_to 'Edit', edit_game_judge_path(game_judge) %></td>
+        <td><%= link_to 'Destroy', game_judge, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Game judge', new_game_judge_path %>

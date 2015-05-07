@@ -1,0 +1,69 @@
+<%= form_for(@game_judge) do |f| %>
+  <% if @game_judge.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@game_judge.errors.count, "error") %> prohibited this game_judge from being saved:</h2>
+
+      <ul>
+      <% @game_judge.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :game_round_id %><br>
+    <%= f.number_field :game_round_id %>
+  </div>
+  <div class="field">
+    <%= f.label :firstname %><br>
+    <%= f.check_box :firstname %>
+  </div>
+  <div class="field">
+    <%= f.label :lastname %><br>
+    <%= f.check_box :lastname %>
+  </div>
+  <div class="field">
+    <%= f.label :city %><br>
+    <%= f.check_box :city %>
+  </div>
+  <div class="field">
+    <%= f.label :country %><br>
+    <%= f.check_box :country %>
+  </div>
+  <div class="field">
+    <%= f.label :fruit %><br>
+    <%= f.check_box :fruit %>
+  </div>
+  <div class="field">
+    <%= f.label :car %><br>
+    <%= f.check_box :car %>
+  </div>
+  <div class="field">
+    <%= f.label :color %><br>
+    <%= f.check_box :color %>
+  </div>
+  <div class="field">
+    <%= f.label :job %><br>
+    <%= f.check_box :job %>
+  </div>
+  <div class="field">
+    <%= f.label :food %><br>
+    <%= f.check_box :food %>
+  </div>
+  <div class="field">
+    <%= f.label :thing %><br>
+    <%= f.check_box :thing %>
+  </div>
+  <div class="field">
+    <%= f.label :animal %><br>
+    <%= f.check_box :animal %>
+  </div>
+  <div class="field">
+    <%= f.label :flower %><br>
+    <%= f.check_box :flower %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
