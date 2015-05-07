@@ -44,7 +44,31 @@ class GameRoundsController < ApplicationController
         
         @user_game = @game_round.user_game
         @game = @user_game.game
-        random_id = @game.user_games.find_by_id(@user_game.id).id
+	user_games = @game.user_games
+ 	user_games.sort! { |a,b| a.id <=> b.id }
+	count1 = @user_game.game_rounds.count
+	count3 = @game.user_games.count
+	randomization = count1
+	my_index = 0
+	user_games.each_with_index do |user_game,index|
+		if(user_game.id == @user_game.id )
+			my_index = index
+		end	
+	end
+	random_index = my_index+randomization
+	if random_index >= count3
+		random_index = random_index%count3
+	end
+	if random_index == my_index
+		if random_index<count3-1
+			random_index += 1
+		else
+			random_index = 0
+		end	
+	end
+	random_id = user_games[random_index].id
+
+#        random_id = @game.user_games.find_by_id(@user_game.id).id
 
 
 
