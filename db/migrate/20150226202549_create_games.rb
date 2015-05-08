@@ -5,7 +5,7 @@ class CreateGames < ActiveRecord::Migration
       t.integer :players_num
       t.integer :rounds_num
       t.integer :joined_players
-
+      t.integer :currently_scored
       t.timestamps
     end
   end

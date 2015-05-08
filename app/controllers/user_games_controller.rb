@@ -28,6 +28,7 @@ class UserGamesController < ApplicationController
     @user_game = UserGame.new
     @user_game.user_id = current_user.id
     @user_game.game_id = params[:game_id]
+    @user_game.score = 0
     @user_game.round_number = 1
     @game = Game.find(params[:game_id])
     #Niloofar Added
@@ -138,6 +139,6 @@ class UserGamesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_game_params
-      params.require(:user_game).permit(:user_id, :game_id)
+      params.require(:user_game).permit(:user_id, :game_id, :score)
     end
 end

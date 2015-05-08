@@ -10,6 +10,7 @@ class GameRoundsController < ApplicationController
   # GET /game_rounds/1
   # GET /game_rounds/1.json
   def show
+    @game = @game_round.user_game.game
   end
 
   # GET /game_rounds/new
@@ -29,11 +30,9 @@ class GameRoundsController < ApplicationController
   # POST /game_rounds.json
   def create
     @game_round = GameRound.new(game_round_params)
-    
-    
-    
-    
-
+    @game = @game_round.user_game.game
+    @game.currently_scored = 0
+    @game.save
     respond_to do |format|
       if @game_round.save
         PrivatePub.publish_to("/user_games/stop_game/#{@game_round.user_game.game_id}" , 
@@ -115,6 +114,6 @@ class GameRoundsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def game_round_params
-        params.require(:game_round).permit(:round_number, :user_game_id, :firstname, :lastname, :city, :country, :fruit, :car, :color, :job, :food, :thing, :animal, :flower)
+        params.require(:game_round).permit(:round_number, :user_game_id, :firstname, :lastname, :city, :country, :fruit, :car, :color, :job, :food, :thing, :animal, :flower, :score)
     end
 end

@@ -11,59 +11,84 @@
     </div>
   <% end %>
 
+
   <div class="field">
-    <%= f.label :game_round_id %><br>
-    <%= f.number_field :game_round_id %>
-  </div>
-  <div class="field">
-    <%= f.label :firstname %><br>
     <%= f.check_box :firstname %>
+    اسم:
+    <%= @game_round.firstname %>
   </div>
+
   <div class="field">
-    <%= f.label :lastname %><br>
     <%= f.check_box :lastname %>
+    فامیل:
+    <%= @game_round.lastname %>
   </div>
+
   <div class="field">
-    <%= f.label :city %><br>
     <%= f.check_box :city %>
+    شهر:
+    <%= @game_round.city %>
   </div>
+
   <div class="field">
-    <%= f.label :country %><br>
     <%= f.check_box :country %>
+    کشور:
+    <%= @game_round.country %>
   </div>
+
   <div class="field">
-    <%= f.label :fruit %><br>
     <%= f.check_box :fruit %>
+    میوه:
+    <%= @game_round.fruit %>
   </div>
+
   <div class="field">
-    <%= f.label :car %><br>
     <%= f.check_box :car %>
+    ماشین:
+    <%= @game_round.car %>
   </div>
+
   <div class="field">
-    <%= f.label :color %><br>
     <%= f.check_box :color %>
+    رنگ:
+    <%= @game_round.color %>
   </div>
+
   <div class="field">
-    <%= f.label :job %><br>
     <%= f.check_box :job %>
+    شغل:
+    <%= @game_round.job %>
   </div>
+
   <div class="field">
-    <%= f.label :food %><br>
     <%= f.check_box :food %>
+    غذا:
+    <%= @game_round.food %>
   </div>
+
   <div class="field">
-    <%= f.label :thing %><br>
     <%= f.check_box :thing %>
+    اشیا:
+    <%= @game_round.thing %>
   </div>
+
   <div class="field">
-    <%= f.label :animal %><br>
     <%= f.check_box :animal %>
+    حیوان:
+    <%= @game_round.animal %>
   </div>
+
   <div class="field">
-    <%= f.label :flower %><br>
     <%= f.check_box :flower %>
+    گل:
+    <%= @game_round.flower %>
   </div>
+
+  <div class="field">
+    <%= f.hidden_field :game_round_id, :value => @game_round.id%>
+  </div>
+<br><br>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit "تایید نهایی"%>
   </div>
 <% end %>

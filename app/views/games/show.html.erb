@@ -10,8 +10,21 @@
 </div>
 <div class="col-sm-4"></div>
 </div>
-
-
+<%if @game.user_games.first.game_rounds.count == @game.rounds_num%>
+	<b>جدول امتیازات</b><br><hr>
+	<% @game.user_games.each do |user_game| %>
+		نام مستعار بازیکن:
+			<%=user_game.user.nickname%>			
+		<br>امتیاز کل:
+			<%=user_game.game_rounds.sum("score")%>	
+			
+		<br>جزئیات امتیاز‌های دور‌های بازی:--
+		<%user_game.game_rounds.each do |game_round| %>
+			<b>دور <%=game_round.round_number%>:</b>
+			<%=game_round.score%>--
+		<%end%><br><hr><br>
+	<%end%>
+<%end%>
 <div class="row" style="text-align:center;margin:10px">
 <div class="col-sm-4"></div>
 <div class="col-sm-4" style="background-color:#FF8566;color:white;border-radius: 20px;">

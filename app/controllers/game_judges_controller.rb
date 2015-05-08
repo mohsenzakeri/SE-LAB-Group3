@@ -15,6 +15,8 @@ class GameJudgesController < ApplicationController
   # GET /game_judges/new
   def new
     @game_judge = GameJudge.new
+    @user_game = UserGame.find_by_id(params[:judge_id])
+    @game_round = @user_game.game_rounds.last
   end
 
   # GET /game_judges/1/edit
@@ -25,10 +27,62 @@ class GameJudgesController < ApplicationController
   # POST /game_judges.json
   def create
     @game_judge = GameJudge.new(game_judge_params)
+    @game_round = @game_judge.game_round
+    @user_game = @game_round.user_game
+    
 
+
+    
     respond_to do |format|
       if @game_judge.save
-        format.html { redirect_to @game_judge, notice: 'Game judge was successfully created.' }
+        if @game_judge.firstname
+          @game_round.score = @game_round.score + 10
+        end
+        if @game_judge.lastname
+          @game_round.score = @game_round.score + 10
+        end
+        if @game_judge.city
+          @game_round.score = @game_round.score + 10
+        end
+        if @game_judge.country
+          @game_round.score = @game_round.score + 10
+        end
+        if @game_judge.fruit
+          @game_round.score = @game_round.score + 10
+        end
+        if @game_judge.car
+          @game_round.score = @game_round.score + 10
+        end
+        if @game_judge.color
+          @game_round.score = @game_round.score + 10
+        end
+        if @game_judge.job
+          @game_round.score = @game_round.score + 10
+        end
+        if @game_judge.food
+          @game_round.score = @game_round.score + 10
+        end
+        if @game_judge.thing
+          @game_round.score = @game_round.score + 10
+        end
+        if @game_judge.animal
+          @game_round.score = @game_round.score + 10
+        end
+        if @game_judge.flower
+          @game_round.score = @game_round.score + 10
+        end
+        @game_round.save
+
+        
+        @game = @user_game.game   
+        @game.currently_scored = @game.currently_scored + 1
+        @game.save
+        
+        PrivatePub.publish_to("/user_games/scoring_finished/#{@game_round.user_game.game.id}" , "validate();")
+        #@user_game.score = @user_game.score + @game_round.score
+        #@user_game.save
+
+        format.html { redirect_to @user_game.game_rounds.last, notice: 'این‌ دور از بازی به اتمام رسید.' }
         format.json { render action: 'show', status: :created, location: @game_judge }
       else
         format.html { render action: 'new' }

@@ -59,7 +59,7 @@
 
 <%= f.hidden_field :user_game_id, :value => @user_game.id%>
 <%= f.hidden_field :round_number, :value => @user_game.round_number%>
-
+<%= f.hidden_field :score, :value => 0%>
 
 <div class="row" style="margin:10px">
 <div class="col-sm-3">
@@ -106,7 +106,7 @@ function validate(){
     }
 }
 
-var clock = jQuery('.clock').FlipClock(30, {
+var clock = jQuery('.clock').FlipClock(100, {
 	autoStart: true,
 	countdown: true,
 	clockFace: 'MinuteCounter',
