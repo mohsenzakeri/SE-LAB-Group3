@@ -24,6 +24,10 @@
 ##  pool: 5
 ##  timeout: 5000
 
+default: &default
+  adapter: postgresql
+  pool: 5
+  timeout: 5000
 
 development:
   adapter: mysql2
@@ -33,15 +37,9 @@ development:
   password: SELABG3MMMN
   host: 127.0.0.1
 test:
-  adapter: mysql2
-  encoding: utf8
-  database: esmfamil_test
-  username: root
-  password: [password]
-  host: localhost
+  <<: *default
+  database: db/test.mysql2
 production:
-  adapter: postgresql
-  pool: 5
-  timeout: 5000
+  <<: *default
   database: db/production.mysql2
   
