@@ -60,13 +60,9 @@ gem 'rmagick'
 gem 'jalalidate'
 gem 'farsifu'
 gem 'magic_encoding'
+  
+gem 'mysql2'
 
-group :development, :test do
-  gem 'mysql2'
-end
-group :production do
-  gem 'pg'
-end
 
 gem 'thin'
 gem 'private_pub'
@@ -77,3 +73,4 @@ gem 'gon'
 gem 'sass', '3.3.0.alpha.149'
 gem 'compass', '0.12.2'
 gem 'compass-sourcemaps', "~> 0.12.2.sourcemaps.57a186c"
+
