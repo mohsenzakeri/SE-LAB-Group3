@@ -36,9 +36,11 @@ development:
   username: esmfamil
   password: SELABG3MMMN
   host: 127.0.0.1
+
 test:
   <<: *default
   database: db/test.mysql2
+  
 production:
   <<: *default
   database: db/production.mysql2

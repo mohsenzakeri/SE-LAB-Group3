@@ -43,8 +43,6 @@ ActiveRecord::Schema.define(version: 20150514122052) do
     t.integer  "score"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "round_number"
-    t.integer  "user_game_id"
     t.string   "firstname"
     t.string   "lastname"
     t.string   "city"
@@ -57,6 +55,8 @@ ActiveRecord::Schema.define(version: 20150514122052) do
     t.string   "thing"
     t.string   "animal"
     t.string   "flower"
+    t.integer  "round_number"
+    t.integer  "user_game_id"
   end
 
   create_table "games", force: true do |t|
