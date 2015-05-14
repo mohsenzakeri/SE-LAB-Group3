@@ -60,7 +60,14 @@ gem 'rmagick'
 gem 'jalalidate'
 gem 'farsifu'
 gem 'magic_encoding'
-gem 'mysql2'
+
+group :development, :test do
+  gem 'mysql2'
+end
+group :production do
+  gem 'pg'
+end
+
 gem 'thin'
 gem 'private_pub'
 #gem 'byebug'
