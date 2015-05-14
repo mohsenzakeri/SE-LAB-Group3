@@ -40,9 +40,8 @@ test:
   password: [password]
   host: localhost
 production:
-  adapter: mysql2
-  encoding: utf8
-  database: esmfamil_production
-  username: root
-  password: [password]
-  host: localhost
+  adapter: postgresql
+  pool: 5
+  timeout: 5000
+  database: db/production.mysql2
+  
