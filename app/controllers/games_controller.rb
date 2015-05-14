@@ -59,6 +59,7 @@ class GamesController < ApplicationController
 	@selected_letter = @alphabets.sample
 	@alphabets.delete(@selected_letter)
 	GameAlphabet.new_game_alphabet(@game.id,i,@selected_letter)
+      Timer.new_timer(@game.id,i)
     end
   end
 
@@ -94,6 +95,6 @@ class GamesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def game_params
-      params.require(:game).permit(:players_num, :rounds_num, :currently_scored, :joined_players, :creator_id)
+      params.require(:game).permit(:players_num, :rounds_num, :currently_scored, :joined_players, :creator_id, :round_number)
     end
 end

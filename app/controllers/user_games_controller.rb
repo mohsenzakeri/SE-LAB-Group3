@@ -1,3 +1,4 @@
+# encoding: UTF-8
 class UserGamesController < ApplicationController
   before_action :set_user_game, only: [:show, :edit, :update, :destroy, :new_game_round]
 
@@ -11,6 +12,7 @@ class UserGamesController < ApplicationController
   # GET /user_games/1
   # GET /user_games/1.json
   def show
+    @current_timer = Timer.where(:game=>Game.find(@user_game.game_id),:round_number=>(@user_game.game_rounds.size+1)).first
   end
 
   # GET /user_games/new
@@ -139,6 +141,6 @@ class UserGamesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_game_params
-      params.require(:user_game).permit(:user_id, :game_id, :score)
+      params.require(:user_game).permit(:user_id, :game_id, :score, :round_number)
     end
 end

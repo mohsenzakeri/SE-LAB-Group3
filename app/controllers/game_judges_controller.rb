@@ -1,3 +1,4 @@
+# encoding: UTF-8
 class GameJudgesController < ApplicationController
   before_action :set_game_judge, only: [:show, :edit, :update, :destroy]
 

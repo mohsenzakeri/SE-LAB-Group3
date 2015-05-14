@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150507063850) do
+ActiveRecord::Schema.define(version: 20150514122052) do
 
   create_table "game_alphabets", force: true do |t|
     t.integer  "game_id"
@@ -43,6 +43,8 @@ ActiveRecord::Schema.define(version: 20150507063850) do
     t.integer  "score"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "round_number"
+    t.integer  "user_game_id"
     t.string   "firstname"
     t.string   "lastname"
     t.string   "city"
@@ -55,8 +57,6 @@ ActiveRecord::Schema.define(version: 20150507063850) do
     t.string   "thing"
     t.string   "animal"
     t.string   "flower"
-    t.integer  "round_number"
-    t.integer  "user_game_id"
   end
 
   create_table "games", force: true do |t|
@@ -73,6 +73,14 @@ ActiveRecord::Schema.define(version: 20150507063850) do
     t.string   "test_name"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "timers", force: true do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "game_id"
+    t.integer  "round_number"
+    t.integer  "value"
   end
 
   create_table "user_games", force: true do |t|

@@ -1,4 +1,6 @@
 Esmfamil::Application.routes.draw do
+  resources :timers
+
   resources :game_judges
 
   resources :game_alphabets

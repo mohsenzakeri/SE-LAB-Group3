@@ -1,0 +1,25 @@
+<h1>Listing timers</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @timers.each do |timer| %>
+      <tr>
+        <td><%= link_to 'Show', timer %></td>
+        <td><%= link_to 'Edit', edit_timer_path(timer) %></td>
+        <td><%= link_to 'Destroy', timer, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Timer', new_timer_path %>

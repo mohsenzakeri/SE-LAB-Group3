@@ -19,17 +19,32 @@
 
 <script type="text/javascript">
 
-var clock = jQuery('.clock').FlipClock(7, {
+var clock = jQuery('.clock').FlipClock(<%= @current_timer.value%>, {
 	autoStart: true,
 	countdown: true,
 	clockFace: 'MinuteCounter',
 	callbacks: {
+
+		interval: function(){
+			<%
+			  value = @current_timer.value
+			  @current_timer.value = value - 1
+			  @current_timer.save
+			 %>
+			 alert(<%=@current_timer.value.to_s%>);
+
+
+		},
+
 		stop: function() { 
 			game_id = <%= UserGame.find(params[:id]).game.id  %>;
 			window.location.replace("/game_rounds/new?gameid=" + game_id);
 		}
+
 	}
 	}	
 );
+
+
 
 </script>

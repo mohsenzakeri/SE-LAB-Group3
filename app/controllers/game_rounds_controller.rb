@@ -1,3 +1,4 @@
+# encoding: UTF-8
 class GameRoundsController < ApplicationController
   before_action :set_game_round, only: [:show, :edit, :update, :destroy]
 

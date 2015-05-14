@@ -1,4 +1,4 @@
-source 'http://rubygems.org'
+source 'https://rubygems.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.3'
@@ -63,7 +63,7 @@ gem 'magic_encoding'
 gem 'mysql2'
 gem 'thin'
 gem 'private_pub'
-gem 'byebug'
+#gem 'byebug'
 
 gem 'gon'
 

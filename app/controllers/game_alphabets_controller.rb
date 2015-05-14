@@ -1,3 +1,4 @@
+# encoding: UTF-8
 class GameAlphabetsController < ApplicationController
   before_action :set_game_alphabet, only: [:show, :edit, :update, :destroy]
 
