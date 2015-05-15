@@ -74,5 +74,6 @@ gem 'sass', '3.3.0.alpha.149'
 gem 'compass', '0.12.2'
 gem 'compass-sourcemaps', "~> 0.12.2.sourcemaps.57a186c"
 
-gem 'rails_12factor', group: :production
-gem 'unicorn',        '4.8.3', group: :production
+gem 'rails_12factor'
+gem 'unicorn'
+gem 'rake'
