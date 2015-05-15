@@ -235,7 +235,7 @@ DEPENDENCIES
   private_pub
   rails (= 4.0.3)
   rails_12factor
-  rake (= 10.4.2)
+  rake
   rmagick
   sass (= 3.3.0.alpha.149)
   sdoc
