@@ -18,8 +18,8 @@
 </div>
 
 <script type="text/javascript">
-
-var clock = jQuery('.clock').FlipClock(<%= @current_timer.value%>, {
+<%@start = @current_timer.value %>
+var clock = jQuery('.clock').FlipClock(<%=@start%>, {
 	autoStart: true,
 	countdown: true,
 	clockFace: 'MinuteCounter',
@@ -27,11 +27,16 @@ var clock = jQuery('.clock').FlipClock(<%= @current_timer.value%>, {
 
 		interval: function(){
 			<%
-			  value = @current_timer.value
-			  @current_timer.value = value - 1
-			  @current_timer.save
-			 %>
-			 alert(<%=@current_timer.value.to_s%>);
+			if @start == 7
+				  @value = @current_timer.value
+				  @current_timer.value = @value - 1
+				  if @current_timer.save%>
+				  	alert(<%=@current_timer.value.to_s%>);
+				  <%else%>
+				   	alert("Error">);
+				   <%end%>
+				 
+			<%end%>
 
 
 		},
