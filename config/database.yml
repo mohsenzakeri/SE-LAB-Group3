@@ -43,5 +43,5 @@ test:
   
 production:
   <<: *default
-  database: db/production.mysql2
+  database: db/production.pg
   
