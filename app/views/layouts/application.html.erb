@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html>
+<html dir="rtl">
 <head>
   <title>اسم فامیل</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
   <%= javascript_include_tag "application", "calendar","jquery.min","jquery-1.10.1.min","ourjs.js","bootstrap.min.js", "jquery.Bootstrap-PersianDateTimePicker", "flipclock.min", "flipclock", "data-turbolinks-track" => true %>
 	<%= javascript_include_tag "jquery-1.10.1.min","flipclock.min" %>
-	<%= stylesheet_link_tag "flipclock"%>
+	<%= stylesheet_link_tag "flipclock",  "bootstrap.min" ,"ourstyle"%>
   <%= stylesheet_link_tag    "application","flipclock", media: "all", "data-turbolinks-track" => true %>
 
 <script src="jquery-1.10.1.min.js"></script>
@@ -16,7 +16,13 @@
 
   <%= csrf_meta_tags %>
 </head>
-<body class='body-class '>
+<body class='body-class' >
+	<div class="row">
+	<div class="col-sm-6" >	salam
+	</div>
+	<div class="col-sm-6"> salam2
+	</div>
+	</div>
 	<nav class="navbar navbar-default our-navbar"  >
 			<div class="navbar-header" style="float:right">
 				<span aria-hidden="true">
