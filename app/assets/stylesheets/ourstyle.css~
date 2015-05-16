@@ -81,8 +81,13 @@ input, textarea .yourclassname {
 }
 
 .paper-line {
-	background-color: #003D3D;
+	background-color: yellow;
 }
+
+.paper-line2 {
+	background-color: blue;
+}
+
 
 .container-text {
 	color: #003D3D;
@@ -139,8 +144,4 @@ input, textarea .yourclassname {
 	}
 }
 
-.col-sm-6 {
-	float:right;
-	background-color:green;
-}	
 

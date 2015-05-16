@@ -84,6 +84,11 @@ input, textarea .yourclassname {
 	background-color: #003D3D;
 }
 
+.paper-line2 {
+	background-color: blue;
+}
+
+
 .container-text {
 	color: #003D3D;
 	text-align: center;
