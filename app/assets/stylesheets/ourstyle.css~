@@ -129,6 +129,16 @@ input, textarea .yourclassname {
 }
 
 
+@media only screen and (max-width: 800px) {	  
+	div.column {
+		width: 100%;
+	}
+
+	div.content-wrapper {
+		width: 100%;
+	}
+}
+
 .col-sm-6 {
 	float:right;
 	background-color:green;

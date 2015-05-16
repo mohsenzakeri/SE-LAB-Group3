@@ -1,5 +1,123 @@
-<% if @game.players_num !=  @game.user_games.count %>
-	<%= render :partial => 'games/show_info'%>
+<div class="container-fluid" >
+
+
+<%if @game.user_games.first.game_rounds.count == @game.rounds_num%>
+	<b>جدول امتیازات</b><br><hr>
+	<% @game.user_games.each do |user_game| %>
+		نام مستعار بازیکن:
+			<%=user_game.user.nickname%>			
+		<br>امتیاز کل:
+			<%=user_game.game_rounds.sum("score")%>	
+			
+		<br>جزئیات امتیاز‌های دور‌های بازی:--
+		<%user_game.game_rounds.each do |game_round| %>
+			<b>دور <%=game_round.round_number%>:</b>
+			<%=game_round.score%>--
+		<%end%><br><hr><br>
+	<%end%>
+<%end%>
+
+
+<div class="progress">
+  <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: <%= 100*(render :partial => "user_games/join_players" , :object => @game).to_f/@game.players_num %>%">
+    <span class="sr-only">40% Complete (success)</span>
+  </div>
+</div>
+
+<div class="progress">
+  <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100" style="width: <%= 100*(render :partial => "user_games/join_players" , :object => @game).to_f/@game.players_num %>%">
+    <span class="sr-only">45% Complete</span>
+  </div>
+</div>
+
+<div class="progress">
+  <div class="progress-bar progress-bar-success progress-bar-striped" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: <%= 100*(render :partial => "user_games/join_players" , :object => @game).to_f/@game.players_num %>%">
+    <span class="sr-only">40% Complete (success)</span>
+  </div>
+</div>
+
+
+<div class = "row" style="margin-top:10px">
+<div class="col-sm-3" style="background-color:#672387;color:white;border-radius: 10px;padding:20px"> ایجاد کننده‌ی بازی</div>
+<div class="col-sm-1"></div>
+<div class="col-sm-8" style="background-color:#672387;color:white;border-radius: 10px;padding:20px"> 
+<%= @creator.name %>
+</div>
+
+</div>
+
+<hr class="paper-line">
+
+<div class = "row" style="margin-top:10px">
+
+<div class="col-sm-3" style="background-color:#763993;color:white;border-radius: 10px;padding:20px"> تعداد بازیکن</div>
+<div class="col-sm-1"></div>
+<div class="col-sm-8" style="background-color:#763993;color:white;border-radius: 10px;padding:20px"> 
+<%= @game.players_num %>
+</div>
+
+</div>
+
+<hr class="paper-line">
+
+<div class = "row" style="margin-top:10px">
+
+<div class="col-sm-3" style="background-color:#854F9F;color:white;border-radius: 10px;padding:20px"> تعداد دور</div>
+<div class="col-sm-1"></div>
+<div class="col-sm-8" style="background-color:#854F9F;color:white;border-radius: 10px;padding:20px"> 
+<%= @game.rounds_num %>
+</div>
+
+</div>
+
+<hr class="paper-line">
+
+<div class = "row" style="margin-top:10px">
+
+<div class="col-sm-3" style="background-color:#9565AB;color:white;border-radius: 10px;padding:20px"> بازیکنان ملحق‌شده</div>
+<div class="col-sm-1"></div>
+<div class="col-sm-8" style="background-color:#9565AB;color:white;border-radius: 10px;padding:20px"> 
+<%= render :partial => "user_games/join_players" , :object => @game , :style=>"display:inline" %>
+<div id="joined" style="display:inline;"><%= render :partial => "user_games/joined_players_name" , :object => @game %></div>
+
+</div>
+
+</div>
+
+
+<div class="row" style="margin-top:10px">
+<div class="col-sm-4"></div>
+<div class="col-sm-8">
+
+</div>
+</div>
+
+<hr class="paper-line">
+
+
+<div class="row" style="margin-top:10px" >
+<div class="col-sm-4"> 
+<%if  @game.creator_id == current_user.id %>
+	<div class="row" style="background-color:#A47BB7;  height:90px;padding:10px;border-radius:10px;">
+	<span aria-hidden="true"><%= image_tag "pencil_64px.png" , :class=>"icon"%></span>
+	<%= link_to 'ویرایش', edit_game_path(@game) , :Style=>"color:white"%> 
+	</div>
 <% else %>
-	<%= render :partial => 'games/show_play'%>
+	<div class="row" style="background-color:#A47BB7;  height:90px;padding:10px;border-radius:10px;">
+	<span aria-hidden="true"><%= image_tag "Key3.svg" , :class=>"icon"%></span>
+	<div id="join" style="display:inline;color:white">
+		<%= render :partial => "user_games/join" , :object => @game ,:style=>"display:inline" %>
+	</div>
+	</div>
+<%end%>
+</div>
+<div class="col-sm-8">
+</div>
+</div>
+
+<% if @game.creator_id == current_user.id %>
+  <%= subscribe_to "/user_games/new/private/#{@game.id}"  %>
 <% end %>
+
+
+<%= subscribe_to "/user_games/start_game/#{@game.id}"%>

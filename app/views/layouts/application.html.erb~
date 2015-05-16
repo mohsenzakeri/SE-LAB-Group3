@@ -86,7 +86,7 @@
 
 	<div class="container-fluid">
 	<div class="row">
-		<div class="col-sm-2" style="background-color:#66C2C2;float:right">
+		<div class="col-sm-3" style="background-color:#66C2C2;float:right;border-radius:5px">
 			<% if user_signed_in? %>
 				<%= render :partial => 'layouts/logged_in_sidebar'%>
 			<% else %>
