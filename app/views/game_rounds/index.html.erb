@@ -3,6 +3,9 @@
 <table>
   <thead>
     <tr>
+      <th>id</th>
+      <th>usergame_id</th>
+      <th>game_id</th>
       <th></th>
       <th></th>
       <th></th>
@@ -12,6 +15,9 @@
   <tbody>
     <% @game_rounds.each do |game_round| %>
       <tr>
+        <td><%=game_round.id %></td>
+        <td><%=game_round.user_game_id %></td>
+        <td><%=game_round.user_game.game_id %></td>
         <td><%= link_to 'Show', game_round %></td>
         <td><%= link_to 'Edit', edit_game_round_path(game_round) %></td>
         <td><%= link_to 'Destroy', game_round, method: :delete, data: { confirm: 'Are you sure?' } %></td>
@@ -23,3 +29,4 @@
 <br>
 
 <%= link_to 'New Game round', new_game_round_path %>
+

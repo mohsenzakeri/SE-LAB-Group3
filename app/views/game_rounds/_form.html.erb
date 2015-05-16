@@ -1,4 +1,5 @@
-<%= form_for(@game_round) do |f| %>
+
+<%= form_for(@game_round, :id => "playgame_form") do |f| %>
   <% if @game_round.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@game_round.errors.count, "error") %> prohibited this game_round from being saved:</h2>
@@ -10,33 +11,120 @@
       </ul>
     </div>
   <% end %>
-اسم
-<%= f.text_field :firstname %>
-فامیل
-<%= f.text_field :lastname %>
-شهر
-<%= f.text_field :city %>
-کشور
-<%= f.text_field :country %>
-میوه
-<%= f.text_field :fruit %>
-ماشین
-<%= f.text_field :car %>
-رنگ
-<%= f.text_field :color %>
-کار
-<%= f.text_field :job %>
-غذا
-<%= f.text_field :food %>
-اشیا
-<%= f.text_field :thing %>
-حیوان
-<%= f.text_field :animal %>
-گل
-<%= f.text_field :flower %>
+
+  <div class="container-fluid" >
+<div class="row" style="margin:10px;background-color:#6712f3;border-radius:10px">
+  <div class="col-sm-4"><h4 style="color:white;float:right"> امتیاز بدست آمده: ۰</h4></div>
+  <div class="col-sm-4"><h4 style="color:white;float:right"> حرف این دور: 
+  <%= @game_alphabet.alphabet %>
+  </h4></div>
+  <div class="col-sm-4"><h4 style="color:white;float:right">دور <%= @user_game.game_rounds.count+1 %> بازی</h4></div>
+</div>
+
+<div class="row" style="margin:10px;">
+<div class="col-sm-3"><%= f.text_field :city ,  :id=>"city" , :class=>"round_field"%></div>
+<div class="col-sm-1" >شهر</div>
+<div class="col-sm-3"><%= f.text_field :lastname ,  :id=>"lastname" , :class=>"round_field"%></div>
+<div class="col-sm-1">فامیل</div>
+<div class="col-sm-3"><%= f.text_field :firstname , :id=>"firstname" , :class=>"round_field"%></div>
+<div class="col-sm-1">اسم</div>
+</div>
+
+<div class="row" style="margin:10px;">
+<div class="col-sm-3"><%= f.text_field :car ,  :id=>"car" , :class=>"round_field"%></div>
+<div class="col-sm-1">ماشین</div>
+<div class="col-sm-3"><%= f.text_field :fruit ,  :id=>"fruit" , :class=>"round_field"%></div>
+<div class="col-sm-1" >میوه</div>
+<div class="col-sm-3"><%= f.text_field :country ,  :id=>"country" , :class=>"round_field"%></div>
+<div class="col-sm-1" >کشور</div>
+</div>
+
+<div class="row" style="margin:10px;">
+<div class="col-sm-3"><%= f.text_field :food ,  :id=>"food" , :class=>"round_field"%></div>
+<div class="col-sm-1">غذا</div>
+<div class="col-sm-3"><%= f.text_field :job ,  :id=>"job" , :class=>"round_field"%></div>
+<div class="col-sm-1">کار</div>
+<div class="col-sm-3"><%= f.text_field :color ,  :id=>"color" , :class=>"round_field"%></div>
+<div class="col-sm-1">رنگ</div>
+</div>
+
+<div class="row" style="margin:10px;">
+<div class="col-sm-3"><%= f.text_field :flower ,  :id=>"flower" , :class=>"round_field"%></div>
+<div class="col-sm-1">گل</div>
+<div class="col-sm-3"><%= f.text_field :animal ,  :id=>"animal" , :class=>"round_field"%></div>
+<div class="col-sm-1">حیوان</div>
+<div class="col-sm-3"><%= f.text_field :thing ,  :id=>"thing" , :class=>"round_field"%></div>
+<div class="col-sm-1">اشیا</div>
+</div>
+
+<%= f.hidden_field :user_game_id, :value => @user_game.id%>
+<%= f.hidden_field :round_number, :value => @user_game.round_number%>
+<%= f.hidden_field :score, :value => 0%>
+
+<div class="row" style="margin:10px">
+<div class="col-sm-3">
+<!-- %= f.submit "استوپ" , :id=>"stop_game" % -->
+<input type="submit" value="استوپ" name="commit" id="stop_game">
+</input>
+
+<div class="col-sm-9"></div>
+</div>
 
 
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+
+
 <% end %>
+
+<div class="clock"> </div>
+
+<script type="text/javascript">
+
+$(document).ready(function (){
+    var game_finished = false;
+    validate();
+    $('#firstname, #lastname, #city, #country, #fruit, #car, #color, #job, #food, #thing, #animal, #flower').change(validate);
+});
+
+function validate(){
+    if (game_finished == true ||  (jQuery('#firstname').val().length   >   0   &&
+        jQuery('#lastname').val().length  >   0   &&
+        jQuery('#city').val().length    >   0 &&
+  	jQuery('#country').val().length   >   0   &&
+        jQuery('#fruit').val().length  >   0   &&
+        jQuery('#car').val().length    >   0 &&
+  	jQuery('#color').val().length   >   0   &&
+        jQuery('#job').val().length  >   0   &&
+        jQuery('#food').val().length    >   0 &&
+  	jQuery('#thing').val().length   >   0   &&
+        jQuery('#animal').val().length  >   0   &&
+        jQuery('#flower').val().length    >   0)) {
+
+        jQuery("input[type=submit]").prop("disabled", false);
+    }
+    else {
+        $("input[type=submit]").prop("disabled", true);
+    }
+}
+
+var clock = jQuery('.clock').FlipClock(100, {
+	autoStart: true,
+	countdown: true,
+	clockFace: 'MinuteCounter',
+	callbacks: {
+		stop: function() { 
+			$('input').click(function(){ $('#playgame_form').attr('data-remote',true)}); 
+          		game_finished = true;
+          		validate();
+          		$('#stop_game').click();			
+		}
+	}
+	}	
+);
+
+
+</script>
+
+
+
+
+<%= subscribe_to "/user_games/stop_game/#{@user_game.game_id}"%>

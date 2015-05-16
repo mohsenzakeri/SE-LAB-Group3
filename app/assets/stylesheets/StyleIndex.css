@@ -3,7 +3,7 @@ body{
 	direction:rtl;
     	padding-right:10%;
 	background-repeat:no-repeat;
-	background-color:#cccccc;
+	background-size: 100%;
 }
 input.search-query {
     padding-left:26px;
@@ -30,7 +30,7 @@ form.form-search:before {
 	margin-top:10px;
 }
 .navbar{
-	background-color: red;
+	background-color: #009999;
 
 }
 .btn-text{
@@ -125,13 +125,15 @@ float:right;
 	background-color:#45f3dc;
 	text-decoration:none;
 }
-body{
-	background-color:#a5d3f8;
-}
+
 .span8{
 	background-color:#a5d3f8;
 }
 .centerform{
 	margin:20%;
 	text-align:center;
+}
+
+.icon{
+	width: 70px;
 }

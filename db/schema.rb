@@ -11,7 +11,33 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150419101405) do
+ActiveRecord::Schema.define(version: 20150514122052) do
+
+  create_table "game_alphabets", force: true do |t|
+    t.integer  "game_id"
+    t.integer  "round_number"
+    t.string   "alphabet"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "game_judges", force: true do |t|
+    t.integer  "game_round_id"
+    t.boolean  "firstname"
+    t.boolean  "lastname"
+    t.boolean  "city"
+    t.boolean  "country"
+    t.boolean  "fruit"
+    t.boolean  "car"
+    t.boolean  "color"
+    t.boolean  "job"
+    t.boolean  "food"
+    t.boolean  "thing"
+    t.boolean  "animal"
+    t.boolean  "flower"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "game_rounds", force: true do |t|
     t.datetime "created_at"
@@ -55,12 +81,21 @@ ActiveRecord::Schema.define(version: 20150419101405) do
     t.datetime "updated_at"
   end
 
+  create_table "timers", force: true do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "game_id"
+    t.integer  "round_number"
+    t.integer  "value"
+  end
+
   create_table "user_games", force: true do |t|
     t.integer  "user_id"
     t.integer  "game_id"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "round_number"
+    t.integer  "score"
   end
 
   create_table "users", force: true do |t|

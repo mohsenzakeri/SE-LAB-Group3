@@ -1,26 +1,74 @@
 <!DOCTYPE html>
-<html>
+<html dir="rtl">
 <head>
   <title>اسم فامیل</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <%= stylesheet_link_tag    "application",'rtl','bootstrap.min','ourstyle','bootstrap-responsive', media: "all", "data-turbolinks-track" => true %>
-  <%= javascript_include_tag "application", "calendar","jquery.min.js","ourjs.js","js/bootstrap.min.js", "jquery.Bootstrap-PersianDateTimePicker", "data-turbolinks-track" => true %>
+  
+  <%= javascript_include_tag "application", "calendar","jquery.min","jquery-1.10.1.min","ourjs.js","bootstrap.min.js", "jquery.Bootstrap-PersianDateTimePicker", "flipclock.min", "flipclock", "data-turbolinks-track" => true %>
+	<%= javascript_include_tag "jquery-1.10.1.min","flipclock.min" %>
+	<%= stylesheet_link_tag "flipclock",  "bootstrap.min" ,"ourstyle"%>
+  <%= stylesheet_link_tag    "application","flipclock", media: "all", "data-turbolinks-track" => true %>
+
+<script src="jquery-1.10.1.min.js"></script>
+<script src="flipclock.min.js"></script>
+<link href="flipclock.css" rel="stylesheet">
+
+
   <%= csrf_meta_tags %>
 </head>
-<body class='body-class '>
-	<nav class="navbar navbar-default our-navbar" >
-			<div class="navbar-header">
-				<a class="navbar-brand text-color" href="#">اسم فامیل</a>
+<body class='body-class' >
+	<div class="row">
+	<div class="col-sm-6" id="khar2">	salam
+	</div>
+	<div class="col-sm-6" id="khar2"> salam2
+	</div>
+	</div>
+	<nav class="navbar navbar-default our-navbar"  >
+			<div class="navbar-header" style="float:right">
+				<span aria-hidden="true">
+					<%= image_tag "Checklist.svg" , :class=>"img-responsive"%>
+				</span>
+				<a class="navbar-brand text-color" href="#" style="color:white;font-weight: bold;">
+					اسم فامیل
+				</a>
 			</div>
+
 			<div id="navbar" class="navbar-collapse collapse">
-				<ul class="nav navbar-nav" style="float:right">	
-					<li class="text-color">
-					<a href="/home/index"> خانه
-					<span class="glyphicon glyphicon-home" aria-hidden="true"></span></a></li>
-					<li class="text-color"><a href="#">درباره‌ی ما <span class="glyphicon glyphicon-cloud" aria-hidden="true"></span></a></li>
-					<li class="text-color"><a href="#">ارتباط با ما <span class="glyphicon glyphicon-phone-alt" aria-hidden="true"></span></a></li>
-					<% !if user_signed_in?%>
-					<li class="text-color"><%= link_to("ثبت نام" , "/users/sign_up" )%></li>
+				<ul class="nav navbar-nav" style="float:right;">	
+					
+					<li class="text-color" style="float:right; margin:20px;">
+						<a href="/home/index" style="color:white; float:right;font-weight: bold;">خانه
+						</a>
+						<span aria-hidden="true">
+							<%= image_tag "Apartment3.svg" , :class=>"icon"%>
+						</span>
+					</li>
+					
+
+					<li class="text-color" style="float:right; margin:20px;">
+						<a href="#" style="color:white; float:right;font-weight: bold;">		درباره‌ی ما
+						</a>
+						<span aria-hidden="true">
+							<%= image_tag "Eyeglass3.svg" , :class=>"icon"%>
+						</span>
+					</li>
+					
+
+					<li class="text-color" style="float:right; margin:20px;">
+						<a href="#" style="color:white;float:right;font-weight: bold;">			ارتباط با ما
+						</a>
+						<span aria-hidden="true">
+							<%= image_tag "Paper-Plane3.svg" , :class=>"icon"%>
+						</span>
+					</li>
+					
+
+					<%if !user_signed_in?%>
+					<li class="text-color" style="float:right; margin:20px;">
+						<%= link_to 'ثبت نام', new_user_registration_path  , style:"color:white; float:right; font-weight: bold;"%>
+						<span aria-hidden="true">
+							<%= image_tag "Key3.svg" , :class=>"icon"%>
+						</span></li>
 					<% end %>
 				</ul>
 
@@ -38,17 +86,23 @@
 
 	<div class="container-fluid">
 	<div class="row">
-		<div class="col-sm-2" style="background-color:#66C2C2">
+		<div class="col-sm-2" style="background-color:#66C2C2;float:right">
 			<% if user_signed_in? %>
 				<%= render :partial => 'layouts/logged_in_sidebar'%>
 			<% else %>
 				<%= render :partial => 'layouts/not_logged_in_sidebar'%>
 			<% end %>
 		</div>
-		<div class="col-sm-10">
+		<div class="col-sm-9">
 		<%= yield %>
 		</div>
 	</div>
 	</div>
+	<br><br><br><br>
+
 </body>
 </html>
+
+
+
+

@@ -3,8 +3,9 @@
 	padding-top: 0px;
   	padding-bottom: 0px;
   	font-family: 'yekan';
-	background-color: #66C2C2 ;
+	background-color: #ffc266;
 	font-size: 15;
+	
 }
 
 .our-navbar {
@@ -137,3 +138,9 @@ input, textarea .yourclassname {
 		width: 100%;
 	}
 }
+
+.col-sm-6 {
+	float:right;
+	background-color:green;
+}	
+

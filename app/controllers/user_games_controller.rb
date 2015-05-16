@@ -1,3 +1,4 @@
+# encoding: UTF-8
 class UserGamesController < ApplicationController
   before_action :set_user_game, only: [:show, :edit, :update, :destroy, :new_game_round]
 
@@ -11,6 +12,7 @@ class UserGamesController < ApplicationController
   # GET /user_games/1
   # GET /user_games/1.json
   def show
+    @current_timer = Timer.where(:game=>Game.find(@user_game.game_id),:round_number=>(@user_game.game_rounds.size+1)).first
   end
 
   # GET /user_games/new
@@ -28,6 +30,7 @@ class UserGamesController < ApplicationController
     @user_game = UserGame.new
     @user_game.user_id = current_user.id
     @user_game.game_id = params[:game_id]
+    @user_game.score = 0
     @user_game.round_number = 1
     @game = Game.find(params[:game_id])
     #Niloofar Added
@@ -50,9 +53,19 @@ class UserGamesController < ApplicationController
         # else
           PrivatePub.publish_to("/user_games/new/private/#{@game.id}" , "alert( 'کاربر ' +'#{@user_game.user.nickname}' + ' به بازی شما ملحق شد.');")
           format.js
-          format.html { redirect_to @user_game, notice: 'User game was successfully created.' }
+          if @game.joined_players == @game.players_num
+            PrivatePub.publish_to("/user_games/start_game/#{@game.id}" , "window.location.replace('/user_games/#{@user_game.id}');")
+            format.html { redirect_to home_path, alert: 'User game was successfully created.' }
+          else
+            format.html { redirect_to @user_game, notice: 'User game was successfully created.' }
+          end
           format.json { render action: 'show', status: :created, location: @user_game }
-        end
+          # if @game.joined_players == @game.players_num
+          #   PrivatePub.publish_to("/user_games/start_game/#{@game.id}" , "window.location.replace('/home');")
+          #   redirect_to home_path
+          #   # byebug
+          # end
+        #end
       else
         format.html { render action: 'new' }
         format.json { render json: @user_game.errors, status: :unprocessable_entity }
@@ -93,32 +106,32 @@ class UserGamesController < ApplicationController
     end
   end
 
-  #Mohsen Added!
-  def new_game_round
+  #Mohsen Added this function for creating game_round, but this is now moved to game_round controller!
+#   def new_game_round
 
-    @_firstname=params["firstname"]
-    @_lastname=params["lastname"]
-    @_city=params["city"]
-    @_country=params["country"]
-    @_fruit=params["fruit"]    
-    @_car=params["car"]
-    @_color=params["color"]
-    @_job=params["job"]
-    @_food=params["food"]
-    @_thing=params["thing"]
-    @_animal=params["animal"]
-    @_flower=params["flower"]
+#     @_firstname=params["firstname"]
+#     @_lastname=params["lastname"]
+#     @_city=params["city"]
+#     @_country=params["country"]
+#     @_fruit=params["fruit"]    
+#     @_car=params["car"]
+#     @_color=params["color"]
+#     @_job=params["job"]
+#     @_food=params["food"]
+#     @_thing=params["thing"]
+#     @_animal=params["animal"]
+#     @_flower=params["flower"]
 
-    GameRound.new_game_round(@_firstname, @_lastname,@_city,@_country,@_fruit,@_car,@_color,@_job,@_food,@_thing,@_animal,@_flower,@user_game.round_number,@user_game.id)
+#     GameRound.new_game_round(@_firstname, @_lastname,@_city,@_country,@_fruit,@_car,@_color,@_job,@_food,@_thing,@_animal,@_flower,@user_game.round_number,@user_game.id)
 
-    @user_game.round_number = @user_game.round_number + 1
-    @user_game.save
-    if (@user_game.round_number == @user_game.game.rounds_num)
-      redirect_to :back
-    else
-      redirect_to games_path
-    end
-  end
+#     @user_game.round_number = @user_game.round_number + 1
+#     @user_game.save
+#     if (@user_game.round_number == @user_game.game.rounds_num)
+#       redirect_to :back
+#     else
+#       redirect_to games_path
+#     end
+#   end
 
   private
     # Use callbacks to share common setup or constraints between actions.
@@ -128,6 +141,6 @@ class UserGamesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_game_params
-      params.require(:user_game).permit(:user_id, :game_id)
+      params.require(:user_game).permit(:user_id, :game_id, :score, :round_number)
     end
 end

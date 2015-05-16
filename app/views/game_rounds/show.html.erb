@@ -1,4 +1,34 @@
 <p id="notice"><%= notice %></p>
+<b>لطفا صبر کنید تا دیگران هم به شما امتیاز بدهند</b>
+<p><br>
+  <strong>امتیازی که شما به دیگران داده‌اید:</strong>
+  <%= @game_round.score %>
+</p>
 
-<%= link_to 'Edit', edit_game_round_path(@game_round) %> |
-<%= link_to 'Back', game_rounds_path %>
+<%= subscribe_to "/user_games/scoring_finished/#{@game_round.user_game.game.id}"%>
+
+<%@my_user_game = UserGame.where(:game=>@game_round.user_game.game, :user=>current_user).first%>
+
+<script type="text/javascript">
+
+$(document).ready(function (){
+	window.finished_scoring = <%=@game_round.user_game.game.currently_scored%> - 1;
+    validate();
+});
+
+function validate(){
+	window.finished_scoring = window.finished_scoring + 1;
+	
+	//alert('finished_scoring:'+finished_scoring);
+	//alert('players_num:'  +<%=@game_round.user_game.game.players_num%>)
+    //alert('this round:'  +<%=@game_round.round_number%>)
+    //alert('total rounds:' + <%=@game_round.user_game.game.rounds_num%>)
+
+ 	if((finished_scoring == <%=@game_round.user_game.game.players_num%>)&&(<%=@game_round.round_number%> == <%=@game_round.user_game.game.rounds_num%>))
+    	window.location.replace('/games/'+<%=@my_user_game.game.id%>);
+    else if (finished_scoring == <%=@game_round.user_game.game.players_num%>)
+    	window.location.replace('/user_games/'+<%=@my_user_game.id%>);
+	}
+
+</script>
+

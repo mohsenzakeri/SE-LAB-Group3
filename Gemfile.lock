@@ -1,5 +1,5 @@
 GEM
-  remote: http://rubygems.org/
+  remote: https://rubygems.org/
   specs:
     actionmailer (4.0.3)
       actionpack (= 4.0.3)
@@ -29,10 +29,7 @@ GEM
     arel (4.0.2)
     bcrypt (3.1.7)
     builder (3.1.4)
-    byebug (3.5.1)
-      columnize (~> 0.8)
-      debugger-linecache (~> 1.2)
-      slop (~> 3.6)
+    chunky_png (1.3.4)
     coffee-rails (4.0.1)
       coffee-script (>= 2.2.0)
       railties (>= 4.0.0, < 5.0)
@@ -40,10 +37,16 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.9.0)
-    columnize (0.9.0)
+    compass (0.12.2)
+      chunky_png (~> 1.2)
+      fssm (>= 0.2.7)
+      sass (~> 3.1)
+    compass-sourcemaps (0.12.3.sourcemaps.a4836f1)
+      chunky_png (~> 1.2)
+      fssm (>= 0.2.7)
+      sass (> 3.2.5, < 3.4)
     cookiejar (0.3.2)
     daemons (1.1.9)
-    debugger-linecache (1.2.0)
     devise (3.2.4)
       bcrypt (~> 3.0)
       orm_adapter (~> 0.1)
@@ -85,6 +88,7 @@ GEM
     faye-websocket (0.9.2)
       eventmachine (>= 0.12.0)
       websocket-driver (>= 0.5.1)
+    fssm (0.2.10)
     gon (5.2.3)
       actionpack (>= 2.3.0)
       json
@@ -100,7 +104,12 @@ GEM
     jquery-rails (3.1.2)
       railties (>= 3.0, < 5.0)
       thor (>= 0.14, < 2.0)
+    jquery-turbolinks (2.0.2)
+      railties (>= 3.1.0)
+      turbolinks
     json (1.8.2)
+    kgio (2.9.3)
+    listen (0.7.3)
     magic_encoding (0.0.2)
     mail (2.5.4)
       mime-types (~> 1.16)
@@ -126,11 +135,17 @@ GEM
       bundler (>= 1.3.0, < 2.0)
       railties (= 4.0.3)
       sprockets-rails (~> 2.0.0)
+    rails_12factor (0.0.3)
+      rails_serve_static_assets
+      rails_stdout_logging
+    rails_serve_static_assets (0.0.4)
+    rails_stdout_logging (0.0.3)
     railties (4.0.3)
       actionpack (= 4.0.3)
       activesupport (= 4.0.3)
       rake (>= 0.8.7)
       thor (>= 0.18.1, < 2.0)
+    raindrops (0.13.0)
     rake (10.4.2)
     rdoc (4.2.0)
       json (~> 1.4)
@@ -153,11 +168,8 @@ GEM
       rspec-mocks (~> 3.2.0)
       rspec-support (~> 3.2.0)
     rspec-support (3.2.1)
-    sass-rails (4.0.5)
-      railties (>= 4.0.0, < 5.0)
-      sass (~> 3.2.2)
-      sprockets (~> 2.8, < 3.0)
-      sprockets-rails (~> 2.0)
+    sass (3.3.0.alpha.149)
+      listen (~> 0.7)
     sdoc (0.4.1)
       json (~> 1.7, >= 1.7.7)
       rdoc (~> 4.0)
@@ -166,7 +178,6 @@ GEM
       multi_json (~> 1.0)
       simplecov-html (~> 0.8.0)
     simplecov-html (0.8.0)
-    slop (3.6.0)
     sprockets (2.12.3)
       hike (~> 1.2)
       multi_json (~> 1.0)
@@ -192,6 +203,10 @@ GEM
     uglifier (2.7.0)
       execjs (>= 0.3.0)
       json (>= 1.8.0)
+    unicorn (4.8.3)
+      kgio (~> 2.6)
+      rack
+      raindrops (~> 0.7)
     warden (1.2.3)
       rack (>= 1.0)
     websocket-driver (0.5.3)
@@ -203,8 +218,9 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  byebug
   coffee-rails (~> 4.0.0)
+  compass (= 0.12.2)
+  compass-sourcemaps (~> 0.12.2.sourcemaps.57a186c)
   devise
   devise_security_extension
   easy_captcha
@@ -213,15 +229,22 @@ DEPENDENCIES
   jalalidate
   jbuilder (~> 1.2)
   jquery-rails
+  jquery-turbolinks
   magic_encoding
   mysql
   mysql2
   pg
   private_pub
   rails (= 4.0.3)
+  rails_12factor
+  rake
   rmagick
-  sass-rails (~> 4.0.0)
+  sass (= 3.3.0.alpha.149)
   sdoc
   thin
   turbolinks
   uglifier (>= 1.3.0)
+<<<<<<< HEAD
+=======
+  unicorn
+>>>>>>> 9b91604ef5c216175d0d5fe73334a118faae53ab

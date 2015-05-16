@@ -1,0 +1,31 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  game_round_id: 1
+  firstname: false
+  lastname: false
+  city: false
+  country: false
+  fruit: false
+  car: false
+  color: false
+  job: false
+  food: false
+  thing: false
+  animal: false
+  flower: false
+
+two:
+  game_round_id: 1
+  firstname: false
+  lastname: false
+  city: false
+  country: false
+  fruit: false
+  car: false
+  color: false
+  job: false
+  food: false
+  thing: false
+  animal: false
+  flower: false

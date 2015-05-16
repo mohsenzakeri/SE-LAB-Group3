@@ -1,0 +1,94 @@
+<%= form_for(@game_judge) do |f| %>
+  <% if @game_judge.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@game_judge.errors.count, "error") %> prohibited this game_judge from being saved:</h2>
+
+      <ul>
+      <% @game_judge.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+
+  <div class="field">
+    <%= f.check_box :firstname %>
+    اسم:
+    <%= @game_round.firstname %>
+  </div>
+
+  <div class="field">
+    <%= f.check_box :lastname %>
+    فامیل:
+    <%= @game_round.lastname %>
+  </div>
+
+  <div class="field">
+    <%= f.check_box :city %>
+    شهر:
+    <%= @game_round.city %>
+  </div>
+
+  <div class="field">
+    <%= f.check_box :country %>
+    کشور:
+    <%= @game_round.country %>
+  </div>
+
+  <div class="field">
+    <%= f.check_box :fruit %>
+    میوه:
+    <%= @game_round.fruit %>
+  </div>
+
+  <div class="field">
+    <%= f.check_box :car %>
+    ماشین:
+    <%= @game_round.car %>
+  </div>
+
+  <div class="field">
+    <%= f.check_box :color %>
+    رنگ:
+    <%= @game_round.color %>
+  </div>
+
+  <div class="field">
+    <%= f.check_box :job %>
+    شغل:
+    <%= @game_round.job %>
+  </div>
+
+  <div class="field">
+    <%= f.check_box :food %>
+    غذا:
+    <%= @game_round.food %>
+  </div>
+
+  <div class="field">
+    <%= f.check_box :thing %>
+    اشیا:
+    <%= @game_round.thing %>
+  </div>
+
+  <div class="field">
+    <%= f.check_box :animal %>
+    حیوان:
+    <%= @game_round.animal %>
+  </div>
+
+  <div class="field">
+    <%= f.check_box :flower %>
+    گل:
+    <%= @game_round.flower %>
+  </div>
+
+  <div class="field">
+    <%= f.hidden_field :game_round_id, :value => @game_round.id%>
+  </div>
+<br><br>
+  <div class="actions">
+    <%= f.submit "تایید نهایی"%>
+  </div>
+<% end %>

@@ -1,4 +1,4 @@
-source 'http://rubygems.org'
+source 'https://rubygems.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.3'
@@ -8,7 +8,7 @@ gem 'rails', '4.0.3'
 gem 'mysql'
 
 # Use SCSS for stylesheets
-gem 'sass-rails', '~> 4.0.0'
+###################gem 'sass-rails', '~> 4.0.0'
 
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
@@ -24,7 +24,7 @@ gem 'jquery-rails'
 
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 gem 'turbolinks'
-
+gem 'jquery-turbolinks'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 1.2'
 
@@ -35,7 +35,14 @@ end
 
 group :production do
   gem 'pg'
+	
 end
+
+group :development, :test do
+	gem 'mysql2'
+end
+
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.1.2'
 
@@ -56,11 +63,21 @@ gem 'rmagick'
 gem 'jalalidate'
 gem 'farsifu'
 gem 'magic_encoding'
-gem 'mysql2'
+  
+#gem 'mysql2'
+
+
 gem 'thin'
 gem 'private_pub'
-gem 'byebug'
+#gem 'byebug'
 
 gem 'gon'
 
+gem 'sass', '3.3.0.alpha.149'
+gem 'compass', '0.12.2'
+gem 'compass-sourcemaps', "~> 0.12.2.sourcemaps.57a186c"
 
+gem 'rails_12factor'
+gem 'unicorn'
+gem 'rake'
+gem 'pg'
