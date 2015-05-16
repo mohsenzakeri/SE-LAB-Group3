@@ -80,3 +80,4 @@ gem 'compass-sourcemaps', "~> 0.12.2.sourcemaps.57a186c"
 gem 'rails_12factor'
 gem 'unicorn'
 gem 'rake'
+gem 'pg'
