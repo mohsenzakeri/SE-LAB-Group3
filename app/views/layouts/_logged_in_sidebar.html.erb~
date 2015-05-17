@@ -1,17 +1,35 @@
-<div class="row" style="background-color:#FF4719;height:50px;padding:10px;border-radius:10px;margin:5px">
-<%= link_to 'مشاهده‌ی اتاقهای بازی', games_path, :style=>"color:white" %>
+<div class="row" style="background-color:#FF4719;width:200px; height:90px;padding:10px;border-radius:10px;margin:5px">
+<span aria-hidden="true"><%= image_tag "Programming.svg" , :class=>"icon"%></span>
+<%= link_to 'اتاق‌های بازی', games_path, :style=>"color:white" %>
 </div>
-<div class="row" style="background-color:#FF704D;height:50px;padding:10px;border-radius:10px;margin:5px">
-بازیهای من
+
+
+<div class="row" style="background-color:#FF4719;width:200px; height:90px;padding:10px;border-radius:10px;margin:5px">
+<span aria-hidden="true"><%= image_tag "Programming.svg" , :class=>"icon"%></span>
+<%= link_to 'اتاق‌های بازی', games_path, :style=>"color:white" %>
 </div>
-<div class="row" style="background-color:#FF9980;height:50px;padding:10px;border-radius:10px;margin:5px">
-<%= link_to 'ایجاد بازی جدید', new_game_path, :style=>"color:white"  %>
+
+
+<div class="row" style="background-color:#FF704D; width:200px; height:90px;padding:10px;border-radius:10px;margin:5px">
+<span aria-hidden="true"><%= image_tag "Chessboard.svg" , :class=>"icon"%></span>
+بازی‌های من
 </div>
-<div class="row" style="background-color:#FFAD99;height:50px;padding:10px;border-radius:10px;margin:5px">
+
+
+<div class="row" style="background-color:#FF9980;width:200px; height:90px;padding:10px;border-radius:10px;margin:5px">
+<span aria-hidden="true"><%= image_tag "Mind-Map-Paper.svg" , :class=>"icon"%></span>
+<%= link_to 'ایجاد بازی جدید', new_game_path, :style=>"color:white"%>
+</div>
+
+
+<div class="row" style="background-color:#FFAD99;width:200px; height:90px;padding:10px;border-radius:10px;margin:5px">
+<span aria-hidden="true"><%= image_tag "Medal-2.svg" , :class=>"icon"%></span>
 افراد پرامتیاز
 </div>
-<div class="row" style="background-color:#FFC2B2;height:50px;padding:10px;border-radius:10px;margin:5px">
-مشاهده‌ی قوانین بازی
+
+
+<div class="row" style="background-color:#FFC2B2;width:200px; height:90px;padding:10px;border-radius:10px;margin:5px">
+<span aria-hidden="true"><%= image_tag "Clipboard-Plan.svg" , :class=>"icon"%></span> قوانین بازی
 </div>
 
 

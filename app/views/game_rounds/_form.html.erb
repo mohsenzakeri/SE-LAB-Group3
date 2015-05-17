@@ -13,70 +13,94 @@
   <% end %>
 
   <div class="container-fluid" >
-<div class="row" style="margin:10px;background-color:#6712f3;border-radius:10px">
-  <div class="col-sm-4"><h4 style="color:white;float:right"> امتیاز بدست آمده: ۰</h4></div>
+  <div class="row" style="margin:10px;background-color:#6712f3;border-radius:10px">
   <div class="col-sm-4"><h4 style="color:white;float:right"> حرف این دور: 
   <%= @game_alphabet.alphabet %>
   </h4></div>
   <div class="col-sm-4"><h4 style="color:white;float:right">دور <%= @user_game.game_rounds.count+1 %> بازی</h4></div>
+  <div class="col-sm-4"><h4 style="color:white;float:right"> امتیاز بدست آمده: ۰</h4></div>
 </div>
 
+<div class="panel panel-primary">
+<div class="panel-footer"></div>
 <div class="row" style="margin:10px;">
-<div class="col-sm-3"><%= f.text_field :city ,  :id=>"city" , :class=>"round_field"%></div>
-<div class="col-sm-1" >شهر</div>
-<div class="col-sm-3"><%= f.text_field :lastname ,  :id=>"lastname" , :class=>"round_field"%></div>
-<div class="col-sm-1">فامیل</div>
-<div class="col-sm-3"><%= f.text_field :firstname , :id=>"firstname" , :class=>"round_field"%></div>
-<div class="col-sm-1">اسم</div>
+<div class="col-sm-2">اسم</div>
+<div class="col-sm-4"><%= f.text_field :firstname , :id=>"firstname" , :class=>"round_field"%></div>
+<div class="col-sm-2">فامیل</div>
+<div class="col-sm-4"><%= f.text_field :lastname ,  :id=>"lastname" , :class=>"round_field"%></div>
 </div>
 
-<div class="row" style="margin:10px;">
-<div class="col-sm-3"><%= f.text_field :car ,  :id=>"car" , :class=>"round_field"%></div>
-<div class="col-sm-1">ماشین</div>
-<div class="col-sm-3"><%= f.text_field :fruit ,  :id=>"fruit" , :class=>"round_field"%></div>
-<div class="col-sm-1" >میوه</div>
-<div class="col-sm-3"><%= f.text_field :country ,  :id=>"country" , :class=>"round_field"%></div>
-<div class="col-sm-1" >کشور</div>
-</div>
+<hr class="paper-line">
 
 <div class="row" style="margin:10px;">
-<div class="col-sm-3"><%= f.text_field :food ,  :id=>"food" , :class=>"round_field"%></div>
-<div class="col-sm-1">غذا</div>
-<div class="col-sm-3"><%= f.text_field :job ,  :id=>"job" , :class=>"round_field"%></div>
-<div class="col-sm-1">کار</div>
-<div class="col-sm-3"><%= f.text_field :color ,  :id=>"color" , :class=>"round_field"%></div>
-<div class="col-sm-1">رنگ</div>
+<div class="col-sm-2" >شهر</div>
+<div class="col-sm-4"><%= f.text_field :city ,  :id=>"city" , :class=>"round_field"%></div>
+<div class="col-sm-2">ماشین</div>
+<div class="col-sm-4"><%= f.text_field :car ,  :id=>"car" , :class=>"round_field"%></div>
 </div>
 
+<hr class="paper-line">
+
 <div class="row" style="margin:10px;">
-<div class="col-sm-3"><%= f.text_field :flower ,  :id=>"flower" , :class=>"round_field"%></div>
-<div class="col-sm-1">گل</div>
-<div class="col-sm-3"><%= f.text_field :animal ,  :id=>"animal" , :class=>"round_field"%></div>
-<div class="col-sm-1">حیوان</div>
-<div class="col-sm-3"><%= f.text_field :thing ,  :id=>"thing" , :class=>"round_field"%></div>
-<div class="col-sm-1">اشیا</div>
+<div class="col-sm-2" >میوه</div>
+<div class="col-sm-4"><%= f.text_field :fruit ,  :id=>"fruit" , :class=>"round_field"%></div>
+<div class="col-sm-2" >کشور</div>
+<div class="col-sm-4"><%= f.text_field :country ,  :id=>"country" , :class=>"round_field"%></div>
 </div>
+
+<hr class="paper-line">
+
+<div class="row" style="margin:10px;">
+<div class="col-sm-2">غذا</div>
+<div class="col-sm-4"><%= f.text_field :food ,  :id=>"food" , :class=>"round_field"%></div>
+<div class="col-sm-2">کار</div>
+<div class="col-sm-4"><%= f.text_field :job ,  :id=>"job" , :class=>"round_field"%></div>
+</div>
+
+<hr class="paper-line">
+
+<div class="row" style="margin:10px;">
+<div class="col-sm-2">رنگ</div>
+<div class="col-sm-4"><%= f.text_field :color ,  :id=>"color" , :class=>"round_field"%></div>
+<div class="col-sm-2">گل</div>
+<div class="col-sm-4"><%= f.text_field :flower ,  :id=>"flower" , :class=>"round_field"%></div>
+</div>
+
+<hr class="paper-line">
+
+<div class="row" style="margin:10px;">
+<div class="col-sm-2">حیوان</div>
+<div class="col-sm-4"><%= f.text_field :animal ,  :id=>"animal" , :class=>"round_field"%></div>
+<div class="col-sm-2">اشیا</div>
+<div class="col-sm-4"><%= f.text_field :thing ,  :id=>"thing" , :class=>"round_field"%></div>
+</div>
+<hr class="paper-line" style="background-color:blue">
+
 
 <%= f.hidden_field :user_game_id, :value => @user_game.id%>
 <%= f.hidden_field :round_number, :value => @user_game.round_number%>
 <%= f.hidden_field :score, :value => 0%>
 
 <div class="row" style="margin:10px">
-<div class="col-sm-3">
+<div class="col-sm-8"></div>
+<div class="col-sm-4">
 <!-- %= f.submit "استوپ" , :id=>"stop_game" % -->
 <input type="submit" value="استوپ" name="commit" id="stop_game">
 </input>
-
-<div class="col-sm-9"></div>
 </div>
 
+</div>
 
 
 
 <% end %>
 
-<div class="clock"> </div>
-
+<div class="row">
+<div class="col-sm-6">
+	<div class="clock" style="float:right"> </div>
+</div>
+<div class="col-sm-6"></div>
+</div>
 <script type="text/javascript">
 
 $(document).ready(function (){

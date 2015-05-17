@@ -1,0 +1,2 @@
+<%= @game.joined_players %>
+

@@ -1,15 +1,6 @@
 <div class="container-fluid" >
 
-<div class="row" style="margin:10px;">
-<div class="col-sm-4"></div>
-<div class="col-sm-4" style="background-color:#FF5C33;border-radius: 20px;height:60px;text-align:center;color:white;">	
-<h4>
-جزئیات بازی را در زیر ببینید
-</h4>
 
-</div>
-<div class="col-sm-4"></div>
-</div>
 <%if @game.user_games.first.game_rounds.count == @game.rounds_num%>
 	<b>جدول امتیازات</b><br><hr>
 	<% @game.user_games.each do |user_game| %>
@@ -25,66 +16,108 @@
 		<%end%><br><hr><br>
 	<%end%>
 <%end%>
-<div class="row" style="text-align:center;margin:10px">
-<div class="col-sm-4"></div>
-<div class="col-sm-4" style="background-color:#FF8566;color:white;border-radius: 20px;">
 
-	<div class="row" style="margin:10px;padding:10px;">
-این بازی توسط
+
+<div class="progress">
+  <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: <%= 100*(render :partial => "user_games/join_players" , :object => @game).to_f/@game.players_num %>%">
+    <span class="sr-only">40% Complete (success)</span>
+  </div>
+</div>
+
+<div class="progress">
+  <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100" style="width: <%= 100*(render :partial => "user_games/join_players" , :object => @game).to_f/@game.players_num %>%">
+    <span class="sr-only">45% Complete</span>
+  </div>
+</div>
+
+<div class="progress">
+  <div class="progress-bar progress-bar-success progress-bar-striped" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: <%= 100*(render :partial => "user_games/join_players" , :object => @game).to_f/@game.players_num %>%">
+    <span class="sr-only">40% Complete (success)</span>
+  </div>
+</div>
+
+
+<div class = "row" style="margin-top:10px">
+<div class="col-sm-3" style="background-color:#672387;color:white;border-radius: 10px;padding:20px"> ایجاد کننده‌ی بازی</div>
+<div class="col-sm-1"></div>
+<div class="col-sm-8" style="background-color:#672387;color:white;border-radius: 10px;padding:20px"> 
 <%= @creator.name %>
-ایجاد شده‌است
-	</div>
+</div>
 
-	<div class="row" style="margin:10px;padding:10px;">
+</div>
+
+<hr class="paper-line">
+
+<div class = "row" style="margin-top:10px">
+
+<div class="col-sm-3" style="background-color:#763993;color:white;border-radius: 10px;padding:20px"> تعداد بازیکن</div>
+<div class="col-sm-1"></div>
+<div class="col-sm-8" style="background-color:#763993;color:white;border-radius: 10px;padding:20px"> 
 <%= @game.players_num %>
- بازیکن می‌توانند در این بازی شرکت کنند
-	</div>
+</div>
 
-	<div class="row" style="margin:10px;padding:10px;">
-این بازی 
+</div>
+
+<hr class="paper-line">
+
+<div class = "row" style="margin-top:10px">
+
+<div class="col-sm-3" style="background-color:#854F9F;color:white;border-radius: 10px;padding:20px"> تعداد دور</div>
+<div class="col-sm-1"></div>
+<div class="col-sm-8" style="background-color:#854F9F;color:white;border-radius: 10px;padding:20px"> 
 <%= @game.rounds_num %>
-دور بازی دارد
-	</div>
-
-	<div class="row" style="margin:10px;padding:10px;">
-تاکنون
-<div id="joined_players">
-<%= render :partial => "user_games/join_players" , :object => @game %>
-</div>
-بازیکن به این بازی ملحق شده‌اند
-	</div>
 </div>
 
+</div>
+
+<hr class="paper-line">
+
+<div class = "row" style="margin-top:10px">
+
+<div class="col-sm-3" style="background-color:#9565AB;color:white;border-radius: 10px;padding:20px"> بازیکنان ملحق‌شده</div>
+<div class="col-sm-1"></div>
+<div class="col-sm-8" style="background-color:#9565AB;color:white;border-radius: 10px;padding:20px"> 
+<%= render :partial => "user_games/join_players" , :object => @game , :style=>"display:inline" %>
+<div id="joined" style="display:inline;"><%= render :partial => "user_games/joined_players_name" , :object => @game %></div>
+
+</div>
+
+</div>
+
+
+<div class="row" style="margin-top:10px">
 <div class="col-sm-4"></div>
+<div class="col-sm-8">
 
 </div>
-
 </div>
 
+<hr class="paper-line">
 
-<%if  @game.creator_id != current_user.id %>
-	<div id="join">
-		<%= render :partial => "user_games/join" , :object => @game  %>
+
+<div class="row" style="margin-top:10px" >
+<div class="col-sm-3"> 
+<%if  @game.creator_id == current_user.id %>
+	<div class="row" style="background-color:#A47BB7;  height:90px;padding:10px;border-radius:10px;">
+	<span aria-hidden="true"><%= image_tag "pencil_64px.png" , :class=>"icon"%></span>
+	<%= link_to 'ویرایش', edit_game_path(@game) , :Style=>"color:white"%> 
 	</div>
-<%end%>	
-<div class="row" style="margin:10px" >
-<div class="col-sm-4"> </div>
-<div class="col-sm-4" style="text-align:center;background-color:#FFAD99;border-radius:20px;">
-	<div class="row">بازیکنان ملحق‌شده عبارتند از </div>
-	<div class="row">
-		<div id="joined">
-			<%= render :partial => "user_games/joined_players_name" , :object => @game %>
-		</div>
+<% else %>
+	<div class="row" style="background-color:#A47BB7;  height:90px;padding:10px;border-radius:10px;">
+	<span aria-hidden="true"><%= image_tag "Key3.svg" , :class=>"icon"%></span>
+	<div id="join" style="display:inline;color:white">
+		<%= render :partial => "user_games/join" , :object => @game ,:style=>"display:inline" %>
 	</div>
+	</div>
+<%end%>
 </div>
-<div class="col-sm-4"><%if  @game.creator_id == current_user.id %><%= link_to 'ویرایش', edit_game_path(@game) %> <%end%>	</div>
+<div class="col-sm-9">
 </div>
-
+</div>
 
 <% if @game.creator_id == current_user.id %>
   <%= subscribe_to "/user_games/new/private/#{@game.id}"  %>
 <% end %>
-<% link_to 'Back', games_path %>
 
 
 <%= subscribe_to "/user_games/start_game/#{@game.id}"%>
