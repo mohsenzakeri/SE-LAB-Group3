@@ -1,101 +1,101 @@
-2015-05-16T10:01:17.522601+00:00 app[web.1]: Completed 302 Found in 35ms (ActiveRecord: 23.0ms)
-2015-05-16T10:01:17.522534+00:00 app[web.1]: Completed 302 Found in 35ms (ActiveRecord: 23.0ms)
-2015-05-16T10:01:17.882677+00:00 heroku[router]: at=info method=GET path="/games/2" host=calm-tundra-9478.herokuapp.com request_id=3ffbe056-b03a-4313-ba0e-dc1e4314b27c fwd="188.118.89.55" dyno=web.1 connect=1ms service=17ms status=500 bytes=1472
-2015-05-16T10:01:17.866487+00:00 app[web.1]: Started GET "/games/2" for 188.118.89.55 at 2015-05-16 10:01:17 +0000
-2015-05-16T10:01:17.866589+00:00 app[web.1]: Started GET "/games/2" for 188.118.89.55 at 2015-05-16 10:01:17 +0000
-2015-05-16T10:01:17.867794+00:00 app[web.1]: Processing by GamesController#show as HTML
-2015-05-16T10:01:17.867867+00:00 app[web.1]: Processing by GamesController#show as HTML
-2015-05-16T10:01:17.867890+00:00 app[web.1]:   Parameters: {"id"=>"2"}
-2015-05-16T10:01:17.867940+00:00 app[web.1]:   Parameters: {"id"=>"2"}
-2015-05-16T10:01:17.878364+00:00 app[web.1]: PG::Error: ERROR:  column game_rounds.user_game_id does not exist
-2015-05-16T10:01:17.878367+00:00 app[web.1]: LINE 1: SELECT COUNT(*) FROM "game_rounds"  WHERE "game_rounds"."use...
-2015-05-16T10:01:17.878369+00:00 app[web.1]:                                                   ^
-2015-05-16T10:01:17.878371+00:00 app[web.1]: : SELECT COUNT(*) FROM "game_rounds"  WHERE "game_rounds"."user_game_id" = $1
-2015-05-16T10:01:17.878436+00:00 app[web.1]: PG::Error: ERROR:  column game_rounds.user_game_id does not exist
-2015-05-16T10:01:17.878439+00:00 app[web.1]: LINE 1: SELECT COUNT(*) FROM "game_rounds"  WHERE "game_rounds"."use...
-2015-05-16T10:01:17.878441+00:00 app[web.1]:                                                   ^
-2015-05-16T10:01:17.878442+00:00 app[web.1]: : SELECT COUNT(*) FROM "game_rounds"  WHERE "game_rounds"."user_game_id" = $1
-2015-05-16T10:01:17.879174+00:00 app[web.1]:   Rendered games/show.html.erb within layouts/application (3.1ms)
-2015-05-16T10:01:17.879179+00:00 app[web.1]:   Rendered games/show.html.erb within layouts/application (3.1ms)
-2015-05-16T10:01:17.879319+00:00 app[web.1]: Completed 500 Internal Server Error in 11ms
-2015-05-16T10:01:17.879353+00:00 app[web.1]: Completed 500 Internal Server Error in 11ms
-2015-05-16T10:01:17.881260+00:00 app[web.1]: 
-2015-05-16T10:01:17.881263+00:00 app[web.1]: ActionView::Template::Error (PG::Error: ERROR:  column game_rounds.user_game_id does not exist
-2015-05-16T10:01:17.881265+00:00 app[web.1]: LINE 1: SELECT COUNT(*) FROM "game_rounds"  WHERE "game_rounds"."use...
-2015-05-16T10:01:17.881267+00:00 app[web.1]:                                                   ^
-2015-05-16T10:01:17.881268+00:00 app[web.1]: : SELECT COUNT(*) FROM "game_rounds"  WHERE "game_rounds"."user_game_id" = $1):
-2015-05-16T10:01:17.881269+00:00 app[web.1]:     10: </div>
-2015-05-16T10:01:17.881271+00:00 app[web.1]:     11: <div class="col-sm-4"></div>
-2015-05-16T10:01:17.881273+00:00 app[web.1]:     12: </div>
-2015-05-16T10:01:17.881274+00:00 app[web.1]:     13: <%if @game.user_games.first.game_rounds.count == @game.rounds_num%>
-2015-05-16T10:01:17.881276+00:00 app[web.1]:     14: 	<b>جدول امتیازات</b><br><hr>
-2015-05-16T10:01:17.881277+00:00 app[web.1]:     15: 	<% @game.user_games.each do |user_game| %>
-2015-05-16T10:01:17.881278+00:00 app[web.1]:     16: 		نام مستعار بازیکن:
-2015-05-16T10:01:17.881280+00:00 app[web.1]:   app/views/games/show.html.erb:13:in `_app_views_games_show_html_erb__4342890467649456135_69816689954640'
-2015-05-16T10:01:17.881282+00:00 app[web.1]: 
-2015-05-16T10:01:17.881283+00:00 app[web.1]: 
-2015-05-16T10:01:17.881288+00:00 app[web.1]: 
-2015-05-16T10:01:17.881289+00:00 app[web.1]: ActionView::Template::Error (PG::Error: ERROR:  column game_rounds.user_game_id does not exist
-2015-05-16T10:01:17.881290+00:00 app[web.1]: LINE 1: SELECT COUNT(*) FROM "game_rounds"  WHERE "game_rounds"."use...
-2015-05-16T10:01:17.881292+00:00 app[web.1]:                                                   ^
-2015-05-16T10:01:17.881293+00:00 app[web.1]: : SELECT COUNT(*) FROM "game_rounds"  WHERE "game_rounds"."user_game_id" = $1):
-2015-05-16T10:01:17.881295+00:00 app[web.1]:     10: </div>
-2015-05-16T10:01:17.881296+00:00 app[web.1]:     11: <div class="col-sm-4"></div>
-2015-05-16T10:01:17.881297+00:00 app[web.1]:     12: </div>
-2015-05-16T10:01:17.881299+00:00 app[web.1]:     13: <%if @game.user_games.first.game_rounds.count == @game.rounds_num%>
-2015-05-16T10:01:17.881301+00:00 app[web.1]:     15: 	<% @game.user_games.each do |user_game| %>
-2015-05-16T10:01:17.881303+00:00 app[web.1]:     16: 		نام مستعار بازیکن:
-2015-05-16T10:01:17.881304+00:00 app[web.1]:   app/views/games/show.html.erb:13:in `_app_views_games_show_html_erb__4342890467649456135_69816689954640'
-2015-05-16T10:01:17.881306+00:00 app[web.1]: 
-2015-05-16T10:01:17.881300+00:00 app[web.1]:     14: 	<b>جدول امتیازات</b><br><hr>
-2015-05-16T10:01:17.881305+00:00 app[web.1]: 
-2015-05-16T10:01:17.496083+00:00 app[web.1]: Redirected to https://calm-tundra-9478.herokuapp.com/games/2
-2015-05-16T10:05:05.147990+00:00 heroku[router]: at=info method=GET path="/games/2" host=calm-tundra-9478.herokuapp.com request_id=bc7d3515-a3af-4e0e-ae7c-de7003b1b1ef fwd="188.118.89.55" dyno=web.1 connect=1ms service=20ms status=500 bytes=1472
-2015-05-16T10:05:05.127560+00:00 app[web.1]: Started GET "/games/2" for 188.118.89.55 at 2015-05-16 10:05:05 +0000
-2015-05-16T10:05:05.127569+00:00 app[web.1]: Started GET "/games/2" for 188.118.89.55 at 2015-05-16 10:05:05 +0000
-2015-05-16T10:05:05.129378+00:00 app[web.1]: Processing by GamesController#show as HTML
-2015-05-16T10:05:05.129383+00:00 app[web.1]: Processing by GamesController#show as HTML
-2015-05-16T10:05:05.129419+00:00 app[web.1]:   Parameters: {"id"=>"2"}
-2015-05-16T10:05:05.129435+00:00 app[web.1]:   Parameters: {"id"=>"2"}
-2015-05-16T10:05:05.139814+00:00 app[web.1]: PG::Error: ERROR:  column game_rounds.user_game_id does not exist
-2015-05-16T10:05:05.139817+00:00 app[web.1]: LINE 1: SELECT COUNT(*) FROM "game_rounds"  WHERE "game_rounds"."use...
-2015-05-16T10:05:05.139819+00:00 app[web.1]:                                                   ^
-2015-05-16T10:05:05.139820+00:00 app[web.1]: : SELECT COUNT(*) FROM "game_rounds"  WHERE "game_rounds"."user_game_id" = $1
-2015-05-16T10:05:05.139825+00:00 app[web.1]: PG::Error: ERROR:  column game_rounds.user_game_id does not exist
-2015-05-16T10:05:05.139827+00:00 app[web.1]: LINE 1: SELECT COUNT(*) FROM "game_rounds"  WHERE "game_rounds"."use...
-2015-05-16T10:05:05.139828+00:00 app[web.1]:                                                   ^
-2015-05-16T10:05:05.139830+00:00 app[web.1]: : SELECT COUNT(*) FROM "game_rounds"  WHERE "game_rounds"."user_game_id" = $1
-2015-05-16T10:05:05.140486+00:00 app[web.1]:   Rendered games/show.html.erb within layouts/application (2.7ms)
-2015-05-16T10:05:05.140490+00:00 app[web.1]:   Rendered games/show.html.erb within layouts/application (2.7ms)
-2015-05-16T10:05:05.140591+00:00 app[web.1]: Completed 500 Internal Server Error in 11ms
-2015-05-16T10:05:05.140609+00:00 app[web.1]: Completed 500 Internal Server Error in 11ms
-2015-05-16T10:05:05.142531+00:00 app[web.1]: 
-2015-05-16T10:05:05.142534+00:00 app[web.1]: ActionView::Template::Error (PG::Error: ERROR:  column game_rounds.user_game_id does not exist
-2015-05-16T10:05:05.142535+00:00 app[web.1]: LINE 1: SELECT COUNT(*) FROM "game_rounds"  WHERE "game_rounds"."use...
-2015-05-16T10:05:05.142537+00:00 app[web.1]:                                                   ^
-2015-05-16T10:05:05.142540+00:00 app[web.1]:     10: </div>
-2015-05-16T10:05:05.142538+00:00 app[web.1]: : SELECT COUNT(*) FROM "game_rounds"  WHERE "game_rounds"."user_game_id" = $1):
-2015-05-16T10:05:05.142541+00:00 app[web.1]:     11: <div class="col-sm-4"></div>
-2015-05-16T10:05:05.142543+00:00 app[web.1]:     12: </div>
-2015-05-16T10:05:05.142544+00:00 app[web.1]:     13: <%if @game.user_games.first.game_rounds.count == @game.rounds_num%>
-2015-05-16T10:05:05.142545+00:00 app[web.1]:     14: 	<b>جدول امتیازات</b><br><hr>
-2015-05-16T10:05:05.142547+00:00 app[web.1]:     15: 	<% @game.user_games.each do |user_game| %>
-2015-05-16T10:05:05.142548+00:00 app[web.1]:     16: 		نام مستعار بازیکن:
-2015-05-16T10:05:05.142551+00:00 app[web.1]:   app/views/games/show.html.erb:13:in `_app_views_games_show_html_erb__4342890467649456135_69816689954640'
-2015-05-16T10:05:05.142552+00:00 app[web.1]: 
-2015-05-16T10:05:05.142554+00:00 app[web.1]: 
-2015-05-16T10:05:05.142558+00:00 app[web.1]: 
-2015-05-16T10:05:05.142560+00:00 app[web.1]: ActionView::Template::Error (PG::Error: ERROR:  column game_rounds.user_game_id does not exist
-2015-05-16T10:05:05.142561+00:00 app[web.1]: LINE 1: SELECT COUNT(*) FROM "game_rounds"  WHERE "game_rounds"."use...
-2015-05-16T10:05:05.142562+00:00 app[web.1]:                                                   ^
-2015-05-16T10:05:05.142564+00:00 app[web.1]: : SELECT COUNT(*) FROM "game_rounds"  WHERE "game_rounds"."user_game_id" = $1):
-2015-05-16T10:05:05.142565+00:00 app[web.1]:     10: </div>
-2015-05-16T10:05:05.142566+00:00 app[web.1]:     11: <div class="col-sm-4"></div>
-2015-05-16T10:05:05.142568+00:00 app[web.1]:     12: </div>
-2015-05-16T10:05:05.142569+00:00 app[web.1]:     13: <%if @game.user_games.first.game_rounds.count == @game.rounds_num%>
-2015-05-16T10:05:05.142571+00:00 app[web.1]:     14: 	<b>جدول امتیازات</b><br><hr>
-2015-05-16T10:05:05.142572+00:00 app[web.1]:     15: 	<% @game.user_games.each do |user_game| %>
-2015-05-16T10:05:05.142573+00:00 app[web.1]:     16: 		نام مستعار بازیکن:
-2015-05-16T10:05:05.142575+00:00 app[web.1]:   app/views/games/show.html.erb:13:in `_app_views_games_show_html_erb__4342890467649456135_69816689954640'
-2015-05-16T10:05:05.142576+00:00 app[web.1]: 
-2015-05-16T10:05:05.142577+00:00 app[web.1]: 
+2015-05-17T10:19:01.206884+00:00 app[web.1]:   vendor/bundle/ruby/2.0.0/gems/activesupport-4.0.3/lib/active_support/tagged_logging.rb:25:in `tagged'
+2015-05-17T10:19:01.206886+00:00 app[web.1]:   vendor/bundle/ruby/2.0.0/gems/activesupport-4.0.3/lib/active_support/tagged_logging.rb:67:in `tagged'
+2015-05-17T10:19:01.206888+00:00 app[web.1]:   vendor/bundle/ruby/2.0.0/gems/railties-4.0.3/lib/rails/rack/logger.rb:20:in `call'
+2015-05-17T10:19:01.206889+00:00 app[web.1]:   vendor/bundle/ruby/2.0.0/gems/request_store-1.1.0/lib/request_store/middleware.rb:8:in `call'
+2015-05-17T10:19:01.206893+00:00 app[web.1]:   vendor/bundle/ruby/2.0.0/gems/rack-1.5.3/lib/rack/methodoverride.rb:21:in `call'
+2015-05-17T10:19:01.206895+00:00 app[web.1]:   vendor/bundle/ruby/2.0.0/gems/rack-1.5.3/lib/rack/runtime.rb:17:in `call'
+2015-05-17T10:19:01.206891+00:00 app[web.1]:   vendor/bundle/ruby/2.0.0/gems/actionpack-4.0.3/lib/action_dispatch/middleware/request_id.rb:21:in `call'
+2015-05-17T10:19:01.206897+00:00 app[web.1]:   vendor/bundle/ruby/2.0.0/gems/activesupport-4.0.3/lib/active_support/cache/strategy/local_cache.rb:83:in `call'
+2015-05-17T10:19:01.206901+00:00 app[web.1]:   vendor/bundle/ruby/2.0.0/gems/rack-1.5.3/lib/rack/sendfile.rb:112:in `call'
+2015-05-17T10:19:01.206905+00:00 app[web.1]:   vendor/bundle/ruby/2.0.0/gems/railties-4.0.3/lib/rails/application.rb:97:in `call'
+2015-05-17T10:19:01.206903+00:00 app[web.1]:   vendor/bundle/ruby/2.0.0/gems/railties-4.0.3/lib/rails/engine.rb:511:in `call'
+2015-05-17T10:19:01.206907+00:00 app[web.1]:   vendor/bundle/ruby/2.0.0/gems/rack-1.5.3/lib/rack/content_length.rb:14:in `call'
+2015-05-17T10:19:01.206909+00:00 app[web.1]:   vendor/bundle/ruby/2.0.0/gems/thin-1.6.3/lib/thin/connection.rb:86:in `block in pre_process'
+2015-05-17T10:19:01.206899+00:00 app[web.1]:   vendor/bundle/ruby/2.0.0/gems/actionpack-4.0.3/lib/action_dispatch/middleware/static.rb:64:in `call'
+2015-05-17T10:19:01.206910+00:00 app[web.1]:   vendor/bundle/ruby/2.0.0/gems/thin-1.6.3/lib/thin/connection.rb:84:in `catch'
+2015-05-17T10:19:01.206912+00:00 app[web.1]:   vendor/bundle/ruby/2.0.0/gems/thin-1.6.3/lib/thin/connection.rb:84:in `pre_process'
+2015-05-17T10:19:01.206916+00:00 app[web.1]:   vendor/bundle/ruby/2.0.0/gems/thin-1.6.3/lib/thin/connection.rb:39:in `receive_data'
+2015-05-17T10:19:01.206914+00:00 app[web.1]:   vendor/bundle/ruby/2.0.0/gems/thin-1.6.3/lib/thin/connection.rb:53:in `process'
+2015-05-17T10:19:01.206920+00:00 app[web.1]:   vendor/bundle/ruby/2.0.0/gems/eventmachine-1.0.7/lib/eventmachine.rb:187:in `run'
+2015-05-17T10:19:01.206925+00:00 app[web.1]:   vendor/bundle/ruby/2.0.0/gems/rack-1.5.3/lib/rack/handler/thin.rb:16:in `run'
+2015-05-17T10:19:01.206921+00:00 app[web.1]:   vendor/bundle/ruby/2.0.0/gems/thin-1.6.3/lib/thin/backends/base.rb:73:in `start'
+2015-05-17T10:19:01.206918+00:00 app[web.1]:   vendor/bundle/ruby/2.0.0/gems/eventmachine-1.0.7/lib/eventmachine.rb:187:in `run_machine'
+2015-05-17T10:19:01.206927+00:00 app[web.1]:   vendor/bundle/ruby/2.0.0/gems/rack-1.5.3/lib/rack/server.rb:264:in `start'
+2015-05-17T10:19:01.206923+00:00 app[web.1]:   vendor/bundle/ruby/2.0.0/gems/thin-1.6.3/lib/thin/server.rb:162:in `start'
+2015-05-17T10:19:01.206929+00:00 app[web.1]:   vendor/bundle/ruby/2.0.0/gems/railties-4.0.3/lib/rails/commands/server.rb:84:in `start'
+2015-05-17T10:19:01.206931+00:00 app[web.1]:   vendor/bundle/ruby/2.0.0/gems/railties-4.0.3/lib/rails/commands.rb:76:in `block in <top (required)>'
+2015-05-17T10:19:01.206933+00:00 app[web.1]:   vendor/bundle/ruby/2.0.0/gems/railties-4.0.3/lib/rails/commands.rb:71:in `tap'
+2015-05-17T10:19:01.206934+00:00 app[web.1]:   vendor/bundle/ruby/2.0.0/gems/railties-4.0.3/lib/rails/commands.rb:71:in `<top (required)>'
+2015-05-17T10:19:01.206936+00:00 app[web.1]:   bin/rails:4:in `require'
+2015-05-17T10:19:01.206938+00:00 app[web.1]:   bin/rails:4:in `<main>'
+2015-05-17T10:19:01.206940+00:00 app[web.1]: 
+2015-05-17T10:19:01.206942+00:00 app[web.1]: 
+2015-05-17T10:19:01.206949+00:00 app[web.1]: 
+2015-05-17T10:19:01.206952+00:00 app[web.1]: ActionController::RoutingError (No route matches [GET] "/assets/BYekan.ttf"):
+2015-05-17T10:19:01.206954+00:00 app[web.1]:   vendor/bundle/ruby/2.0.0/gems/actionpack-4.0.3/lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+2015-05-17T10:19:01.206957+00:00 app[web.1]:   vendor/bundle/ruby/2.0.0/gems/railties-4.0.3/lib/rails/rack/logger.rb:38:in `call_app'
+2015-05-17T10:19:01.206963+00:00 app[web.1]:   vendor/bundle/ruby/2.0.0/gems/activesupport-4.0.3/lib/active_support/tagged_logging.rb:25:in `tagged'
+2015-05-17T10:19:01.206959+00:00 app[web.1]:   vendor/bundle/ruby/2.0.0/gems/railties-4.0.3/lib/rails/rack/logger.rb:20:in `block in call'
+2015-05-17T10:19:01.206961+00:00 app[web.1]:   vendor/bundle/ruby/2.0.0/gems/activesupport-4.0.3/lib/active_support/tagged_logging.rb:67:in `block in tagged'
+2015-05-17T10:19:01.206965+00:00 app[web.1]:   vendor/bundle/ruby/2.0.0/gems/activesupport-4.0.3/lib/active_support/tagged_logging.rb:67:in `tagged'
+2015-05-17T10:19:01.206955+00:00 app[web.1]:   vendor/bundle/ruby/2.0.0/gems/actionpack-4.0.3/lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+2015-05-17T10:19:01.206967+00:00 app[web.1]:   vendor/bundle/ruby/2.0.0/gems/railties-4.0.3/lib/rails/rack/logger.rb:20:in `call'
+2015-05-17T10:19:01.206970+00:00 app[web.1]:   vendor/bundle/ruby/2.0.0/gems/actionpack-4.0.3/lib/action_dispatch/middleware/request_id.rb:21:in `call'
+2015-05-17T10:19:01.206969+00:00 app[web.1]:   vendor/bundle/ruby/2.0.0/gems/request_store-1.1.0/lib/request_store/middleware.rb:8:in `call'
+2015-05-17T10:19:01.206972+00:00 app[web.1]:   vendor/bundle/ruby/2.0.0/gems/rack-1.5.3/lib/rack/methodoverride.rb:21:in `call'
+2015-05-17T10:19:01.206974+00:00 app[web.1]:   vendor/bundle/ruby/2.0.0/gems/rack-1.5.3/lib/rack/runtime.rb:17:in `call'
+2015-05-17T10:19:01.206982+00:00 app[web.1]:   vendor/bundle/ruby/2.0.0/gems/railties-4.0.3/lib/rails/engine.rb:511:in `call'
+2015-05-17T10:19:01.206994+00:00 app[web.1]:   vendor/bundle/ruby/2.0.0/gems/thin-1.6.3/lib/thin/connection.rb:53:in `process'
+2015-05-17T10:19:01.206978+00:00 app[web.1]:   vendor/bundle/ruby/2.0.0/gems/actionpack-4.0.3/lib/action_dispatch/middleware/static.rb:64:in `call'
+2015-05-17T10:19:01.206992+00:00 app[web.1]:   vendor/bundle/ruby/2.0.0/gems/thin-1.6.3/lib/thin/connection.rb:84:in `pre_process'
+2015-05-17T10:19:01.207004+00:00 app[web.1]:   vendor/bundle/ruby/2.0.0/gems/thin-1.6.3/lib/thin/connection.rb:39:in `receive_data'
+2015-05-17T10:19:01.206988+00:00 app[web.1]:   vendor/bundle/ruby/2.0.0/gems/thin-1.6.3/lib/thin/connection.rb:86:in `block in pre_process'
+2015-05-17T10:19:01.206990+00:00 app[web.1]:   vendor/bundle/ruby/2.0.0/gems/thin-1.6.3/lib/thin/connection.rb:84:in `catch'
+2015-05-17T10:19:01.206986+00:00 app[web.1]:   vendor/bundle/ruby/2.0.0/gems/rack-1.5.3/lib/rack/content_length.rb:14:in `call'
+2015-05-17T10:19:01.207006+00:00 app[web.1]:   vendor/bundle/ruby/2.0.0/gems/eventmachine-1.0.7/lib/eventmachine.rb:187:in `run_machine'
+2015-05-17T10:19:01.207023+00:00 app[web.1]:   bin/rails:4:in `require'
+2015-05-17T10:19:01.206984+00:00 app[web.1]:   vendor/bundle/ruby/2.0.0/gems/railties-4.0.3/lib/rails/application.rb:97:in `call'
+2015-05-17T10:19:01.206980+00:00 app[web.1]:   vendor/bundle/ruby/2.0.0/gems/rack-1.5.3/lib/rack/sendfile.rb:112:in `call'
+2015-05-17T10:19:01.207007+00:00 app[web.1]:   vendor/bundle/ruby/2.0.0/gems/eventmachine-1.0.7/lib/eventmachine.rb:187:in `run'
+2015-05-17T10:19:01.207022+00:00 app[web.1]:   vendor/bundle/ruby/2.0.0/gems/railties-4.0.3/lib/rails/commands.rb:71:in `<top (required)>'
+2015-05-17T10:19:01.206976+00:00 app[web.1]:   vendor/bundle/ruby/2.0.0/gems/activesupport-4.0.3/lib/active_support/cache/strategy/local_cache.rb:83:in `call'
+2015-05-17T10:19:01.207020+00:00 app[web.1]:   vendor/bundle/ruby/2.0.0/gems/railties-4.0.3/lib/rails/commands.rb:71:in `tap'
+2015-05-17T10:19:01.207016+00:00 app[web.1]:   vendor/bundle/ruby/2.0.0/gems/railties-4.0.3/lib/rails/commands/server.rb:84:in `start'
+2015-05-17T10:19:01.207013+00:00 app[web.1]:   vendor/bundle/ruby/2.0.0/gems/rack-1.5.3/lib/rack/handler/thin.rb:16:in `run'
+2015-05-17T10:19:01.207027+00:00 app[web.1]: 
+2015-05-17T10:19:01.207009+00:00 app[web.1]:   vendor/bundle/ruby/2.0.0/gems/thin-1.6.3/lib/thin/backends/base.rb:73:in `start'
+2015-05-17T10:19:01.207015+00:00 app[web.1]:   vendor/bundle/ruby/2.0.0/gems/rack-1.5.3/lib/rack/server.rb:264:in `start'
+2015-05-17T10:19:01.207025+00:00 app[web.1]:   bin/rails:4:in `<main>'
+2015-05-17T10:19:01.207029+00:00 app[web.1]: 
+2015-05-17T10:19:01.207011+00:00 app[web.1]:   vendor/bundle/ruby/2.0.0/gems/thin-1.6.3/lib/thin/server.rb:162:in `start'
+2015-05-17T10:19:01.207018+00:00 app[web.1]:   vendor/bundle/ruby/2.0.0/gems/railties-4.0.3/lib/rails/commands.rb:76:in `block in <top (required)>'
+2015-05-17T10:19:23.339327+00:00 app[web.1]: Started GET "/home/index" for 188.118.86.111 at 2015-05-17 10:19:23 +0000
+2015-05-17T10:19:23.339336+00:00 app[web.1]: Started GET "/home/index" for 188.118.86.111 at 2015-05-17 10:19:23 +0000
+2015-05-17T10:19:23.341949+00:00 app[web.1]: Processing by HomeController#index as HTML
+2015-05-17T10:19:23.341954+00:00 app[web.1]: Processing by HomeController#index as HTML
+2015-05-17T10:19:23.350857+00:00 app[web.1]:   Rendered home/index.html.erb within layouts/application (0.9ms)
+2015-05-17T10:19:23.350864+00:00 app[web.1]:   Rendered home/index.html.erb within layouts/application (0.9ms)
+2015-05-17T10:19:23.367960+00:00 app[web.1]:   Rendered user_games/_start_game.html.erb (14.7ms)
+2015-05-17T10:19:23.367972+00:00 app[web.1]:   Rendered user_games/_start_game.html.erb (14.7ms)
+2015-05-17T10:19:23.368045+00:00 app[web.1]:   Rendered layouts/_logged_in_navbar.html.erb (15.4ms)
+2015-05-17T10:19:23.368022+00:00 app[web.1]:   Rendered layouts/_logged_in_navbar.html.erb (15.4ms)
+2015-05-17T10:19:23.368971+00:00 app[web.1]:   Rendered layouts/_logged_in_sidebar.html.erb (0.7ms)
+2015-05-17T10:19:23.368966+00:00 app[web.1]:   Rendered layouts/_logged_in_sidebar.html.erb (0.7ms)
+2015-05-17T10:19:23.369332+00:00 app[web.1]: Completed 200 OK in 27ms (Views: 9.1ms | ActiveRecord: 15.4ms)
+2015-05-17T10:19:23.369337+00:00 app[web.1]: Completed 200 OK in 27ms (Views: 9.1ms | ActiveRecord: 15.4ms)
+2015-05-17T10:19:23.374141+00:00 heroku[router]: at=info method=GET path="/home/index" host=calm-tundra-9478.herokuapp.com request_id=63e7f35a-46ba-43c6-8a5e-a8eba0db00e4 fwd="188.118.86.111" dyno=web.1 connect=1ms service=35ms status=200 bytes=10251
+2015-05-17T10:19:26.982000+00:00 app[web.1]: Started GET "/users/edit" for 188.118.86.111 at 2015-05-17 10:19:26 +0000
+2015-05-17T10:19:26.982012+00:00 app[web.1]: Started GET "/users/edit" for 188.118.86.111 at 2015-05-17 10:19:26 +0000
+2015-05-17T10:19:27.021216+00:00 app[web.1]: Processing by Devise::RegistrationsController#edit as HTML
+2015-05-17T10:19:27.021226+00:00 app[web.1]: Processing by Devise::RegistrationsController#edit as HTML
+2015-05-17T10:19:27.236350+00:00 app[web.1]:   Rendered devise/registrations/edit.html.erb within layouts/application (126.5ms)
+2015-05-17T10:19:27.236358+00:00 app[web.1]:   Rendered devise/registrations/edit.html.erb within layouts/application (126.5ms)
+2015-05-17T10:19:27.269464+00:00 app[web.1]:   Rendered user_games/_start_game.html.erb (4.2ms)
+2015-05-17T10:19:27.274877+00:00 app[web.1]:   Rendered layouts/_logged_in_sidebar.html.erb (0.9ms)
+2015-05-17T10:19:27.275663+00:00 app[web.1]: Completed 200 OK in 254ms (Views: 196.7ms | ActiveRecord: 13.7ms)
+2015-05-17T10:19:27.311056+00:00 heroku[router]: at=info method=GET path="/users/edit" host=calm-tundra-9478.herokuapp.com request_id=c8397c2e-3385-4fc8-8d7b-334d3e70e0f2 fwd="188.118.86.111" dyno=web.1 connect=1ms service=329ms status=200 bytes=11016
+2015-05-17T10:19:27.271282+00:00 app[web.1]:   Rendered user_games/_start_game.html.erb (4.2ms)
+2015-05-17T10:19:27.271416+00:00 app[web.1]:   Rendered layouts/_logged_in_navbar.html.erb (6.8ms)
+2015-05-17T10:19:27.271467+00:00 app[web.1]:   Rendered layouts/_logged_in_navbar.html.erb (6.8ms)
+2015-05-17T10:19:27.275409+00:00 app[web.1]: Completed 200 OK in 254ms (Views: 196.7ms | ActiveRecord: 13.7ms)
+2015-05-17T10:19:27.272620+00:00 app[web.1]:   Rendered layouts/_logged_in_sidebar.html.erb (0.9ms)
