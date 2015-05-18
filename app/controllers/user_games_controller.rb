@@ -12,7 +12,7 @@ class UserGamesController < ApplicationController
   # GET /user_games/1
   # GET /user_games/1.json
   def show
-    @current_timer = Timer.where(:game=>Game.find(@user_game.game_id),:round_number=>(@user_game.game_rounds.size+1)).first
+    @current_timer = Timer.where(:game=>Game.find(@user_game.game_id),:round_number=>(@user_game.game_rounds.count+1)).first
   end
 
   # GET /user_games/new
@@ -51,7 +51,8 @@ class UserGamesController < ApplicationController
         #   format.html { redirect_to {'/home/index'} }
         #   format.json { render action: 'show', status: :created, location: @user_game }
         # else
-          PrivatePub.publish_to("/user_games/new/private/#{@game.id}" , "alert( 'کاربر ' +'#{@user_game.user.nickname}' + ' به بازی شما ملحق شد.');")
+          # PrivatePub.publish_to("/user_games/new/private/#{@game.id}" , "alert( 'کاربر ' +'#{@user_game.user.nickname}' + ' به بازی شما ملحق شد.');")
+          PrivatePub.publish_to("/user_games/new/private/#{@game.id}" , "notice( 'کاربر ' +'#{@user_game.user.nickname}' + ' به بازی شما ملحق شد.');")
           format.js
           if @game.joined_players == @game.players_num
             PrivatePub.publish_to("/user_games/start_game/#{@game.id}" , "window.location.replace('/user_games/#{@user_game.id}');")
