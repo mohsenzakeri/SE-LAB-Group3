@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html dir="rtl">
+<head>
+  <title>اسم فامیل</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <%= javascript_include_tag "application", "calendar","jquery.min","jquery-1.10.1.min","ourjs.js","bootstrap.min.js", "jquery.Bootstrap-PersianDateTimePicker", "flipclock.min", "flipclock", "data-turbolinks-track" => true %>
+	<%= javascript_include_tag "jquery-1.10.1.min","flipclock.min" %>
+	<%= stylesheet_link_tag "flipclock",  "bootstrap.min" ,"ourstyle"%>
+  <%= stylesheet_link_tag    "application","flipclock", media: "all", "data-turbolinks-track" => true %>
+
+  <%= csrf_meta_tags %>
+</head>
+<body class='body-class' >
+	<nav class="navbar navbar-default our-navbar"  >
+			<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+
+			<div class="navbar-header" style="float:right">
+				<span aria-hidden="true">
+					<%= image_tag "Checklist.svg" , :class=>"img-responsive"%>
+				</span>
+				<a class="navbar-brand text-color" href="#" style="color:white;font-weight: bold;">
+					اسم فامیل
+				</a>
+			</div>
+
+			<div id="navbar" class="navbar-collapse collapse">
+				<ul class="nav navbar-nav" style="float:right;">	
+					
+					<li class="text-color" style="float:right; margin:20px;">
+						<a href="/home/index" style="color:white; float:right;font-weight: bold;">خانه
+						</a>
+						<span aria-hidden="true">
+							<%= image_tag "Apartment3.svg" , :class=>"icon"%>
+						</span>
+					</li>
+					
+
+					<li class="text-color" style="float:right; margin:20px;">
+						<a href="#" style="color:white; float:right;font-weight: bold;">		درباره‌ی ما
+						</a>
+						<span aria-hidden="true">
+							<%= image_tag "Eyeglass3.svg" , :class=>"icon"%>
+						</span>
+					</li>
+					
+
+					<li class="text-color" style="float:right; margin:20px;">
+						<a href="#" style="color:white;float:right;font-weight: bold;">			ارتباط با ما
+						</a>
+						<span aria-hidden="true">
+							<%= image_tag "Paper-Plane3.svg" , :class=>"icon"%>
+						</span>
+					</li>
+					
+
+					<li class="text-color" style="float:right; margin:20px;">
+					<%if !user_signed_in?%>
+						<%= link_to 'ثبت نام', new_user_registration_path  , style:"color:white; float:right; font-weight: bold;"%>
+						<span aria-hidden="true">
+							<%= image_tag "Key3.svg" , :class=>"icon"%>
+						</span>
+					<% end %>
+					</li>
+				</ul>
+
+	<% if user_signed_in? %>
+		<%= render :partial => 'layouts/logged_in_navbar'%>
+	<% else %>
+		<%= render :partial => 'layouts/not_logged_in_navbar'%>
+	<% end %>
+
+			</div>
+
+		</div>
+	</nav>	
+
+
+	<div class="container-fluid">
+	<div class="row">
+		<div class="col-sm-2" style="background-color:#66C2C2;float:right;border-radius:5px">
+			<% if user_signed_in? %>
+				<%= render :partial => 'layouts/logged_in_sidebar'%>
+			<% else %>
+				<%= render :partial => 'layouts/not_logged_in_sidebar'%>
+			<% end %>
+		</div>
+		<div class="col-sm-1"></div>
+		<div class="col-sm-9">
+		<%= yield %>
+		</div>
+	</div>
+	</div>
+	<br><br><br><br>
+
+</body>
+</html>
+
+
+
+
