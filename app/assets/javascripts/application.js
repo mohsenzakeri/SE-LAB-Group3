@@ -16,5 +16,7 @@
 //= require flipclock
 //= require turbolinks
 //= require private_pub
+//= require bootstrap.min
+//= require bootstrap
 //= require_tree .
 
