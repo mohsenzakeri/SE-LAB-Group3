@@ -35,7 +35,7 @@ end
 
 group :production do
   # gem 'pg'
-	
+  gem 'rails_12factor'	
 end
 
 group :development, :test do
@@ -77,7 +77,7 @@ gem 'sass', '3.3.0.alpha.149'
 gem 'compass', '0.12.2'
 gem 'compass-sourcemaps', "~> 0.12.2.sourcemaps.57a186c"
 
-gem 'rails_12factor'
+#gem 'rails_12factor'
 gem 'unicorn'
 gem 'rake'
 gem 'pg'
