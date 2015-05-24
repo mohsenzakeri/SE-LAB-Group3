@@ -13,6 +13,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require flipclock.min
+//= require flipclock
 //= require turbolinks
 //= require private_pub
 //= require_tree .
