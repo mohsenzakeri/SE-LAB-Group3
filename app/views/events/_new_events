@@ -1,0 +1,44 @@
+<%if Event.all.size > 0%>
+<div>
+	<% first_news = Event.last%>
+	<h4><%=first_news.title%></h4>
+	<p><%=truncate( first_news.content, :length => 200)%></p>
+   	<div class="button"><span><%= link_to "Read More" ,:controller => 'events',:action => 'show', :id => first_news.id %></span></div>
+</div>
+<%end%>
+
+<%if Event.all.size > 1%>
+<div>
+	<% second_news = Event.where("id < ?", first_news.id).order("id DESC").first %>	
+	<h4><%=second_news.title%></h4>	
+	<p><%=truncate( second_news.content, :length => 200)%></p>
+   	<div class="button"><span><%= link_to "Read More" ,:controller => 'events',:action => 'show', :id => second_news.id %></span></div>
+</div>
+<%end%>
+
+<%if Event.all.size > 2%>
+<div>
+	<% third_news = Event.where("id < ?", first_news.id).order("id DESC").second %>
+	<h4><%=third_news.title%></h4>
+	<p><%=truncate(third_news.content, :length => 200)%></p>
+   	<div class="button"><span><%= link_to "Read More" ,:controller => 'events',:action => 'show', :id => third_news.id %></span></div>
+</div>
+<%end%>
+	
+<%if Event.all.size > 3%>
+<div>
+	<% forth_news = Event.where("id < ?", first_news.id).order("id DESC").third %>
+	<h4><%=forth_news.title%></h4>
+	<p><%=truncate(forth_news.content, :length => 200)%></p>
+   	<div class="button"><span><%= link_to "Read More" ,:controller => 'events',:action => 'show', :id => forth_news.id %></span></div>
+</div>
+
+<%if Event.all.size > 4%>
+<div>
+	<% fifth_news = Event.where("id < ?", second_news.id).order("id DESC").third %>
+	<h4><%=fifth_news.title%></h4>
+	<p><%=truncate(fifth_news.content, :length => 200)%></p>
+   	<div class="button"><span><%= link_to "Read More" ,:controller => 'events',:action => 'show', :id => fifth_news.id %></span></div>
+</div>
+<%end%>
+<%end%>

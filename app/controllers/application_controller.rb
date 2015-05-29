@@ -2,6 +2,9 @@
 class ApplicationController < ActionController::Base
     require 'jalali_date'
 
+  rescue_from CanCan::AccessDenied do |exception|
+    redirect_to root_url, :alert => exception.message
+  end
 
 
   # reset captcha code after each request for security

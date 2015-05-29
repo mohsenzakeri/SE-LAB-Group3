@@ -10,9 +10,8 @@
  *
  *= require_self
  *= require 'rtl'
- *= require 'bootstrap.min'
- *= require 'ourstyle'
  *= require 'bootstrap'
+ *= require 'ourstyle'
  *= require 'StyleIndex'
  *= require 'flipclock'
  * require_tree .

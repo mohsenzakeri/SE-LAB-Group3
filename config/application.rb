@@ -17,10 +17,16 @@ module Esmfamil
     # config.time_zone = 'Central Time (US & Canada)'
 
     # The default locale is :en and all translations from config/locales/*.rb,yml are auto loaded.
+ config.assets.precompile += [
+                                'jquery.js','bootstrap.min.js','ourjs.js','jquery_ujs.js','flipclock.min.js','turbolinks.js','private_pub.js','rtl.css','bootstrap.css','ourstyle.css','StyleIndex.css','flipclock.css'
+                             ]
+
+
     config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
     config.i18n.default_locale = :fa
   end
 
+ 
 
 
 end

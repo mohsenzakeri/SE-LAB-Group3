@@ -81,3 +81,5 @@ gem 'compass-sourcemaps', "~> 0.12.2.sourcemaps.57a186c"
 gem 'unicorn'
 gem 'rake'
 gem 'pg'
+gem 'cancancan'
+
