@@ -12,7 +12,6 @@
  *= require 'rtl'
  *= require 'bootstrap.min'
  *= require 'ourstyle'
- *= require 'bootstrap'
  *= require 'StyleIndex'
  *= require 'flipclock'
  * require_tree .

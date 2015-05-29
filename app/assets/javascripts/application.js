@@ -10,13 +10,13 @@
 // Read Sprockets README (https://github.com/sstephenson/sprockets#sprockets-directives) for details
 // about supported directives.
 //
-//= require jquery
+
+//= require jquery-1.10.1.min
+//= require bootstrap.min
+//= require ourjs
 //= require jquery_ujs
 //= require flipclock.min
-//= require flipclock
 //= require turbolinks
 //= require private_pub
-//= require bootstrap.min
-//= require bootstrap
 //= require_tree .
 
