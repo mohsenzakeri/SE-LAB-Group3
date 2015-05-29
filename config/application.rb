@@ -18,7 +18,7 @@ module Esmfamil
 
     # The default locale is :en and all translations from config/locales/*.rb,yml are auto loaded.
  config.assets.precompile += [
-                                'jquery-1.10.1.min.js','bootstrap.min.js','ourjs.js','jquery_ujs.js','flipclock.min.js','turbolinks.js','private_pub.js','rtl.css','bootstrap.css','ourstyle.css','StyleIndex.css','flipclock.css'
+                                'jquery.js','bootstrap.min.js','ourjs.js','jquery_ujs.js','flipclock.min.js','turbolinks.js','private_pub.js','rtl.css','bootstrap.css','ourstyle.css','StyleIndex.css','flipclock.css'
                              ]
 
 

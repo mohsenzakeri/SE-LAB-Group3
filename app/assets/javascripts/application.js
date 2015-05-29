@@ -11,7 +11,7 @@
 // about supported directives.
 //
 
-//= require jquery-1.10.1.min
+//= require jquery
 //= require jquery_ujs
 //= require bootstrap.min
 //= require ourjs
