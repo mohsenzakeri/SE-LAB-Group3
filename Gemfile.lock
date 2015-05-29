@@ -122,6 +122,7 @@ GEM
     mysql (2.9.1)
     mysql2 (0.3.18)
     orm_adapter (0.5.0)
+    pg (0.18.2)
     polyglot (0.3.5)
     private_pub (1.0.3)
       faye
@@ -236,6 +237,7 @@ DEPENDENCIES
   magic_encoding
   mysql
   mysql2
+  pg
   private_pub
   rails (= 4.0.3)
   rails_12factor
