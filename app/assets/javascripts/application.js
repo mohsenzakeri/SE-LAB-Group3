@@ -14,7 +14,6 @@
 //= require jquery-1.10.1.min
 //= require bootstrap.min
 //= require ourjs
-//= require jquery_ujs
 //= require flipclock.min
 //= require turbolinks
 //= require private_pub
