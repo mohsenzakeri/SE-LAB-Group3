@@ -1,7 +1,7 @@
 # encoding: UTF-8
 class GamesController < ApplicationController
   before_action :set_game, only: [:show, :edit, :update, :destroy]
-
+  load_and_authorize_resource
 #Niloofar Added
   before_filter :login_required, only: [:show , :edit, :index, :update, :destroy, :create, :new]
 

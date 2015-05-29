@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150529102749) do
+ActiveRecord::Schema.define(version: 20150529105025) do
 
   create_table "events", force: true do |t|
     t.string   "title"
@@ -48,22 +48,18 @@ ActiveRecord::Schema.define(version: 20150529102749) do
 
   create_table "game_rounds", force: true do |t|
     t.integer  "score"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.integer  "round_number"
+    t.integer  "user_game_id"
     t.string   "firstname"
     t.string   "lastname"
     t.string   "city"
     t.string   "country"
     t.string   "fruit"
-    t.string   "car"
-    t.string   "color"
-    t.string   "job"
-    t.string   "food"
     t.string   "thing"
     t.string   "animal"
     t.string   "flower"
-    t.integer  "round_number"
-    t.integer  "user_game_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "games", force: true do |t|
@@ -120,6 +116,7 @@ ActiveRecord::Schema.define(version: 20150529102749) do
     t.datetime "confirmed_at"
     t.datetime "confirmation_sent_at"
     t.string   "unconfirmed_email"
+    t.boolean  "is_admin"
   end
 
   add_index "users", ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true, using: :btree

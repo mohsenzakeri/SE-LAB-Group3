@@ -1,7 +1,7 @@
 # encoding: UTF-8
 class UserGamesController < ApplicationController
   before_action :set_user_game, only: [:show, :edit, :update, :destroy, :new_game_round]
-
+  load_and_authorize_resource
   # GET /user_games
   # GET /user_games.json
   def index

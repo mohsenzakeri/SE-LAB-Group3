@@ -1,7 +1,7 @@
 # encoding: UTF-8
 class GameRoundsController < ApplicationController
   before_action :set_game_round, only: [:show, :edit, :update, :destroy]
-
+  load_and_authorize_resource
   # GET /game_rounds
   # GET /game_rounds.json
   def index
