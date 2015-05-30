@@ -1,7 +1,7 @@
 # encoding: UTF-8
 class GameJudgesController < ApplicationController
   before_action :set_game_judge, only: [:show, :edit, :update, :destroy]
-#  load_and_authorize_resource
+  load_and_authorize_resource
   # GET /game_judges
   # GET /game_judges.json
   def index

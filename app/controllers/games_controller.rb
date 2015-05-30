@@ -1,7 +1,7 @@
 # encoding: UTF-8
 class GamesController < ApplicationController
   before_action :set_game, only: [:show, :edit, :update, :destroy]
-  load_and_authorize_resource
+#  load_and_authorize_resource
 #Niloofar Added
   before_filter :login_required, only: [:show , :edit, :index, :update, :destroy, :create, :new]
 
@@ -52,8 +52,8 @@ class GamesController < ApplicationController
       end
     end
     UserGame.create_user_game(current_user,@game)
-    	#@alphabets = ['s','y','z','a','b']
-    	@alphabets = ['الف' , 'ب' , '‍‍‍پ' , 'ت' , 'ث' , 'ج' , 'چ' , 'ح' , 'خ' , 'د' , 'ذ' , 'ر' , 'ز' , 'ژ' , 'س' , 'ش' , 'ص' ,  'ض' ,  'ط' , 'ظ' ,  'ع' , 'غ'  , 'ف'  , 'ق' , 'ک' , 'گ' , 'ال' , 'م' , 'ن' , 'و' , 'ه' , 'ی']
+    	@alphabets = ['s','y','z','a','b']
+    	#@alphabets = ['الف' , 'ب' , '‍‍‍پ' , 'ت' , 'ث' , 'ج' , 'چ' , 'ح' , 'خ' , 'د' , 'ذ' , 'ر' , 'ز' , 'ژ' , 'س' , 'ش' , 'ص' ,  'ض' ,  'ط' , 'ظ' ,  'ع' , 'غ'  , 'ف'  , 'ق' , 'ک' , 'گ' , 'ال' , 'م' , 'ن' , 'و' , 'ه' , 'ی']
 #	
     for i in 1..@game.rounds_num
 	@selected_letter = @alphabets.sample

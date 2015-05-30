@@ -1,7 +1,7 @@
 # encoding: UTF-8
 class GameAlphabetsController < ApplicationController
   before_action :set_game_alphabet, only: [:show, :edit, :update, :destroy]
-#  load_and_authorize_resource
+  load_and_authorize_resource
   # GET /game_alphabets
   # GET /game_alphabets.json
   def index
