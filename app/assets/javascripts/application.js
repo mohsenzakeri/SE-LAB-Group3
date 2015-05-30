@@ -18,5 +18,7 @@
 //= require flipclock.min
 //= require turbolinks
 //= require private_pub
+//= require create
+//= require destroy
 //= require_tree .
 
