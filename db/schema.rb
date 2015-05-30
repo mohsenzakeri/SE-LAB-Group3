@@ -47,19 +47,23 @@ ActiveRecord::Schema.define(version: 20150529105025) do
   end
 
   create_table "game_rounds", force: true do |t|
-    t.integer  "score"
-    t.integer  "round_number"
-    t.integer  "user_game_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
     t.string   "firstname"
     t.string   "lastname"
     t.string   "city"
     t.string   "country"
     t.string   "fruit"
+    t.string   "car"
+    t.string   "color"
+    t.string   "job"
+    t.string   "food"
     t.string   "thing"
     t.string   "animal"
     t.string   "flower"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.integer  "round_number"
+    t.integer  "user_game_id"
+    t.integer  "score"
   end
 
   create_table "games", force: true do |t|
@@ -67,9 +71,17 @@ ActiveRecord::Schema.define(version: 20150529105025) do
     t.integer  "players_num"
     t.integer  "rounds_num"
     t.integer  "joined_players"
-    t.integer  "currently_scored"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "currently_scored"
+  end
+
+  create_table "rounds", force: true do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "game_id"
+    t.integer  "gameround_id"
+    t.string   "alphabet"
   end
 
   create_table "tests", force: true do |t|
@@ -89,10 +101,10 @@ ActiveRecord::Schema.define(version: 20150529105025) do
   create_table "user_games", force: true do |t|
     t.integer  "user_id"
     t.integer  "game_id"
-    t.integer  "score"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "round_number"
+    t.integer  "score"
   end
 
   create_table "users", force: true do |t|
