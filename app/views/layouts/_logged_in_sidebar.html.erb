@@ -8,13 +8,14 @@
 
 <div class="row" style="background-color:#FF704D; width:200px; height:90px;padding:10px;border-radius:10px;margin:5px">
 <span aria-hidden="true"><%= image_tag "Chessboard.svg" , :class=>"icon"%></span>
-بازی‌های من
+<%=link_to "بازی‌های من","/games/mygames/1", :style=>"color:white" %>
+
 </div>
 
 
 <div class="row" style="background-color:#FF9980;width:200px; height:90px;padding:10px;border-radius:10px;margin:5px">
 <span aria-hidden="true"><%= image_tag "Mind-Map-Paper.svg" , :class=>"icon"%></span>
-<%= link_to 'ایجاد بازی جدید', new_game_path, :style=>"color:white"%>
+<%= link_to 'ایجاد بازی جدید', new_game_path, :style=>"color:white" %>
 </div>
 
 

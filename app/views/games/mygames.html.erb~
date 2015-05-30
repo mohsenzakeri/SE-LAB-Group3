@@ -1,7 +1,6 @@
-<h2 style="color:#1F3A3A">تمام بازی‌ها را می‌توانید در این صفحه ببینید</h2>
+<!-- h2 style="color:#1F3A3A">بازی‌های خود را می‌توانید در این صفحه ببینید</h2 -->
 
 <div class="row" style="margin:20px;padding:10px;background-color:#478888;color:white;border-radius: 20px;">
-<div class="col-sm-2" style="text-align:center">ایجادکننده‌ی بازی</div>
 <div class="col-sm-2" style="text-align:center">تعداد بازیکنان مجاز</div>
 <div class="col-sm-2" style="text-align:center">تعداد دورهای بازی</div>
 <div class="col-sm-2" style="text-align:center">تعداد ملحق‌شدگان به بازی</div>
@@ -10,18 +9,12 @@
 </div>
 
 
-<% @games.each do |game| %>
-
+<% @myGames.each do |game| %>
 <% creator = User.find_by(id: game.creator_id)%>
 <% @game = game %>
 
-<% if @game.players_num !=  @game.user_games.count || UserGame.where(:game_id => game.id , :user_id => current_user.id).first != nil %>
-	
-
-
 <div class="row" style="margin:20px;padding:10px;background-color:#85CECE;border-radius: 20px;">
 
-<div class="col-sm-2"style="text-align:center"><%= creator.firstname %> <%= creator.lastname %></div>
 
 <div class="col-sm-2" style="text-align:center"><%=game.players_num %></div>
 
@@ -38,28 +31,25 @@
 	<% if @game.players_num !=  @game.user_games.count %>
 		<%= link_to 'نمایش اطلاعات بازی', game %>
 	<%elsif UserGame.where(:game_id => game.id , :user_id => current_user.id).first != nil %>
-		<!-- %= link_to 'شروع بازی', new_game_round_path(:usergameid => UserGame.where(:game_id => game.id , :user_id => current_user.id).first.id) % -->
 		<%= link_to 'شروع بازی', new_game_round_path(:gameid => game.id ) %>
 	<%elsif UserGame.where(:game_id => game.id , :user_id => current_user.id).first == nil %>
-												<%= 'بازی به حد نصاب رسیده است.' %>
+		<%= link_to 'بازی تمام شده‌است', game %>
 	<%end%>
 </div>
 
 
-<div class="col-sm-2" style="text-align:center"><%if  @game.creator_id == current_user.id %><%= link_to 'ویرایش', edit_game_path(game) %><%end%>
-<!-- div><%if  @game.creator_id == current_user.id %><%= link_to 'حذف', @game, method: :delete, data: { confirm: 'آیا اطمینان دارید؟' } %><%end%><--/div>
+<div class="col-sm-2" style="text-align:center"><%= link_to 'ویرایش', edit_game_path(game) %>
+<!--> <%= link_to 'حذف', game, method: :delete, data: { comyGamesnfirm: 'آیا اطمینان دارید؟' } %>< -->
 </div>
 
 </div>
-
-<% end %>
 
 <% end %>
 
 
 
 <!-- CHANGE HERE -->
-<% @current_user_games = @games.where(:creator_id => current_user.id)%>
+<% @current_user_games = @myGames.where(:creator_id => current_user.id)%>
 <% @current_user_games.each do |g| %>
 	<%= subscribe_to "/user_games/new/private/#{g.id}" %>
 <% end %>

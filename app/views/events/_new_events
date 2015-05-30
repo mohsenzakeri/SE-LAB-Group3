@@ -16,19 +16,21 @@
 	<%for i in 0..4 %>
 		<%if Event.all.size > i%>
 			<div class="item">
-	 	 	<%= image_tag "wooden.jpeg"%>
 			<div class="container">
 			    <div class="carousel-caption">
 				<div class="panel panel-success">	
 					<div class="panel-heading"><h5><%=current_news.title%></h5></div>
-					<div class="panel-body">
+					<div class="panel-body" style="background-color:#66C2C2;">
 						<p><%=truncate( current_news.content, :length => 200)%></p>
-		   				<div class="button"><span><%= link_to "مطالعه‌ی بیشتر" ,:controller => 'events',:action => 'show', :id => current_news.id %></span></div>
+		   				<div class="button" ><span><%= link_to "مطالعه‌ی بیشتر" ,:controller => 'events',:action => 'show', :id => current_news.id, :style=>"color:white" %></span></div>
 					</div>			
 			 	</div>
 				<% prev_news = current_news %>
 				<% current_news = Event.where("id < ?", prev_news.id).order("id DESC").first%>
 			    </div>
+
+		 	    <%= image_tag "09_lined_paper_texture.jpg"%>
+		 	    <%= image_tag "09_lined_paper_texture.jpg"%>
 			</div>
 			</div>
 
@@ -38,11 +40,13 @@
 
 
         <div class="item active">
-	  <%= image_tag "wooden.jpeg"%>
-          <!-- img class="first-slide" src="Notebook_paper.gif" alt="First slide" -->
+	  
+          <!-- img class="first-slide" src="09_lined_paper_texture.jpg" alt="First slide" -->
           <div class="container">
+          <%= image_tag "09_lined_paper_texture.jpg"%>
+          <%= image_tag "09_lined_paper_texture.jpg"%>
             <div class="carousel-caption">
-              <h1>Example headline.</h1>
+    <h1>اسم‌فامیل، مهیج‌ترین و نوستالژیک‌ترین بازی</h1>
             </div>
           </div>
         </div>

@@ -11,8 +11,13 @@
 
 
 <% @games.each do |game| %>
+
 <% creator = User.find_by(id: game.creator_id)%>
 <% @game = game %>
+
+<% if @game.players_num !=  @game.user_games.count || UserGame.where(:game_id => game.id , :user_id => current_user.id).first != nil %>
+	
+
 
 <div class="row" style="margin:20px;padding:10px;background-color:#85CECE;border-radius: 20px;">
 
@@ -30,9 +35,9 @@
 
 
 <div class="col-sm-2" style="text-align:center">
-<% if @game.players_num !=  @game.user_games.count %>
-	<div class="col-sm-2" style="text-align:center"><%= link_to 'نمایش اطلاعات بازی', game %></div>
-<%elsif UserGame.where(:game_id => game.id , :user_id => current_user.id).first != nil %>
+	<% if @game.players_num !=  @game.user_games.count %>
+		<%= link_to 'نمایش اطلاعات بازی', game %>
+	<%elsif UserGame.where(:game_id => game.id , :user_id => current_user.id).first != nil %>
 		<!-- %= link_to 'شروع بازی', new_game_round_path(:usergameid => UserGame.where(:game_id => game.id , :user_id => current_user.id).first.id) % -->
 		<%= link_to 'شروع بازی', new_game_round_path(:gameid => game.id ) %>
 	<%elsif UserGame.where(:game_id => game.id , :user_id => current_user.id).first == nil %>
@@ -42,10 +47,12 @@
 
 
 <div class="col-sm-2" style="text-align:center"><%if  @game.creator_id == current_user.id %><%= link_to 'ویرایش', edit_game_path(game) %><%end%>
-<%if  @game.creator_id == current_user.id %><%= link_to 'حذف', game, method: :delete, data: { confirm: 'آیا اطمینان دارید؟' } %><%end%>
+<!--><%if  @game.creator_id == current_user.id %><%= link_to 'حذف', @game, method: :delete, data: { confirm: 'آیا اطمینان دارید؟' } %><%end%><-->
 </div>
 
 </div>
+
+<% end %>
 
 <% end %>
 

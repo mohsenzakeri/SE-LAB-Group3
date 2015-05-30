@@ -2,20 +2,76 @@
 
 
 <%if @game.user_games.first.game_rounds.count == @game.rounds_num%>
-	<b>جدول امتیازات</b><br><hr>
+	
+	<br>
+	<br>
+	<div style="box-shadow: 1px 10px 10px 2px #893389; width:200px; margin-right:20px; border-radius:5px">
+	<div style="margin-right:20px; font-size:20px ;">
+	<b>جدول امتیازات</b><br>	
+	</div>
+	<!-- <hr style="border-color:#893389; margin:1px" width="180px">
+	<hr style="border-color:#893389; margin:1px" width="180px">
+	<hr style="border-color:#893389; margin:1px" width="180px"> -->
+	</div>
+	<br>
+	<br>
+	<br>
+	<br>
+
 	<% @game.user_games.each do |user_game| %>
-		نام مستعار بازیکن:
-			<%=user_game.user.nickname%>			
-		<br>امتیاز کل:
-			<%=user_game.game_rounds.sum("score")%>	
+		<div class = "row" style="margin-top:10px">
+			<div class="col-sm-3" style="background-color:#6B006B;color:white;border-radius: 10px;padding:15px"> نام مستعار بازیکن:
+			</div>
+			<div class="col-sm-1"></div>
+			<div class="col-sm-2" style="background-color:#893389;color:white;border-radius: 10px;padding:15px" align="center">
+			<%=user_game.user.nickname%>
+			</div>
+			<div class="col-sm-6"></div>
 			
-		<br>جزئیات امتیاز‌های دور‌های بازی:--
-		<%user_game.game_rounds.each do |game_round| %>
-			<b>دور <%=game_round.round_number%>:</b>
-			<%=game_round.score%>--
-		<%end%><br><hr><br>
+
+
+		</div>
+		<div class="row" style="margin-top:10px">
+			<div class="col-sm-3" style="background-color:#6B006B;color:white;border-radius: 10px;padding:15px">
+			جزئیات امتیاز‌های دور‌های بازی:
+			</div>
+			<div class="col-sm-1"></div>
+				<div class="col-sm-6">
+				<%user_game.game_rounds.each do |game_round| %>
+				<div class="row" style="margin-top:5px">
+					<div class="col-sm-4" style="background-color:#893389;color:white;border-radius: 10px;padding:10px" align="center">
+					<b>دور <%=game_round.round_number%>:</b>
+
+					<%=game_round.score%>	
+					</div>
+					<div class="col-sm-8">
+					</div>
+					
+				</div>
+				<%end%>
+			</div>
+			<div class="col-sm-2"></div>
+		</div>
+		<div class="row" style="margin-top:10px">
+			<div class="col-sm-3"></div>
+			<div class="col-sm-4" style="box-shadow: inset 0 0 10px #6B006B; background-color:#D36B8B;color:white;border-radius: 10px;padding:15px" align="center">
+				
+			امتیاز کل:
+			
+			<%=user_game.game_rounds.sum("score")%>		
+			</div>
+			<div class="col-sm-5"></div>
+		</div>
+
+		<!-- <hr style="border-color:#000000"> -->
+		<br>
+		<br>
+		<br>
+		<br>
+
 	<%end%>
-<%end%>
+
+<%else%>
 
 
 <div class="progress">
@@ -96,7 +152,7 @@
 
 
 <div class="row" style="margin-top:10px" >
-<div class="col-sm-4"> 
+<div class="col-sm-3"> 
 <%if  @game.creator_id == current_user.id %>
 	<div class="row" style="background-color:#A47BB7;  height:90px;padding:10px;border-radius:10px;">
 	<span aria-hidden="true"><%= image_tag "pencil_64px.png" , :class=>"icon"%></span>
@@ -111,9 +167,10 @@
 	</div>
 <%end%>
 </div>
-<div class="col-sm-8">
+<div class="col-sm-9">
 </div>
 </div>
+<%end%>
 
 <% if @game.creator_id == current_user.id %>
   <%= subscribe_to "/user_games/new/private/#{@game.id}"  %>

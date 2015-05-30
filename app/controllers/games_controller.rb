@@ -63,6 +63,11 @@ class GamesController < ApplicationController
     end
   end
 
+  def mygames
+	@myGames = Game.where('creator_id' => current_user[:id])
+	
+  end
+
   # PATCH/PUT /games/1
   # PATCH/PUT /games/1.json
   def update
@@ -80,11 +85,14 @@ class GamesController < ApplicationController
   # DELETE /games/1
   # DELETE /games/1.json
   def destroy
-    @game.destroy
-    respond_to do |format|
-      format.html { redirect_to games_url }
-      format.json { head :no_content }
-    end
+	if(user_signed_in? && (current_user.id == @game.creator_id || current_user.is_admin))
+	    @n = @game.user_games.count
+	    @game.destroy
+	    respond_to do |format|
+	      format.html { redirect_to games_url }
+	      format.json { head :no_content }
+	    end
+	end
   end
 
   private
