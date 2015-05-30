@@ -18,7 +18,7 @@ module Esmfamil
 
     # The default locale is :en and all translations from config/locales/*.rb,yml are auto loaded.
  config.assets.precompile += [
-                                'jquery.js','bootstrap.min.js','ourjs.js','jquery_ujs.js','flipclock.min.js','turbolinks.js','private_pub.js','rtl.css','bootstrap.css','ourstyle.css','StyleIndex.css','flipclock.css','user_games/destroy.js','user_games/create.js'                             ]
+                                'jquery.js','bootstrap.min.js','ourjs.js','jquery_ujs.js','flipclock.min.js','turbolinks.js','private_pub.js','rtl.css','bootstrap.css','ourstyle.css','StyleIndex.css','flipclock.css','views/user_games/destroy.js','views/user_games/create.js'                             ]
 
 
     config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
