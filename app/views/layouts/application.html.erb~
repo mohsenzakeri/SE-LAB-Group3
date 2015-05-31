@@ -3,15 +3,12 @@
 <head>
   <title>اسم فامیل</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
-  <%= javascript_include_tag "application", "calendar","jquery.min","jquery-1.10.1.min","ourjs.js","bootstrap.min.js", "jquery.Bootstrap-PersianDateTimePicker", "flipclock.min", "flipclock", "data-turbolinks-track" => true %>
-	<%= javascript_include_tag "jquery-1.10.1.min","flipclock.min" %>
-	<%= stylesheet_link_tag "flipclock",  "bootstrap.min" ,"ourstyle"%>
-  <%= stylesheet_link_tag    "application","flipclock", media: "all", "data-turbolinks-track" => true %>
+ 
 
-  <script src="jquery-1.10.1.min.js"></script>
-  <script src="flipclock.min.js"></script>
-  <link href="flipclock.css" rel="stylesheet">
+  <%= javascript_include_tag "application", "calendar","jquery","ourjs","bootstrap.min", "flipclock.min", "data-turbolinks-track" => true %>
+	
+	<%= stylesheet_link_tag "flipclock",  "bootstrap" ,"ourstyle"%>
+  <%= stylesheet_link_tag    "application","flipclock", media: "all", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
 </head>
 <body class='body-class' >
@@ -86,13 +83,14 @@
 
 	<div class="container-fluid">
 	<div class="row">
-		<div class="col-sm-3" style="background-color:#66C2C2;float:right;border-radius:5px">
+		<div class="col-sm-2" style="background-color:#66C2C2;float:right;border-radius:5px">
 			<% if user_signed_in? %>
 				<%= render :partial => 'layouts/logged_in_sidebar'%>
 			<% else %>
 				<%= render :partial => 'layouts/not_logged_in_sidebar'%>
 			<% end %>
 		</div>
+		<div class="col-sm-1"></div>
 		<div class="col-sm-9">
 		<%= yield %>
 		</div>

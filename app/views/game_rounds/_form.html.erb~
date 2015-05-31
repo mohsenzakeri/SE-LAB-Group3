@@ -132,7 +132,7 @@ function validate(){
     }
 }
 
-var clock = jQuery('.clock').FlipClock(4, {
+var clock = jQuery('.clock').FlipClock(10, {
 	autoStart: true,
 	countdown: true,
 	clockFace: 'MinuteCounter',
@@ -142,6 +142,7 @@ var clock = jQuery('.clock').FlipClock(4, {
           		game_finished = true;
           		validate();
 			alert("زمان این دور به پایان رسید ");
+			setTimeout(doSomething, 3);
 			$('#stop_game').click();			
 		}
 	}
