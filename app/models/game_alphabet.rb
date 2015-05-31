@@ -5,8 +5,10 @@ class GameAlphabet < ActiveRecord::Base
 		@game_alphabet = GameAlphabet.create(:game_id=>_game_id, :round_number=>_round_number, :alphabet=>_alphabet)	
 	end
 	
-	def self.delete_game_alphabets(_gma_id)
-		@the_game_alphabets = GameAlphabet.where( :game_id => _game_id)
-		@the_game_alphabets.destroy
+	def self.delete_game_alphabets(_game_id)
+		@the_game_alphabets = GameAlphabet.where(:game_id=>_game_id)
+		@the_game_alphabets.each do |game_alphabet|
+			game_alphabet.destroy
+		end
 	end
 end
