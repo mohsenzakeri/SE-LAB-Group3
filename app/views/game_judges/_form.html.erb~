@@ -16,15 +16,17 @@
 <div class="row" style="background-color:#6B006B;padding:10px;margin:10px;border-radius:5px">
 <div class="col-sm-6">
 <div class="row">
-<div class="col-sm-4" style="color:white"> اسم: <%= @game_round.firstname %></div>
-<div class="col-sm-4"><%= f.check_box :firstname %></div>
+<div class="col-sm-4" style="color:white"><h4> اسم: <b><%= @game_round.firstname %></b></h4></div>
+
+<div class="col-sm-4"><%if @game_round.firstname != "" %><%= f.check_box :firstname %><%end%></div>
+
 <div class="col-sm-4"> </div>
 </div>
 </div>
 <div class="col-sm-6">
 <div class="row">
 <div class="col-sm-4" style="color:white">  فامیل:<%= @game_round.lastname %></div>
-<div class="col-sm-4"><%= f.check_box :lastname %></div>
+<div class="col-sm-4"><%if @game_round.lastname != "" %><%= f.check_box :lastname %><%end%></div>
 <div class="col-sm-4"> </div>
 </div>
 </div>
@@ -36,14 +38,14 @@
 <div class="col-sm-6">
 <div class="row">
 <div class="col-sm-4" style="color:white"> شهر: <%= @game_round.city %></div>
-<div class="col-sm-4"><%= f.check_box :city %></div>
+<div class="col-sm-4"><%if @game_round.city != "" %><%= f.check_box :city %><%end%></div>
 <div class="col-sm-4"> </div>
 </div>
 </div>
 <div class="col-sm-6">
 <div class="row">
 <div class="col-sm-4" style="color:white">  کشور:<%= @game_round.country %> </div>
-<div class="col-sm-4"><%= f.check_box :country %></div>
+<div class="col-sm-4"><%if @game_round.country != "" %><%= f.check_box :country %><%end%></div>
 <div class="col-sm-4"> </div>
 </div>
 </div>
@@ -55,14 +57,14 @@
 <div class="col-sm-6" >
 <div class="row">
 <div class="col-sm-4" style="color:white"> میوه: <%= @game_round.fruit %></div>
-<div class="col-sm-4"><%= f.check_box :fruit %></div>
+<div class="col-sm-4"><%if @game_round.fruit != "" %><%= f.check_box :fruit %><%end%></div>
 <div class="col-sm-4"> </div>
 </div>
 </div>
 <div class="col-sm-6">
 <div class="row">
 <div class="col-sm-4" style="color:white">  ماشین:<%= @game_round.car %></div>
-<div class="col-sm-4"><%= f.check_box :car %></div>
+<div class="col-sm-4"><%if @game_round.car != "" %><%= f.check_box :car %><%end%></div>
 <div class="col-sm-4"> </div>
 </div>
 </div>
@@ -74,14 +76,14 @@
 <div class="col-sm-6">
 <div class="row">
 <div class="col-sm-4" style="color:blue"> رنگ: <%= @game_round.color %></div>
-<div class="col-sm-4"><%= f.check_box :color %></div>
+<div class="col-sm-4"><%if @game_round.color != "" %><%= f.check_box :color %><%end%></div>
 <div class="col-sm-4"> </div>
 </div>
 </div>
 <div class="col-sm-6">
 <div class="row">
 <div class="col-sm-4" style="color:blue">  شغل:<%= @game_round.job %></div>
-<div class="col-sm-4"><%= f.check_box :job %></div>
+<div class="col-sm-4"><%if @game_round.job != "" %><%= f.check_box :job %><%end%></div>
 <div class="col-sm-4"> </div>
 </div>
 </div>
@@ -93,14 +95,14 @@
 <div class="col-sm-6">
 <div class="row">
 <div class="col-sm-4" style="color:white"> غذا: <%= @game_round.food %></div>
-<div class="col-sm-4"><%= f.check_box :food %></div>
+<div class="col-sm-4"><%if @game_round.food != "" %><%= f.check_box :food %><%end%></div>
 <div class="col-sm-4"> </div>
 </div>
 </div>
 <div class="col-sm-6">
 <div class="row">
 <div class="col-sm-4" style="color:white">  اشیا:<%= @game_round.thing %></div>
-<div class="col-sm-4"><%= f.check_box :thing %></div>
+<div class="col-sm-4"><%if @game_round.thing != "" %><%= f.check_box :thing %><%end%></div>
 <div class="col-sm-4"> </div>
 </div>
 </div>
@@ -112,14 +114,14 @@
 <div class="col-sm-6">
 <div class="row">
 <div class="col-sm-4" style="color:white"> حیوان: <%= @game_round.animal %></div>
-<div class="col-sm-4"><%= f.check_box :animal %></div>
+<div class="col-sm-4"><%if @game_round.animal != "" %><%= f.check_box :animal %><%end%></div>
 <div class="col-sm-4"> </div>
 </div>
 </div>
 <div class="col-sm-6">
 <div class="row">
 <div class="col-sm-4" style="color:white">  گل:<%= @game_round.flower %></div>
-<div class="col-sm-4"><%= f.check_box :flower %></div>
+<div class="col-sm-4"><%if @game_round.flower != "" %><%= f.check_box :flower %><%end%></div>
 <div class="col-sm-4"> </div>
 </div>
 </div>
@@ -134,7 +136,7 @@
 <div class="col-sm-8"></div>
 <div class="col-sm-4">
   <div class="actions">
-    <%= f.submit "تایید نهایی"%>
+    <%= f.submit "تایید امتیازات"%>
   </div>
 </div>
 </div>
