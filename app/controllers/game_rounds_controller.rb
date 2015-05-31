@@ -39,7 +39,7 @@ class GameRoundsController < ApplicationController
         PrivatePub.publish_to("/user_games/stop_game/#{@game_round.user_game.game_id}" , 
           "$('input').click(function(){ $('#playgame_form').attr('data-remote',true)}); 
           game_finished = true;
-          validate();
+          validate();	
           $('#stop_game').click(); ")
         
         @user_game = @game_round.user_game

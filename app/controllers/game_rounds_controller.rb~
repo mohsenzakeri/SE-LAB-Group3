@@ -1,7 +1,7 @@
 # encoding: UTF-8
 class GameRoundsController < ApplicationController
   before_action :set_game_round, only: [:show, :edit, :update, :destroy]
-  load_and_authorize_resource
+#  load_and_authorize_resource
   # GET /game_rounds
   # GET /game_rounds.json
   def index
@@ -39,7 +39,7 @@ class GameRoundsController < ApplicationController
         PrivatePub.publish_to("/user_games/stop_game/#{@game_round.user_game.game_id}" , 
           "$('input').click(function(){ $('#playgame_form').attr('data-remote',true)}); 
           game_finished = true;
-          validate();
+          validate();	
           $('#stop_game').click(); ")
         
         @user_game = @game_round.user_game
